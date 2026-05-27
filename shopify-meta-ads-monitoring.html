@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Ads Monitoring for Shopify DTC Brands | crumplz</title>
+<meta name="description" content="crumplz is built for Shopify DTC brands spending €5k–200k/month on Meta Ads. It watches ROAS, CPA, CTR and MER every 2 hours and sends actionable alerts to WhatsApp, Slack or email before drift becomes loss.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/shopify-meta-ads-monitoring">
+<meta property="og:title" content="Meta Ads Monitoring for Shopify DTC Brands | crumplz">
+<meta property="og:description" content="Real-time Meta Ads drift alerts with Shopify MER cross-validation. Built for DTC founders and growth teams protecting €5k–200k/month in ad spend.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}:focus-visible{outline:3px solid var(--slate);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{position:relative;padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.9rem,4vw,2.9rem)}h3{font-size:1.28rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+/* ICP pain points */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;border:2px solid var(--ink);margin-top:36px}
+.pain-card{padding:28px 26px;border-right:2px solid var(--ink)}.pain-card:last-child{border-right:0}@media(max-width:640px){.pain-grid{grid-template-columns:1fr}.pain-card{border-right:0;border-bottom:2px solid var(--ink)}.pain-card:last-child{border-bottom:0}}
+.pain-card .num{font-size:2.8rem;font-weight:900;color:var(--coral-deep);letter-spacing:-.06em;line-height:1;margin-bottom:10px}.pain-card h3{margin-bottom:10px;font-size:1.1rem}.pain-card p{color:var(--ink-2);font-size:.94rem}
+/* How crumplz fits DTC workflow */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.step{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;padding:28px 0;border-bottom:2px solid var(--ink)}.step:first-child{border-top:2px solid var(--ink)}
+.step-num{font-size:3rem;font-weight:900;color:var(--coral-deep);letter-spacing:-.06em;line-height:1}
+.step-body h3{margin-bottom:8px}.step-body p{color:var(--ink-2);font-size:.97rem}
+/* Alert example */
+.alert-example{background:var(--ink);border-radius:12px;padding:28px;max-width:500px;margin:36px auto 0}
+.alert-label{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.alert-line{display:flex;align-items:flex-start;gap:12px;color:var(--on-ink-soft);font-size:.94rem;margin-bottom:10px}
+.alert-line strong{color:var(--on-ink)}
+.alert-action{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:.96rem;color:var(--on-ink);font-weight:700}
+/* Mer explainer */
+.mer-box{border:2px solid var(--ink);border-radius:10px;padding:28px;margin-top:36px;background:var(--paper)}
+.mer-box h3{margin-bottom:12px}.mer-box p{color:var(--ink-2);font-size:.96rem;max-width:62ch}
+/* Pricing */
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}
+.price-box{padding:26px 22px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}
+.price-box .plan-name{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}
+.price-box .amount{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:5px;display:inline-block;font-weight:700}
+.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:14px}
+.price-box .feat-list li{font-size:.9rem;color:var(--ink-2);padding:5px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px}
+.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0;margin-top:2px}
+.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}
+@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+/* FAQ */
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:68ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.94rem;color:var(--on-ink-soft);margin-bottom:10px;transition:color .15s}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html" aria-label="crumplz home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>
+      crumplz
+    </a>
+    <nav class="nav-links" aria-label="Primary"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">For Shopify DTC brands</span>
+      <h1>Meta Ads monitoring built for <em class="s">DTC founders</em> protecting real margin.</h1>
+      <p class="lede">If you run a Shopify store and spend €5k–200k/month on Meta Ads, crumplz is the alarm you've been missing. It watches your campaigns every 2 hours, cross-validates against your Shopify revenue, and sends you the exact move when something drifts.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="index-en.html#pricing">Start free — 3 min setup</a>
+        <a class="btn btn-ghost" href="index-en.html#how">How it works</a>
+      </div>
+      <p class="microcopy">Shopify + Meta Ads integration · Read-only · GDPR · EU hosting</p>
+      <div class="badge-row">
+        <span>Every 2 hours, 24/7</span>
+        <span>Shopify MER cross-validation</span>
+        <span>−19% wasted ad spend</span>
+        <span>Setup in 3 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DTC PROBLEM -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The DTC problem</span>
+      <h2>Shopify revenue looks fine.<br>Meta ROAS is <em class="s">quietly bleeding.</em></h2>
+      <p class="lede" style="margin-top:14px">The gap between when a drift starts and when a DTC team catches it is where the money disappears.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="num">4h</div>
+        <h3>Average detection delay</h3>
+        <p>Without a proactive alert system, DTC teams typically detect a ROAS or CPA drift 4 hours 17 minutes after it starts. Most don't log in on weekends until Sunday evening.</p>
+      </div>
+      <div class="pain-card">
+        <div class="num">~€380</div>
+        <h3>Average budget lost per incident</h3>
+        <p>Each undetected drift incident costs roughly €380 in wasted spend on average — often more during peak campaigns where budgets are amplified.</p>
+      </div>
+      <div class="pain-card">
+        <div class="num">0</div>
+        <h3>Dashboards that wake you up</h3>
+        <p>Triple Whale, Northbeam, Meta Ads Manager — they all wait for you to log in. None of them call you at 2 a.m. when your Saturday CPA spikes 60%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT FITS THE DTC WORKFLOW -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How crumplz fits</span>
+      <h2>Your Shopify + Meta stack,<br><em class="s">with a lifeguard added.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Connect Meta Ads and Shopify in 3 minutes</h3>
+          <p>Read-only OAuth for Meta Ads. Read-only Shopify integration for revenue, AOV and conversion rate. No code, no agency, no scratchpad config. You're live in under 3 minutes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>crumplz learns your campaign's normal pattern</h3>
+          <p>The Anomaly Engine builds a dynamic baseline per campaign — ROAS, CPA, CTR, and MER. It adjusts for day-of-week patterns and campaign history, so it doesn't fire false alarms on seasonal swings or weekend dips you already know about.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>Every 2 hours: cross-validate Meta signals against Shopify revenue</h3>
+          <p>Meta data can lag or show inflated ROAS. crumplz cross-validates the Meta signal against your real Shopify revenue and MER — so alerts reflect your actual business performance, not Meta's optimistic attribution.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h3>Drift detected → actionable alert in your pocket</h3>
+          <p>When a drift is confirmed, you receive a WhatsApp, Slack or email with: the metric, the campaign, the severity, and the recommended action. One tap brings you directly to the campaign in Meta Ads Manager.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert example -->
+    <div class="alert-example">
+      <div class="alert-label">🔴 crumplz alert · Sunday 14:38</div>
+      <div class="alert-line"><strong>Campaign:</strong> Summer_ROAS_Retargeting_EU</div>
+      <div class="alert-line"><strong>Drift:</strong> ROAS dropped from 3.8x → 1.9x (−50%) over last 4h</div>
+      <div class="alert-line"><strong>Shopify MER:</strong> Confirming — revenue down 34% vs 7-day avg</div>
+      <div class="alert-action">→ Recommended: Cut budget −30% for 12h, then re-evaluate. <span style="color:var(--coral)">→ Open campaign</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MER -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Shopify MER cross-validation</span>
+      <h2>Meta says ROAS is fine.<br><em class="s">Shopify tells a different story.</em></h2>
+    </div>
+    <div class="mer-box">
+      <h3>What is MER and why does it matter for DTC?</h3>
+      <p>MER (Marketing Efficiency Ratio) is total revenue divided by total ad spend — a cleaner signal of real business profitability than Meta's reported ROAS, which can lag, over-attribute, or miss post-iOS14 gaps. crumplz cross-validates Meta's signals against your live Shopify MER to filter out false positives and catch drifts that Meta's own platform doesn't flag.</p>
+    </div>
+    <p style="margin-top:24px;color:var(--ink-2);font-size:.96rem;max-width:62ch;">If Meta says ROAS is holding but Shopify revenue is declining, crumplz flags the discrepancy. If MER confirms the drift, the alert fires. If Shopify is fine and it's a Meta attribution lag, it holds. <strong>Fewer false positives. More real signals.</strong></p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Pricing</span><h2>Built for DTC margin. <em class="s">Not agency retainers.</em></h2></div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <p class="plan-name">Starter</p>
+        <div class="amount"><span>€</span>79</div>
+        <p class="per">/ mo · under €10k ad spend</p>
+        <ul class="feat-list"><li>1 Meta Ads account</li><li>1 Shopify store</li><li>ROAS, CPA, CTR, MER</li><li>WhatsApp, Slack, Email</li><li>Check every 2h</li></ul>
+      </div>
+      <div class="price-box popular">
+        <p class="plan-name">Growth ⭐ Most popular</p>
+        <div class="amount"><span>€</span>149</div>
+        <p class="per">/ mo · €10k–50k ad spend</p>
+        <ul class="feat-list"><li>Everything in Starter</li><li>3 ad accounts</li><li>Custom thresholds per campaign</li><li>Priority support</li></ul>
+      </div>
+      <div class="price-box">
+        <p class="plan-name">Pro</p>
+        <div class="amount"><span>€</span>249</div>
+        <p class="per">/ mo · €50k–200k ad spend</p>
+        <ul class="feat-list"><li>Everything in Growth</li><li>Multi-store</li><li>Roles &amp; permissions</li><li>Budget automation (roadmap)</li></ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-size:.88rem;color:var(--ink-faint);font-weight:600">14-day free trial · No credit card · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>For Shopify DTC brands</h2></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Does crumplz work with any Shopify store?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. crumplz connects to any Shopify store via read-only OAuth. It pulls revenue, AOV and conversion rate data to cross-validate your Meta Ads signals. No apps to install on your Shopify store — just a standard API connection.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">What if I run multiple Shopify stores?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">The Pro plan supports multi-store and multiple Meta Ads accounts, with roles and permissions so each brand or client has their own alert stream. The Growth plan covers up to 3 ad accounts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Can crumplz make changes to my campaigns automatically?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">No. crumplz is read-only by design. It detects drifts and recommends actions, but the decision — and the click — stays with you. Budget automation is on the Pro roadmap as an opt-in feature, but the default is always human-in-the-loop.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">What's the minimum spend level for crumplz to be useful?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz makes the most financial sense when one drift incident (average ~€380 lost) costs more than the monthly subscription. That's typically around €5k–10k/month in ad spend. Below that threshold, the math still works — but the urgency is lower.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center">
+    <div style="max-width:540px;margin:0 auto">
+      <h2>Your Shopify revenue deserves a <em class="s">lifeguard.</em></h2>
+      <p style="font-size:1.06rem;margin:18px auto 28px;max-width:44ch">Three minutes to connect. First check within 2 hours. Never babysit a dashboard again.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><a class="btn btn-primary" href="index-en.html#pricing">Start free — no credit card</a></div>
+      <p style="margin-top:14px;font-size:.84rem;font-weight:600">14-day trial · Shopify + Meta integration · Read-only · GDPR</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>A lifeguard for your ad spend.</p>
+      </div>
+      <div class="foot-col"><h4>Product</h4><a href="index-en.html#how">How it works</a><a href="index-en.html#pricing">Pricing</a><a href="roas-drop-alert.html">ROAS alerts</a><a href="meta-ads-whatsapp-alerts.html">WhatsApp alerts</a></div>
+      <div class="foot-col"><h4>Compare</h4><a href="triple-whale-alternative.html">vs Triple Whale</a><a href="northbeam-alternative.html">vs Northbeam</a><a href="best-meta-ads-monitoring-tools.html">Best tools</a></div>
+      <div class="foot-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
+    </div>
+    <div class="foot-bot"><p>&copy; 2026 crumplz. All rights reserved.</p><p>Not another dashboard.</p></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

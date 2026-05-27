@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Ads Monitoring for Agencies — Alert-First Tool for DTC Client Accounts | crumplz</title>
+<meta name="description" content="Manage Meta Ads monitoring across multiple DTC client accounts. crumplz monitors every account every 2 hours and sends actionable WhatsApp or Slack alerts the moment performance drifts — before clients notice.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/meta-ads-monitoring-agency">
+<meta property="og:title" content="Meta Ads Monitoring for Agencies — Multi-Client Alert System | crumplz">
+<meta property="og:description" content="Scale your DTC client monitoring without scaling your team. crumplz watches every account every 2 hours and alerts you before clients do.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"crumplz","applicationCategory":"BusinessApplication","description":"Meta Ads monitoring for agencies managing DTC Shopify client accounts. Multi-account monitoring with per-account alerts via WhatsApp, Slack and Email.","offers":{"@type":"AggregateOffer","lowPrice":"79","highPrice":"249","priceCurrency":"EUR"},"url":"https://crumplz.co"}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.agency-pain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.agency-pain{grid-template-columns:1fr}}.pain-box{padding:26px 22px;border-right:2px solid var(--ink)}.pain-box:last-child{border-right:0}@media(max-width:700px){.pain-box{border-right:0;border-bottom:2px solid var(--ink)}.pain-box:last-child{border-bottom:0}}.pain-box .pain-icon{font-size:1.6rem;margin-bottom:12px}.pain-box h3{margin-bottom:8px;font-size:1.05rem}.pain-box p{font-size:.9rem;color:var(--ink-2)}
+.how-agency{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.how-agency{grid-template-columns:1fr}}.agency-step{padding:26px 20px;border-right:2px solid var(--ink)}.agency-step:last-child{border-right:0}@media(max-width:700px){.agency-step{border-right:0;border-bottom:2px solid var(--ink)}.agency-step:last-child{border-bottom:0}}.agency-step .step-n{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:12px}.agency-step h3{margin-bottom:8px;font-size:1.05rem}.agency-step p{font-size:.88rem;color:var(--ink-2)}
+.multi-account{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:32px;margin-top:36px;max-width:700px}.multi-account h3{color:var(--coral);margin-bottom:20px}.account-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}.account-row:last-child{border-bottom:0}.account-row .acc-name{font-size:.9rem;font-weight:700;color:var(--on-ink)}.account-row .acc-status{font-size:.8rem;font-weight:700}.acc-ok{color:var(--pine)}.acc-alert{color:var(--coral)}.acc-watch{color:#f5c36a}.account-row .acc-meta{font-size:.76rem;color:var(--on-ink-soft)}
+.agency-val{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.agency-val{grid-template-columns:1fr}}.val-box{padding:26px 22px;border-right:2px solid var(--ink)}.val-box:last-child{border-right:0}@media(max-width:700px){.val-box{border-right:0;border-bottom:2px solid var(--ink)}.val-box:last-child{border-bottom:0}}.val-box .val-num{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;color:var(--coral-deep);line-height:1;margin-bottom:8px}.val-box h3{margin-bottom:6px;font-size:1rem}.val-box p{font-size:.88rem;color:var(--ink-2)}
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}.price-box{padding:24px 20px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}.price-box .plan-name{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}.price-box .amount{font-size:2.3rem;font-weight:900;letter-spacing:-.04em;line-height:1}.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:4px;display:inline-block;font-weight:700}.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:12px}.price-box .feat-list li{font-size:.88rem;color:var(--ink-2);padding:4px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:7px}.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">For Agencies — Multi-Client Monitoring</span>
+    <h1>Monitor every client account.<br><em class="s">Without checking any of them.</em></h1>
+    <p class="lede">When you manage Meta Ads across 5, 10, or 20 DTC clients, manual monitoring doesn't scale. crumplz watches every account every 2 hours and alerts you the moment performance drifts — before your clients notice.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">Set up multi-account monitoring</a>
+      <a class="btn btn-ghost" href="facebook-ads-monitoring-tool.html">See how monitoring works</a>
+    </div>
+    <p class="microcopy">Read-only · Multi-account · Per-account alerts · WhatsApp, Slack, Email · GDPR</p>
+    <div class="badge-row">
+      <span>Per-account independent baselines</span><span>Per-account alert routing</span><span>4h17 avg detection gap closed</span><span>3 min to connect each account</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The agency monitoring problem</span>
+      <h2>Manual monitoring <em class="s">doesn't scale.</em></h2>
+      <p class="lede" style="margin-top:14px">Managing 10 client accounts with manual monitoring means 10× the dashboards, 10× the checking, and 10× the blind spots.</p>
+    </div>
+    <div class="agency-pain">
+      <div class="pain-box">
+        <div class="pain-icon">👀</div>
+        <h3>The checking burden</h3>
+        <p>Each additional client account adds 15–30 minutes per day of monitoring time. At 10 clients, that's 2–5 hours daily — time that could go toward strategy, creative, or new business.</p>
+      </div>
+      <div class="pain-box">
+        <div class="pain-icon">📞</div>
+        <h3>The client call problem</h3>
+        <p>Nothing damages client trust faster than a client noticing a performance drop before you do. "Why didn't you tell me?" is a conversation that shouldn't happen — and won't, with automated monitoring.</p>
+      </div>
+      <div class="pain-box">
+        <div class="pain-icon">🕳</div>
+        <h3>The weekend / holiday gap</h3>
+        <p>Manual monitoring stops when people go offline. Weekends, holidays, sick days — every hour without a human checking is an hour where budget can drift unchecked. crumplz runs every 2 hours, always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Multi-account monitoring in practice</span>
+      <h2>Every account, <em class="s">every 2 hours.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz builds independent baselines for each client account and routes alerts precisely to where they need to go.</p>
+    </div>
+    <div class="multi-account">
+      <h3>Live account status — 14:02</h3>
+      <div class="account-row">
+        <span class="acc-name">Client A — Fashion DTC UK</span>
+        <span class="acc-status acc-ok">✓ All metrics healthy</span>
+        <span class="acc-meta">Last check: 14:02 · ROAS 3.8×</span>
+      </div>
+      <div class="account-row">
+        <span class="acc-name">Client B — Beauty DTC FR</span>
+        <span class="acc-status acc-alert">⚠ Alert sent — CPA +38%</span>
+        <span class="acc-meta">Detected: 12:01 · Creative fatigue</span>
+      </div>
+      <div class="account-row">
+        <span class="acc-name">Client C — Home DTC DE</span>
+        <span class="acc-status acc-ok">✓ All metrics healthy</span>
+        <span class="acc-meta">Last check: 14:02 · ROAS 4.1×</span>
+      </div>
+      <div class="account-row">
+        <span class="acc-name">Client D — Sports DTC US</span>
+        <span class="acc-status acc-watch">~ Watching — CTR −9%</span>
+        <span class="acc-meta">Trend forming · 2nd cycle monitoring</span>
+      </div>
+      <div class="account-row">
+        <span class="acc-name">Client E — Kids DTC NL</span>
+        <span class="acc-status acc-ok">✓ All metrics healthy</span>
+        <span class="acc-meta">Last check: 14:02 · ROAS 3.2×</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works for agencies</span>
+      <h2>Setup in minutes.<br><em class="s">Protection from day one.</em></h2>
+    </div>
+    <div class="how-agency">
+      <div class="agency-step">
+        <div class="step-n">Step 01</div>
+        <h3>Connect each client's Meta Ads</h3>
+        <p>Read-only OAuth connection. Each account takes under 3 minutes. crumplz never writes to client accounts — no permission questions, no campaign risk.</p>
+      </div>
+      <div class="agency-step">
+        <div class="step-n">Step 02</div>
+        <h3>Connect each client's Shopify</h3>
+        <p>Link each Shopify store for MER cross-validation. crumplz uses the store's revenue data to validate Meta performance signals and filter false alerts.</p>
+      </div>
+      <div class="agency-step">
+        <div class="step-n">Step 03</div>
+        <h3>Configure alert routing</h3>
+        <p>Set per-account alert channels. Route Client A alerts to your paid team's Slack channel, Client B to your personal WhatsApp, Client C to the client's own email. Full flexibility.</p>
+      </div>
+      <div class="agency-step">
+        <div class="step-n">Step 04</div>
+        <h3>crumplz monitors, you act</h3>
+        <p>Every 2 hours, crumplz checks each account. When something drifts, you get an alert with the account, the metric, the diagnosis, and the suggested action — nothing else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Agency ROI</span>
+      <h2>The value of monitoring <em class="s">at agency scale.</em></h2>
+    </div>
+    <div class="agency-val">
+      <div class="val-box">
+        <div class="val-num">2–5h</div>
+        <h3>Daily time saved</h3>
+        <p>Manual checking time eliminated across a 10-client portfolio. Reallocate to strategy, creative, and growth.</p>
+      </div>
+      <div class="val-box">
+        <div class="val-num">€380+</div>
+        <h3>Per incident caught</h3>
+        <p>Average budget waste prevented per incident detected early — per client. Across 10 clients, that's €1,500–4,000/month in recoverable spend.</p>
+      </div>
+      <div class="val-box">
+        <div class="val-num">0</div>
+        <h3>"Why didn't you tell me?" calls</h3>
+        <p>With 2-hour monitoring across all client accounts, you always know before they do. Client trust is a retention lever — and this protects it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing for agencies</span>
+      <h2>Pro plan: <em class="s">unlimited accounts.</em></h2>
+      <p class="lede" style="margin-top:14px">The Pro plan is designed for agencies. Unlimited ad accounts, team seats, and full alert routing flexibility.</p>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <div class="plan-name">Starter</div>
+        <div class="amount"><span>€</span>79</div>
+        <div class="per">/ month · 1 ad account · under €10k spend</div>
+        <ul class="feat-list">
+          <li>1 client account</li>
+          <li>All monitoring features</li>
+          <li>WhatsApp + Email alerts</li>
+          <li>Shopify MER cross-validation</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <div class="plan-name">Growth</div>
+        <div class="amount"><span>€</span>149</div>
+        <div class="per">/ month · 3 ad accounts · €10k–50k spend</div>
+        <ul class="feat-list">
+          <li>3 client accounts</li>
+          <li>Slack integration</li>
+          <li>Per-account alert routing</li>
+          <li>Multi-store Shopify</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <div class="plan-name">Pro</div>
+        <div class="amount"><span>€</span>249</div>
+        <div class="per">/ month · unlimited accounts · €50k–200k spend</div>
+        <ul class="feat-list">
+          <li>Unlimited client accounts</li>
+          <li>Team seats for your whole agency</li>
+          <li>Advanced alert routing</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-ghost" href="index-en.html#pricing">Start agency trial</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Agency monitoring <em class="s">questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can I give my clients access to crumplz to see their own account status?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. The Pro plan includes team seats which can be assigned to client-facing contacts. You control what each user can see — you can give a client visibility into their own account without exposing other client accounts. Alert routing is independent per account.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Does each client account need its own Shopify connection?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes — each client's Shopify store connects independently. This ensures MER cross-validation is accurate per client. The client doesn't need to do this themselves — you can connect it on their behalf using your agency's read-only Shopify Partner access.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Does crumplz require admin access to client Meta Ads accounts?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">No. crumplz only requires read-only Meta Marketing API access. This is typically granted through a standard analyst or view-only role on the client's Business Manager. crumplz cannot make changes to any ad account — no risk to client campaigns.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can we white-label crumplz alerts for our clients?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">White-labelling is on the roadmap. Currently, alerts are sent from crumplz branding. If white-label agency support is important to you, reach out — we're building this based on agency demand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Scale your monitoring</span>
+    <h2 style="margin-top:14px">Know before your clients do.<br><em class="s">Every time, for every account.</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect your first client account in 3 minutes. Add the rest in the same session. crumplz will be monitoring all of them before your next team standup.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start agency trial</a>
+      <a class="btn btn-ghost" href="shopify-meta-ads-monitoring.html">DTC monitoring guide</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Monitoring</h4>
+        <a href="facebook-ads-monitoring-tool.html">Facebook Ads monitoring</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="ad-spend-monitoring-software.html">Ad spend monitoring</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="what-is-mer-marketing-efficiency-ratio.html">What is MER?</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

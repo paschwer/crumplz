@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROAS Drop Alert for Meta Ads — Catch the Drift in 2 Hours | crumplz</title>
+<meta name="description" content="crumplz monitors your Meta Ads ROAS every 2 hours and sends a WhatsApp, Slack or email alert the moment it drifts — with the exact action to take. Never lose hours of budget to a silent ROAS crash again.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/roas-drop-alert">
+<meta property="og:title" content="ROAS Drop Alert for Meta Ads | crumplz">
+<meta property="og:description" content="Stop finding out your ROAS crashed 3 hours ago. crumplz catches it in 2 hours and tells you exactly what to do.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}:focus-visible{outline:3px solid var(--slate);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{position:relative;padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.28rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+/* Drift timeline */
+.timeline{margin-top:36px;border:2px solid var(--ink);border-radius:2px}
+.tl-row{display:grid;grid-template-columns:120px 1fr;border-bottom:2px solid var(--ink);align-items:stretch}
+.tl-row:last-child{border-bottom:0}
+.tl-time{background:var(--ink);color:var(--on-ink);font-weight:900;font-size:1.1rem;display:flex;align-items:center;justify-content:center;padding:18px 12px;text-align:center;line-height:1.2}
+.tl-body{padding:18px 22px}.tl-body strong{display:block;font-size:1rem;margin-bottom:4px}.tl-body p{color:var(--ink-2);font-size:.92rem}
+.tl-row.highlight .tl-body{background:rgba(249,92,75,.07)}.tl-row.highlight .tl-time{background:var(--coral-deep)}
+/* Feature details */
+.feat-2col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}@media(max-width:700px){.feat-2col{grid-template-columns:1fr;gap:24px}}
+.feat-item h3{margin-bottom:10px}.feat-item p{color:var(--ink-2);font-size:.96rem}
+/* Alert mockup */
+.alert-card{background:var(--ink);border-radius:10px;padding:26px;margin-top:36px;max-width:480px}
+.alert-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.alert-dot{width:10px;height:10px;border-radius:50%;background:var(--coral);flex-shrink:0}
+.alert-title{font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.alert-metric{font-size:2rem;font-weight:900;color:var(--on-ink);letter-spacing:-.04em;margin-bottom:4px}
+.alert-sub{font-size:.88rem;color:var(--on-ink-soft);margin-bottom:16px}
+.alert-action-box{background:rgba(255,255,255,.07);border-radius:6px;padding:12px 14px;font-size:.9rem;color:var(--on-ink);border-left:3px solid var(--coral)}
+/* Pricing */
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}
+.price-box{padding:26px 22px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}
+.price-box .plan-name{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}
+.price-box .amount{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:5px;display:inline-block;font-weight:700}
+.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:14px}
+.price-box .feat-list li{font-size:.9rem;color:var(--ink-2);padding:5px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px}
+.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0;margin-top:2px}
+.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}
+@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+/* FAQ */
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:68ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.94rem;color:var(--on-ink-soft);margin-bottom:10px;transition:color .15s}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html" aria-label="crumplz home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links" aria-label="Primary"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">ROAS drop alert</span>
+      <h1>Your ROAS dropped.<br><em class="s">crumplz knew before you did.</em></h1>
+      <p class="lede">ROAS drifts don't announce themselves. They start quietly, compound for hours, and cost thousands before anyone opens a dashboard. crumplz monitors your Meta Ads ROAS every 2 hours and sends you the alert — with the recommended fix — before it burns your margin.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="index-en.html#pricing">Turn on ROAS alerts — free</a>
+        <a class="btn btn-ghost" href="index-en.html#how">How it works</a>
+      </div>
+      <p class="microcopy">Automatic · Dynamic thresholds · No dashboard to open · Setup in 3 min</p>
+      <div class="badge-row">
+        <span>+137% faster reaction time</span>
+        <span>Checks every 2 hours</span>
+        <span>WhatsApp, Slack or Email</span>
+        <span>−19% wasted ad spend</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Without crumplz</span>
+      <h2>How a ROAS drop becomes<br>a <em class="s">budget disaster.</em></h2>
+      <p class="lede" style="margin-top:14px">The average timeline of a Meta Ads ROAS drift that goes undetected.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-time">09:00</div>
+        <div class="tl-body"><strong>Campaign running normally</strong><p>ROAS at 3.6x, CPA holding, creative fatigue creeping in but within tolerance.</p></div>
+      </div>
+      <div class="tl-row highlight">
+        <div class="tl-time">11:30</div>
+        <div class="tl-body"><strong>Drift begins — ROAS starts sliding</strong><p>A creative stops performing. ROAS drops to 2.1x. CPA climbs. Meta keeps spending at full budget.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">14:00</div>
+        <div class="tl-body"><strong>Still spending. Still no alert.</strong><p>2.5 hours of drift at full budget. The campaign has wasted an estimated €210 compared to its pre-drift trajectory.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">15:47</div>
+        <div class="tl-body"><strong>Someone logs into Meta Ads Manager</strong><p>They notice the ROAS and investigate. By now, ~€380 in wasted spend. Corrective action takes another 20 minutes.</p></div>
+      </div>
+    </div>
+    <p style="margin-top:24px;font-size:.94rem;color:var(--ink-2);max-width:60ch"><strong>With crumplz:</strong> the 11:30 drift triggers a check at 12:00. By 12:02, you're reading the alert on WhatsApp with the recommended action. You act. The campaign recovers by 12:30. Budget saved: ~€280.</p>
+  </div>
+</section>
+
+<!-- HOW ROAS ALERTS WORK -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Dynamic ROAS monitoring,<br><em class="s">not static thresholds.</em></h2>
+    </div>
+    <div class="feat-2col">
+      <div class="feat-item">
+        <h3>Dynamic baseline, not a fixed number</h3>
+        <p>Most tools let you set "alert when ROAS &lt; 2x." The problem: a ROAS of 2x on a Thursday is different from 2x on Black Friday. crumplz builds a dynamic baseline per campaign from your historical data — so it flags real deviations, not seasonal noise.</p>
+      </div>
+      <div class="feat-item">
+        <h3>Shopify MER cross-validation</h3>
+        <p>Meta's reported ROAS can lag or over-attribute. Before alerting, crumplz cross-checks your Meta signals against your real Shopify revenue and MER. If Shopify confirms the drop, the alert fires. If it's attribution lag, it holds.</p>
+      </div>
+      <div class="feat-item">
+        <h3>Catches ROAS drift, not just ROAS floor</h3>
+        <p>A ROAS that drops 40% in 2 hours is a different signal from a ROAS that's been slowly declining over 3 days. crumplz detects both drift velocity (sudden drop) and trend degradation (slow bleed), with different alert severities.</p>
+      </div>
+      <div class="feat-item">
+        <h3>Recommended action in every alert</h3>
+        <p>Every ROAS alert includes a specific recommended move — not just a data point. "Cut budget −30% for 12h and recheck" or "Rotate creative: relaunch top 3 ads from last 14 days." The decision is yours, but the action is ready.</p>
+      </div>
+    </div>
+
+    <!-- Alert mockup -->
+    <div class="alert-card">
+      <div class="alert-header"><div class="alert-dot"></div><div class="alert-title">ROAS Drift Detected — crumplz</div></div>
+      <div class="alert-metric">ROAS −47%</div>
+      <div class="alert-sub">Campaign: FR_Prospecting_LAL_30d · Last 4 hours</div>
+      <div style="font-size:.88rem;color:var(--on-ink-soft);margin-bottom:14px">Was: 3.8x &nbsp;→&nbsp; Now: 2.0x &nbsp;·&nbsp; Shopify MER confirms: revenue −31% vs 7-day avg</div>
+      <div class="alert-action-box">→ Cut budget −30% for 12h, then re-evaluate creative performance. Relaunch top 3 ads from last 14 days if ROAS doesn't recover by 20:00.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Pricing</span><h2>ROAS alerts included in <em class="s">every plan.</em></h2></div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <p class="plan-name">Starter</p>
+        <div class="amount"><span>€</span>79</div>
+        <p class="per">/ month</p>
+        <ul class="feat-list"><li>ROAS, CPA, CTR, MER alerts</li><li>1 ad account</li><li>WhatsApp, Slack, Email</li><li>Every-2-hour check</li></ul>
+      </div>
+      <div class="price-box popular">
+        <p class="plan-name">Growth ⭐ Most popular</p>
+        <div class="amount"><span>€</span>149</div>
+        <p class="per">/ month</p>
+        <ul class="feat-list"><li>Everything in Starter</li><li>3 ad accounts</li><li>Custom ROAS thresholds</li><li>Priority support</li></ul>
+      </div>
+      <div class="price-box">
+        <p class="plan-name">Pro</p>
+        <div class="amount"><span>€</span>249</div>
+        <p class="per">/ month</p>
+        <ul class="feat-list"><li>Everything in Growth</li><li>Multi-store</li><li>Roles &amp; permissions</li><li>Budget automation (roadmap)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>About ROAS drop alerts</h2></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">How quickly does crumplz detect a ROAS drop?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz runs a full check every 2 hours. So the maximum lag between a ROAS drop happening and you receiving the alert is 2 hours. In practice, most teams using crumplz react within 20 minutes of receiving the alert — vs the industry average of 4h17 without an alert system.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Will I get false alarms on normal fluctuations?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz is designed to minimize false positives. Dynamic baselines account for day-of-week patterns and campaign history. And before alerting on a ROAS drop, crumplz cross-validates against Shopify MER — if Shopify revenue is holding, it holds the alert. The goal is one real signal, not a flood of noise.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Can I set my own ROAS alert thresholds?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. On the Growth and Pro plans you can set custom thresholds per campaign — for example "alert when ROAS drops more than 35% from the 7-day average" or "alert if ROAS falls below 2.5x for more than 4 hours." Starter uses crumplz's automatic dynamic thresholds.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Does crumplz monitor ROAS at campaign, ad set, or ad level?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz monitors at campaign and ad set level by default. Campaign-level monitoring catches systemic drift; ad set level catches audience or placement-specific issues. Ad-level monitoring is on the roadmap for the Pro plan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center">
+    <div style="max-width:520px;margin:0 auto">
+      <h2>The next ROAS drop<br>is <em class="s">already running.</em></h2>
+      <p style="font-size:1.06rem;margin:18px auto 28px;max-width:44ch">Get alerted in under 2 hours, not 4. With the exact action to take.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><a class="btn btn-primary" href="index-en.html#pricing">Start free — no credit card</a></div>
+      <p style="margin-top:14px;font-size:.84rem;font-weight:600">14-day trial · 3 min setup · WhatsApp, Slack or Email · GDPR</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a><p>A lifeguard for your ad spend.</p></div>
+      <div class="foot-col"><h4>Features</h4><a href="roas-drop-alert.html">ROAS alerts</a><a href="meta-ads-cpa-monitoring.html">CPA monitoring</a><a href="meta-ads-whatsapp-alerts.html">WhatsApp alerts</a><a href="meta-ads-anomaly-detection.html">Anomaly detection</a></div>
+      <div class="foot-col"><h4>Compare</h4><a href="triple-whale-alternative.html">vs Triple Whale</a><a href="northbeam-alternative.html">vs Northbeam</a><a href="best-meta-ads-monitoring-tools.html">Best tools</a></div>
+      <div class="foot-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
+    </div>
+    <div class="foot-bot"><p>&copy; 2026 crumplz. All rights reserved.</p><p>Not another dashboard.</p></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

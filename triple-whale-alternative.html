@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triple Whale Alternative — Real-Time Meta Ads Alerts | crumplz</title>
+<meta name="description" content="Looking for a Triple Whale alternative focused on early-warning alerts? crumplz watches your Meta Ads every 2 hours and texts you the exact move — before the drift costs you. Setup in 3 minutes.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/triple-whale-alternative">
+<meta property="og:title" content="Triple Whale Alternative: Alerts, Not Just Dashboards | crumplz">
+<meta property="og:description" content="Triple Whale shows you what happened. crumplz tells you what to do right now — before the drift burns your margin.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3Cg stroke='%2316120b' stroke-width='2.6' stroke-linecap='round'%3E%3Cline x1='16' y1='3' x2='16' y2='8'/%3E%3Cline x1='16' y1='24' x2='16' y2='29'/%3E%3Cline x1='3' y1='16' x2='8' y2='16'/%3E%3Cline x1='24' y1='16' x2='29' y2='16'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "crumplz",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Early-warning alert system for Meta Ads drifts. Monitors ROAS, CPA, CTR and MER every 2 hours and sends actionable alerts on WhatsApp, Slack or email.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "79",
+    "highPrice": "249",
+    "priceCurrency": "EUR"
+  },
+  "url": "https://crumplz.co"
+}
+</script>
+<style>
+:root{
+  --paper:#f6f4f1;--stone:#e4ded2;--stone-2:#d9d2c3;
+  --ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;
+  --coral:#f95c4b;--coral-deep:#cc3a22;
+  --petrol:#235650;--pine:#2f6e4b;--oxblood:#9e2b20;--slate:#2a5c79;
+  --on-ink:#f6f4f1;--on-ink-soft:#b6afa0;
+  --line:rgba(22,18,11,.14);
+  --max:1100px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --f-sans:'Work Sans',system-ui,sans-serif;
+  --f-serif:'Libre Baskerville',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+ul{list-style:none}
+em{font-style:normal}
+::selection{background:var(--coral);color:var(--ink)}
+:focus-visible{outline:3px solid var(--slate);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{position:relative;padding:88px 0}
+@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}
+.sec-ink{background:var(--ink);color:var(--on-ink)}
+.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}
+.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}
+h1{font-weight:900;font-size:clamp(2.5rem,5.5vw,4.4rem)}
+h2{font-size:clamp(2rem,4vw,3rem)}
+h3{font-size:1.35rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}
+.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1.04rem,1.5vw,1.18rem);max-width:46ch}
+.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:52px}
+.sec-head h2{margin-top:16px}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}
+.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-primary:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}
+.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}
+.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:.95rem;font-weight:600}
+.nav-links a:hover{color:var(--coral-deep)}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-cta .login{font-size:.95rem;font-weight:600}
+.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}
+@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+/* Hero */
+.hero{padding-top:150px;padding-bottom:80px}
+.hero-inner{max-width:760px}
+.hero .eyebrow{margin-bottom:24px}
+.hero h1{margin-bottom:24px}
+.hero .lede{margin-bottom:32px;font-size:clamp(1.1rem,1.7vw,1.28rem)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:32px;padding-top:24px;border-top:2px solid var(--ink)}
+.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}
+.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+/* Vs table */
+.vs-wrap{overflow-x:auto;margin-top:36px}
+.vs-table{width:100%;border-collapse:collapse;font-size:.97rem}
+.vs-table th,.vs-table td{padding:15px 18px;border:2px solid var(--ink);text-align:left}
+.vs-table th{font-weight:800;background:var(--ink);color:var(--paper);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.vs-table th:first-child{background:var(--paper);color:var(--ink)}
+.vs-table td:first-child{font-weight:700;font-size:.9rem}
+.vs-table tr:nth-child(even) td{background:rgba(22,18,11,.03)}
+.check{color:var(--pine);font-weight:800}
+.cross{color:var(--ink-faint);font-weight:700}
+.badge-winner{display:inline-block;background:var(--coral);color:var(--ink);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-left:6px;vertical-align:middle}
+/* Feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;margin-top:36px;border:2px solid var(--ink)}
+.feat-card{padding:28px 24px;border:0}
+.feat-card + .feat-card{border-left:2px solid var(--ink)}
+@media(max-width:700px){.feat-grid{grid-template-columns:1fr}.feat-card+.feat-card{border-left:0;border-top:2px solid var(--ink)}}
+.feat-card h3{margin-bottom:10px}
+.feat-card p{color:var(--ink-2);font-size:.97rem}
+/* Pricing strip */
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}
+.price-box{padding:28px 24px;border-right:2px solid var(--ink)}
+.price-box:last-child{border-right:0}
+.price-box .plan-name{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}
+.price-box .amount{font-size:2.6rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.price-box .amount span{font-size:1.2rem;vertical-align:top;margin-top:6px;display:inline-block;font-weight:700}
+.price-box .per{font-size:.82rem;color:var(--ink-faint);margin-bottom:16px}
+.price-box .feat-list{margin-top:14px}
+.price-box .feat-list li{font-size:.92rem;color:var(--ink-2);padding:5px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px}
+.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0;margin-top:2px}
+.popular{background:var(--ink);color:var(--paper)}
+.popular .plan-name,.popular .per{color:var(--on-ink-soft)}
+.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}
+@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+/* FAQ */
+.faq-list{margin-top:36px}
+.faq-item{border-bottom:2px solid var(--ink);padding:22px 0}
+.faq-item:first-child{border-top:2px solid var(--ink)}
+.faq-q{font-weight:800;font-size:1.05rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{display:none;padding-top:14px;color:var(--ink-2);max-width:68ch;font-size:.97rem}
+.faq-item.open .faq-a{display:block}
+/* CTA section */
+.cta-block{text-align:center;max-width:580px;margin:0 auto}
+.cta-block h2{margin-bottom:20px}
+.cta-block .lede{margin:0 auto 32px;text-align:center}
+.cta-block .hero-cta{justify-content:center}
+/* Footer */
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}
+.foot-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}
+.foot-col a{display:block;font-size:.94rem;color:var(--on-ink-soft);margin-bottom:10px;transition:color .15s}
+.foot-col a:hover{color:var(--on-ink)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:var(--on-ink-soft)}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media(max-width:500px){.foot-grid{grid-template-columns:1fr}.foot-bot{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html" aria-label="crumplz home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
+        <circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/>
+        <g stroke="#16120b" stroke-width="2.7" stroke-linecap="round">
+          <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
+          <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
+        </g>
+      </svg>
+      crumplz
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index-en.html#how">How it works</a>
+      <a href="index-en.html#product">Product</a>
+      <a href="index-en.html#pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="#">Log in</a>
+      <a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Triple Whale Alternative</span>
+      <h1>Triple Whale shows you <em class="s">what happened.</em><br>crumplz tells you what to do right now.</h1>
+      <p class="lede">Triple Whale is a great attribution dashboard. But dashboards don't call you when your ROAS craters at 2 a.m. crumplz watches your Meta Ads every 2 hours and sends one actionable alert — the drift, and the exact move to make.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="index-en.html#pricing">Start for free — 3 min setup</a>
+        <a class="btn btn-ghost" href="index-en.html#how">See how it works</a>
+      </div>
+      <p class="microcopy">Read-only access · GDPR compliant · EU hosting · No dashboard babysitting</p>
+      <div class="badge-row">
+        <span>Checks every 2 hours</span>
+        <span>WhatsApp, Slack or Email</span>
+        <span>Setup in 3 minutes</span>
+        <span>−19% wasted ad spend</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The real problem</span>
+      <h2>Dashboards show the past.<br>They don't save your budget.</h2>
+    </div>
+    <p style="color:var(--ink-2);max-width:62ch;font-size:1.06rem;">Triple Whale is excellent at telling you what happened last week — attribution, MER, cohort data. But when your ROAS drops 40% on a Wednesday afternoon, the dashboard waits for you to log in and notice. Meanwhile the clock is running. Average detection delay without an alert system: <strong>4 hours 17 minutes</strong>. Average budget lost per drift incident: <strong>~€380</strong>.</p>
+    <p style="color:var(--ink-2);max-width:62ch;font-size:1.06rem;margin-top:20px;">crumplz doesn't replace Triple Whale. It does the thing Triple Whale was never designed to do: <strong>it catches the drift before it becomes a loss, and it tells you the exact action to take.</strong></p>
+  </div>
+</section>
+
+<!-- VS TABLE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Triple Whale vs crumplz</span>
+      <h2>Not the same tool. <em class="s">Not even close.</em></h2>
+      <p class="lede" style="margin-top:14px;">Different jobs. Use both — or start with the one that stops the bleeding.</p>
+    </div>
+    <div class="vs-wrap">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Triple Whale</th>
+            <th>crumplz <span class="badge-winner">alert-first</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cross-channel attribution</td>
+            <td class="check">✓ Yes</td>
+            <td class="cross">— Not the job</td>
+          </tr>
+          <tr>
+            <td>Real-time Meta Ads drift alert</td>
+            <td class="cross">— No built-in alerting</td>
+            <td class="check">✓ Every 2 hours, 24/7</td>
+          </tr>
+          <tr>
+            <td>Actionable alert with recommended move</td>
+            <td class="cross">— No</td>
+            <td class="check">✓ "Cut budget −30% for 12h"</td>
+          </tr>
+          <tr>
+            <td>WhatsApp / Slack / Email delivery</td>
+            <td class="cross">— Dashboard only</td>
+            <td class="check">✓ Straight to your phone</td>
+          </tr>
+          <tr>
+            <td>Shopify MER cross-validation</td>
+            <td class="cross">— Triple Whale handles this</td>
+            <td class="check">✓ MER + Shopify revenue</td>
+          </tr>
+          <tr>
+            <td>ROAS, CPA, CTR anomaly detection</td>
+            <td class="cross">— Manual check needed</td>
+            <td class="check">✓ Automated, dynamic thresholds</td>
+          </tr>
+          <tr>
+            <td>Setup time</td>
+            <td>Multi-day onboarding</td>
+            <td class="check">✓ 3 minutes</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$$$</td>
+            <td class="check">✓ From €79/month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOW CRUMPLZ WORKS -->
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How crumplz works</span>
+      <h2>Three steps. No dashboard to babysit.</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <h3>1. Connect in 3 minutes</h3>
+        <p>Read-only access to your Meta Ads account and Shopify store. No code. No agency handover. Just OAuth and you're live.</p>
+      </div>
+      <div class="feat-card" style="border-left:2px solid var(--coral)">
+        <h3>2. crumplz watches 24/7</h3>
+        <p>Every 2 hours, our Anomaly Engine scans ROAS, CPA, CTR and MER. Dynamic thresholds adjust to your campaign history — no false positives from seasonal swings.</p>
+      </div>
+      <div class="feat-card">
+        <h3>3. You get the alert + the action</h3>
+        <p>When a drift is detected, you receive a WhatsApp, Slack or email with the metric, the severity, and the recommended move. One tap to the campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Simple pricing. <em class="s">Zero fluff.</em></h2>
+      <p class="lede" style="margin-top:14px;">Built for margin, priced for control. No seat fees, no hidden platform costs.</p>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <p class="plan-name">Starter</p>
+        <div class="amount"><span>€</span>79</div>
+        <p class="per">/ month · under €10k ad spend</p>
+        <ul class="feat-list">
+          <li>1 ad account</li>
+          <li>Anomaly Engine (ROAS, CPA, CTR, MER)</li>
+          <li>WhatsApp, Slack &amp; Email alerts</li>
+          <li>Check every 2 hours</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <p class="plan-name">Growth ⭐ Most popular</p>
+        <div class="amount"><span>€</span>149</div>
+        <p class="per">/ month · €10k–50k ad spend</p>
+        <ul class="feat-list">
+          <li>Everything in Starter</li>
+          <li>3 ad accounts</li>
+          <li>Custom alert thresholds</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <p class="plan-name">Pro</p>
+        <div class="amount"><span>€</span>249</div>
+        <p class="per">/ month · €50k–200k ad spend</p>
+        <ul class="feat-list">
+          <li>Everything in Growth</li>
+          <li>Multi-store &amp; multi-brand</li>
+          <li>Roles &amp; permissions</li>
+          <li>Budget automation (roadmap)</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:.88rem;color:var(--ink-faint);font-weight:600;">All plans include a 14-day free trial. No credit card required.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions about switching<br>or complementing Triple Whale</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">
+          Do I need to cancel Triple Whale to use crumplz?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">No. crumplz and Triple Whale do different things. Triple Whale is an attribution and analytics platform — great at showing you the full picture after the fact. crumplz is a 24/7 early-warning system for live campaign drifts. Most DTC brands that use both call it "the brain + the alarm."</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">
+          Does crumplz access my Triple Whale data?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">No. crumplz connects directly to Meta Ads and Shopify via read-only OAuth. It doesn't need Triple Whale access and works independently of any analytics tool you're already using.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">
+          What's the real difference between a dashboard and crumplz?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">A dashboard answers "what happened?" when you open it. crumplz answers "what's drifting right now?" without you having to ask. It's the difference between a rearview mirror and a warning light. You need both, but when the ROAS drops on a Sunday morning, only one of them wakes you up.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">
+          How quickly can I get set up?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Three minutes. Connect your Meta Ads account (read-only OAuth), connect Shopify, pick your alert channel (WhatsApp, Slack or Email), and crumplz starts watching. First check happens within 2 hours.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">
+          Does crumplz work for agencies managing multiple clients?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Yes. The Pro plan supports multiple stores, multiple ad accounts, and roles and permissions — so you can give each client their own alert channel without mixing signals. The Growth plan covers up to 3 ad accounts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-coral">
+  <div class="wrap">
+    <div class="cta-block">
+      <h2>Agencies sleep.<br><em class="s">crumplz doesn't.</em></h2>
+      <p class="lede">Stop logging into Triple Whale hoping to spot the drift. Let crumplz watch the campaigns while you focus on strategy.</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:28px">
+        <a class="btn btn-primary" href="index-en.html#pricing">Start free — no credit card</a>
+      </div>
+      <p style="text-align:center;margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink);">14-day trial · Read-only · GDPR · EU hosting</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
+            <circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/>
+            <g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round">
+              <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
+              <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
+            </g>
+          </svg>
+          crumplz
+        </a>
+        <p>A lifeguard for your ad spend.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#pricing">Pricing</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="meta-ads-whatsapp-alerts.html">WhatsApp alerts</a>
+      </div>
+      <div class="foot-col">
+        <h4>Compare</h4>
+        <a href="triple-whale-alternative.html">vs Triple Whale</a>
+        <a href="northbeam-alternative.html">vs Northbeam</a>
+        <a href="best-meta-ads-monitoring-tools.html">Best monitoring tools</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">GDPR</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>&copy; 2026 crumplz. All rights reserved.</p>
+      <p>Not another dashboard.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});
+  q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});
+});
+</script>
+</body>
+</html>

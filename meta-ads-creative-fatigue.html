@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Ads Creative Fatigue Detection — Alert Before ROAS Drops | crumplz</title>
+<meta name="description" content="Detect Meta Ads creative fatigue before it kills your ROAS. crumplz monitors CTR degradation, frequency spikes and CPA trends every 2 hours — and alerts you with the exact creative rotation needed.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/meta-ads-creative-fatigue">
+<meta property="og:title" content="Meta Ads Creative Fatigue Detection | crumplz">
+<meta property="og:description" content="Creative fatigue kills ROAS silently. crumplz catches the CTR decline before it becomes a CPA crisis — and tells you exactly which creatives to rotate.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Meta Ads Creative Fatigue Detection: How to Catch It Before ROAS Drops","description":"Creative fatigue is the leading cause of ROAS decline in Meta Ads. This guide explains the signals, timeline, and how automated detection prevents budget waste.","author":{"@type":"Organization","name":"crumplz"},"publisher":{"@type":"Organization","name":"crumplz","url":"https://crumplz.co"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://crumplz.co/meta-ads-creative-fatigue"}}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.timeline{margin-top:36px;position:relative;padding-left:32px}.timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--ink)}.tl-item{position:relative;margin-bottom:32px}.tl-item:last-child{margin-bottom:0}.tl-dot{position:absolute;left:-32px;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);background:var(--paper)}.tl-dot.alert{background:var(--coral);border-color:var(--coral)}.tl-item .tl-time{font-size:.78rem;font-weight:800;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:4px}.tl-item h3{margin-bottom:6px;font-size:1.05rem}.tl-item p{font-size:.9rem;color:var(--ink-2)}
+.signal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.signal-grid{grid-template-columns:1fr}}.signal-box{padding:26px 22px;border-right:2px solid var(--ink)}.signal-box:last-child{border-right:0}@media(max-width:700px){.signal-box{border-right:0;border-bottom:2px solid var(--ink)}.signal-box:last-child{border-bottom:0}}.signal-box .signal-label{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:10px}.signal-box h3{margin-bottom:8px;font-size:1.05rem}.signal-box p{font-size:.9rem;color:var(--ink-2)}
+.alert-card{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin-top:36px;border:2px solid var(--ink);max-width:600px}.alert-card .alert-label{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}.alert-card .alert-title{font-size:1.3rem;font-weight:800;margin-bottom:10px}.alert-card .alert-body{font-size:.95rem;color:var(--on-ink-soft);line-height:1.7}.alert-card .alert-meta{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}.alert-card .alert-meta span{font-size:.8rem;font-weight:700;color:var(--on-ink-soft)}.alert-card .alert-meta span strong{color:var(--coral);font-weight:900}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:36px}@media(max-width:700px){.two-col{grid-template-columns:1fr}}.prose h3{margin:28px 0 10px;font-size:1.15rem}.prose p{color:var(--ink-2);margin-bottom:16px;font-size:.97rem}.prose ul{margin:12px 0 16px}.prose ul li{padding:5px 0;padding-left:20px;position:relative;color:var(--ink-2);font-size:.95rem}.prose ul li::before{content:"→";position:absolute;left:0;color:var(--coral-deep);font-weight:800}
+.threshold-box{border:2px solid var(--ink);border-radius:10px;padding:26px;background:var(--stone)}.threshold-box h3{margin-bottom:14px}.threshold-box table{width:100%;border-collapse:collapse;font-size:.88rem}.threshold-box table td,.threshold-box table th{padding:8px 10px;border:1px solid var(--line);text-align:left}.threshold-box table th{font-weight:800;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;background:rgba(22,18,11,.06)}
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}.price-box{padding:24px 20px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}.price-box .plan-name{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}.price-box .amount{font-size:2.3rem;font-weight:900;letter-spacing:-.04em;line-height:1}.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:4px;display:inline-block;font-weight:700}.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:12px}.price-box .feat-list li{font-size:.88rem;color:var(--ink-2);padding:4px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:7px}.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">Creative Fatigue Detection</span>
+    <h1>Creative fatigue kills ROAS.<br><em class="s">Catch it in hours, not days.</em></h1>
+    <p class="lede">Meta Ads creative fatigue starts with a quiet CTR decline. By the time your ROAS collapses, you've burned days of budget. crumplz detects the early signals every 2 hours and tells you exactly which creatives to rotate.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start free — 3 min setup</a>
+      <a class="btn btn-ghost" href="meta-ads-anomaly-detection.html">How detection works</a>
+    </div>
+    <p class="microcopy">Read-only · WhatsApp, Slack, Email · Shopify MER validated · GDPR</p>
+    <div class="badge-row">
+      <span>CTR degradation tracking</span><span>Frequency spike alerts</span><span>CPA trend detection</span><span>Actionable rotation guidance</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How creative fatigue unfolds</span>
+      <h2>The <em class="s">silent degradation</em> timeline.</h2>
+      <p class="lede" style="margin-top:14px">Creative fatigue doesn't announce itself. It builds quietly across 3–7 days — and most brands only notice at stage 4.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Day 1–2 · Early signal</div>
+        <h3>Frequency starts climbing</h3>
+        <p>Your audience has seen the creative 2–3 times. CTR begins a mild downward trend — easily confused with normal variance. Most dashboards won't flag this yet.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Day 3–4 · Degradation accelerates</div>
+        <h3>CTR drops 15–25%</h3>
+        <p>Frequency is now above 4×. The algorithm compensates by serving to lower-quality audiences. CPA starts rising. Spend continues at the same rate — into worsening performance.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Day 5–7 · Full fatigue</div>
+        <h3>ROAS collapses</h3>
+        <p>CPA is now 40–60% above baseline. ROAS has fallen sharply. The Meta algorithm has allocated budget to audiences that convert poorly. Manual review finally catches it — days too late.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot alert"></div>
+        <div class="tl-time">With crumplz · Day 1–2</div>
+        <h3>Alert sent within hours of Day 1 signal</h3>
+        <p>crumplz detects the CTR decline and frequency spike within the first monitoring cycle after it appears. You get an alert with the affected ad sets and the suggested rotation — while ROAS is still healthy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The 3 signals crumplz monitors</span>
+      <h2>Early warning before <em class="s">ROAS follows.</em></h2>
+      <p class="lede" style="margin-top:14px">Creative fatigue leaves a footprint across three metrics before it hits your bottom line. crumplz tracks all three simultaneously.</p>
+    </div>
+    <div class="signal-grid">
+      <div class="signal-box">
+        <div class="signal-label">Signal 1</div>
+        <h3>CTR degradation</h3>
+        <p>Click-through rate is the first fatigue signal. A 10–15% decline vs the 7-day ad set baseline is an early indicator — long before CPA is affected. crumplz tracks CTR per ad set with dynamic baselines that account for day-of-week patterns.</p>
+      </div>
+      <div class="signal-box">
+        <div class="signal-label">Signal 2</div>
+        <h3>Frequency threshold breach</h3>
+        <p>When frequency exceeds 3.5–4× for a cold or retargeting audience, creative wear-out accelerates. crumplz flags frequency spikes alongside CTR trends so you can distinguish fatigue from algorithmic variance.</p>
+      </div>
+      <div class="signal-box">
+        <div class="signal-label">Signal 3</div>
+        <h3>CPA trend (not just a single spike)</h3>
+        <p>A single high-CPA day can be noise. crumplz monitors the trend — 3 consecutive monitoring cycles of rising CPA on the same ad set triggers a creative fatigue alert rather than a random anomaly flag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alert example</span>
+      <h2>What a creative fatigue alert <em class="s">looks like.</em></h2>
+    </div>
+    <div class="alert-card">
+      <div class="alert-label">crumplz alert · Creative Fatigue Detected</div>
+      <div class="alert-title">⚠ Creative fatigue — Prospecting US — Video ad set</div>
+      <div class="alert-body">CTR has fallen 22% vs 7-day baseline over the last 18 hours. Frequency is now 4.1× (threshold: 3.5×). CPA trend is up +18% across 3 consecutive checks. ROAS is still within range but trajectory is negative.<br><br><strong>Suggested action:</strong> Rotate creatives in Prospecting US — Video ad set. Introduce 2–3 new variants. Consider refreshing hook copy — scroll-stop rate has declined ahead of CTR. Shopify MER is stable, confirming this is a Meta-side creative issue, not a demand drop.</div>
+      <div class="alert-meta">
+        <span>Ad set: <strong>Prospecting US — Video</strong></span>
+        <span>Frequency: <strong>4.1×</strong></span>
+        <span>CTR change: <strong>−22%</strong></span>
+        <span>CPA trend: <strong>+18%</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="two-col">
+      <div class="prose">
+        <span class="eyebrow">Why this matters</span>
+        <h2 style="margin-top:14px">Creative fatigue is the #1 cause of <em class="s">silent ROAS decay.</em></h2>
+        <h3>The compounding problem</h3>
+        <p>Unlike a sudden ROAS crash — which is hard to miss — creative fatigue is gradual. Each day the metrics are slightly worse than the day before. Without automated detection, most brands notice only when CPA has already spiked significantly above target.</p>
+        <h3>Why manual reviews miss it</h3>
+        <p>Manual reviews happen at check-in cadences of once a day or less. The 4h17 average detection delay observed across DTC brands is largely a creative fatigue problem: the signal was present but the monitoring wasn't frequent enough to catch it early.</p>
+        <h3>Why crumplz doesn't false-positive</h3>
+        <p>crumplz cross-validates every creative fatigue alert against Shopify MER. If overall marketing efficiency is holding, an isolated CTR decline might be a targeting or offer problem — not a creative one. crumplz distinguishes between the two before alerting.</p>
+      </div>
+      <div>
+        <div class="threshold-box">
+          <h3>crumplz creative fatigue thresholds</h3>
+          <table>
+            <thead><tr><th>Metric</th><th>Alert threshold</th></tr></thead>
+            <tbody>
+              <tr><td>CTR decline</td><td>≥10% vs 7-day ad set baseline</td></tr>
+              <tr><td>Frequency</td><td>≥3.5× (cold) / ≥5× (retargeting)</td></tr>
+              <tr><td>CPA trend</td><td>Rising 3+ consecutive checks</td></tr>
+              <tr><td>ROAS trajectory</td><td>Negative 2-check trend</td></tr>
+              <tr><td>Combined signal</td><td>2 of 4 metrics in alert range</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:14px;font-size:.84rem;color:var(--ink-faint)">Thresholds are dynamic — they adjust per ad set based on historical variance, not fixed global rules.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Start catching fatigue <em class="s">before it costs you.</em></h2>
+      <p class="lede" style="margin-top:14px">One creative fatigue cycle caught early saves more than the monthly cost of crumplz.</p>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <div class="plan-name">Starter</div>
+        <div class="amount"><span>€</span>79</div>
+        <div class="per">/ month · 1 ad account · under €10k spend</div>
+        <ul class="feat-list">
+          <li>CTR degradation alerts</li>
+          <li>Frequency spike detection</li>
+          <li>CPA trend monitoring</li>
+          <li>WhatsApp + Email alerts</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <div class="plan-name">Growth</div>
+        <div class="amount"><span>€</span>149</div>
+        <div class="per">/ month · 3 ad accounts · €10k–50k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Starter</li>
+          <li>3 Facebook ad accounts</li>
+          <li>Slack integration</li>
+          <li>Multi-store Shopify MER</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <div class="plan-name">Pro</div>
+        <div class="amount"><span>€</span>249</div>
+        <div class="per">/ month · unlimited accounts · €50k–200k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited ad accounts</li>
+          <li>Team seats</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-ghost" href="index-en.html#pricing">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Creative fatigue <em class="s">questions answered.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">How is crumplz's creative fatigue detection different from Meta's built-in frequency data?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Meta's Ads Manager shows you frequency as a static number. crumplz monitors the trend across multiple metrics simultaneously — CTR, frequency, and CPA together — and cross-validates against your Shopify MER before alerting. You get a synthesised diagnosis rather than raw data to interpret yourself.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can crumplz tell me which specific creatives are fatigued?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz identifies the ad set level where fatigue is occurring and highlights the metrics driving the signal. It can isolate whether the pattern is consistent with creative fatigue (high frequency, CTR decline) vs other causes (audience exhaustion, offer mismatch, landing page issues).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Will I get alerts for every small CTR fluctuation?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">No. crumplz uses dynamic thresholds calibrated to each ad set's historical variance. Normal daily fluctuations are filtered out. An alert fires only when multiple signals align — CTR decline, frequency trend, and CPA movement — across consecutive monitoring cycles. False positive prevention is a core part of the product.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Get started</span>
+    <h2 style="margin-top:14px">Your creatives are fading right now.<br><em class="s">Find out before your ROAS does.</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect your Meta Ads account in 3 minutes. crumplz will start tracking creative fatigue signals from the first monitoring cycle.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Turn on creative monitoring</a>
+      <a class="btn btn-ghost" href="roas-drop-alert.html">ROAS drop alerts</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Monitoring</h4>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="meta-ads-cpa-monitoring.html">CPA monitoring</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="facebook-ads-monitoring-tool.html">Facebook Ads monitoring</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+        <a href="best-meta-ads-monitoring-tools.html">Best monitoring tools</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

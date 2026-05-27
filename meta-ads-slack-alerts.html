@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Ads Slack Alerts — Facebook Ads Slack Notifications | crumplz</title>
+<meta name="description" content="Get Meta Ads alerts directly in Slack. crumplz monitors ROAS, CPA and budget drift every 2 hours and sends actionable Slack notifications the moment something goes wrong — with the exact fix.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/meta-ads-slack-alerts">
+<meta property="og:title" content="Meta Ads Slack Alerts — Catch Performance Drops in Your Workspace | crumplz">
+<meta property="og:description" content="Connect crumplz to your Slack workspace. When Meta Ads drift, your team gets an actionable alert in the right channel — not buried in an email inbox.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"crumplz","applicationCategory":"BusinessApplication","description":"Meta Ads monitoring tool with Slack integration. Sends actionable ROAS and CPA alerts to your Slack workspace every 2 hours.","offers":{"@type":"AggregateOffer","lowPrice":"79","highPrice":"249","priceCurrency":"EUR"},"url":"https://crumplz.co"}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slack:#4A154B;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.slack-mockup{background:#1a1d21;border-radius:12px;border:2px solid var(--ink);padding:0;overflow:hidden;max-width:640px;margin-top:36px}.slack-header{background:#19171d;padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.1)}.slack-channel{color:#fff;font-weight:700;font-size:.96rem}.slack-channel::before{content:"#";color:rgba(255,255,255,.5)}.slack-body{padding:18px 18px 22px}.slack-msg{display:flex;gap:12px;margin-bottom:18px}.slack-msg:last-child{margin-bottom:0}.slack-avatar{width:36px;height:36px;border-radius:8px;background:var(--coral);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--ink)}.slack-content{flex:1}.slack-name{font-size:.82rem;font-weight:800;color:#fff;margin-bottom:3px}.slack-name span{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.4);margin-left:8px}.slack-text{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.55}.slack-attachment{margin-top:8px;border-left:4px solid var(--coral);padding:10px 12px;background:rgba(255,255,255,.06);border-radius:0 6px 6px 0}.slack-attachment .attach-title{color:#fff;font-weight:800;font-size:.9rem;margin-bottom:6px}.slack-attachment .attach-body{color:rgba(255,255,255,.7);font-size:.82rem;line-height:1.55}.slack-attachment .attach-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:8px}.slack-attachment .field-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4)}.slack-attachment .field-val{font-size:.86rem;font-weight:700;color:#fff}
+.channel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.channel-grid{grid-template-columns:1fr}}.chan-box{padding:26px 22px;border-right:2px solid var(--ink)}.chan-box:last-child{border-right:0}@media(max-width:700px){.chan-box{border-right:0;border-bottom:2px solid var(--ink)}.chan-box:last-child{border-bottom:0}}.chan-box .chan-icon{font-size:1.8rem;margin-bottom:12px}.chan-box h3{margin-bottom:8px;font-size:1.05rem}.chan-box p{font-size:.9rem;color:var(--ink-2)}.chan-box .chan-best{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--pine);margin-top:12px}
+.setup-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.setup-steps{grid-template-columns:1fr}}.setup-step{padding:26px 22px;border-right:2px solid var(--ink)}.setup-step:last-child{border-right:0}@media(max-width:700px){.setup-step{border-right:0;border-bottom:2px solid var(--ink)}.setup-step:last-child{border-bottom:0}}.setup-step .step-num{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:12px}.setup-step h3{margin-bottom:8px;font-size:1.05rem}.setup-step p{font-size:.9rem;color:var(--ink-2)}
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}.price-box{padding:24px 20px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}.price-box .plan-name{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}.price-box .amount{font-size:2.3rem;font-weight:900;letter-spacing:-.04em;line-height:1}.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:4px;display:inline-block;font-weight:700}.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:12px}.price-box .feat-list li{font-size:.88rem;color:var(--ink-2);padding:4px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:7px}.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">Meta Ads Slack Alerts</span>
+    <h1>Meta Ads alerts<br>in <em class="s">your Slack workspace.</em></h1>
+    <p class="lede">When your ROAS drops or CPA spikes, you need to know immediately — not when you next open Ads Manager. crumplz sends actionable alerts to your Slack channel the moment something drifts.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">Connect to Slack — 3 min setup</a>
+      <a class="btn btn-ghost" href="meta-ads-whatsapp-alerts.html">Prefer WhatsApp alerts?</a>
+    </div>
+    <p class="microcopy">Slack · WhatsApp · Email — your choice · Read-only · GDPR</p>
+    <div class="badge-row">
+      <span>Checks every 2 hours</span><span>Alert in your preferred channel</span><span>Actionable — not just data</span><span>Team-friendly format</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What the alert looks like</span>
+      <h2>An alert your team<br><em class="s">can act on immediately.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz Slack alerts are structured for action — not just notification. Every message includes what happened, by how much, why, and what to do.</p>
+    </div>
+    <div class="slack-mockup">
+      <div class="slack-header">
+        <div class="slack-channel">meta-ads-alerts</div>
+        <div style="color:rgba(255,255,255,.4);font-size:.82rem;margin-left:auto">crumplz bot</div>
+      </div>
+      <div class="slack-body">
+        <div class="slack-msg">
+          <div class="slack-avatar">C</div>
+          <div class="slack-content">
+            <div class="slack-name">crumplz <span>Today at 14:02</span></div>
+            <div class="slack-text">⚠ Alert triggered for <strong style="color:#fff">Brand EU Main</strong></div>
+            <div class="slack-attachment">
+              <div class="attach-title">ROAS drop detected — Retargeting Women 25–34</div>
+              <div class="attach-body">ROAS has fallen from 3.8× to 2.1× over the last 6 hours. CPA up +42% vs 7-day baseline. CTR down 18% — consistent with creative fatigue. Shopify MER is flat, confirming this is Meta-side.<br><br><strong>Suggested action:</strong> Pause top-spend creatives in this ad set and rotate backup variants. Check frequency — at 4.7× above threshold.</div>
+              <div class="attach-fields">
+                <div><div class="field-label">Ad account</div><div class="field-val">Brand EU Main</div></div>
+                <div><div class="field-label">Detected</div><div class="field-val">14:02</div></div>
+                <div><div class="field-label">ROAS</div><div class="field-val">2.1× (was 3.8×)</div></div>
+                <div><div class="field-label">Est. impact</div><div class="field-val">~€190</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slack-msg">
+          <div class="slack-avatar" style="background:var(--stone);color:var(--ink)">A</div>
+          <div class="slack-content">
+            <div class="slack-name">Alice (Growth) <span>Today at 14:07</span></div>
+            <div class="slack-text">On it — pausing the video variants now and rotating in the static set we prepped last week</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alert channels</span>
+      <h2>Slack, WhatsApp, or Email.<br><em class="s">Your team, your choice.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz delivers alerts to wherever your team actually responds fastest. Mix channels for the same alert if your team is distributed.</p>
+    </div>
+    <div class="channel-grid">
+      <div class="chan-box">
+        <div class="chan-icon">💬</div>
+        <h3>Slack</h3>
+        <p>Best for teams that live in Slack. Alerts appear in a dedicated channel with structured attachment format — readable at a glance, thread-friendly for team response.</p>
+        <div class="chan-best">Best for: Growth teams · Agencies</div>
+      </div>
+      <div class="chan-box">
+        <div class="chan-icon">📱</div>
+        <h3>WhatsApp</h3>
+        <p>Best for founders and solo operators. Alerts land in WhatsApp — the app you already check 20× per day — with a plain-text format optimised for mobile reading.</p>
+        <div class="chan-best">Best for: Founders · Solo operators</div>
+      </div>
+      <div class="chan-box">
+        <div class="chan-icon">📧</div>
+        <h3>Email</h3>
+        <p>Best as a backup channel or for records. Full alert detail in your inbox — useful for end-of-day review or when alerts should reach stakeholders outside the core team.</p>
+        <div class="chan-best">Best for: Backup · Stakeholder reporting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Setup in 3 steps</span>
+      <h2>From zero to <em class="s">Slack alerts in minutes.</em></h2>
+    </div>
+    <div class="setup-steps">
+      <div class="setup-step">
+        <div class="step-num">Step 01</div>
+        <h3>Connect Meta Ads + Shopify</h3>
+        <p>Read-only OAuth — crumplz never writes to your ad accounts. Connect in under 2 minutes from the crumplz onboarding flow.</p>
+      </div>
+      <div class="setup-step">
+        <div class="step-num">Step 02</div>
+        <h3>Add your Slack workspace</h3>
+        <p>Authorise crumplz to post to a channel of your choice — typically a dedicated #meta-ads-alerts or #performance-ops channel. You control which channel receives alerts.</p>
+      </div>
+      <div class="setup-step">
+        <div class="step-num">Step 03</div>
+        <h3>First alert within 2 hours</h3>
+        <p>crumplz runs its first monitoring cycle immediately. If something is already drifting in your account, your Slack channel will know within the hour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Slack alerts beat dashboard reviews</span>
+      <h2>The alert comes to you.<br><em class="s">Not the other way around.</em></h2>
+      <p class="lede" style="margin-top:14px">Checking Meta Ads Manager requires intent and attention. A Slack alert requires neither — it surfaces in your workflow exactly when you need it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px">
+      <div>
+        <h3 style="color:var(--on-ink-soft);font-size:1rem;margin-bottom:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Without Slack alerts</h3>
+        <ul style="list-style:none">
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--coral);font-weight:800;flex-shrink:0">✗</span> Check Ads Manager once a day (or less)</li>
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--coral);font-weight:800;flex-shrink:0">✗</span> Average detection delay: 4h17</li>
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--coral);font-weight:800;flex-shrink:0">✗</span> Team relies on one person to catch issues</li>
+          <li style="padding:12px 0;display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--coral);font-weight:800;flex-shrink:0">✗</span> No context when something goes wrong</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--coral);font-size:1rem;margin-bottom:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">With crumplz Slack alerts</h3>
+        <ul style="list-style:none">
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--pine);font-weight:800;flex-shrink:0">✓</span> Alert appears in Slack when drift is detected</li>
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--pine);font-weight:800;flex-shrink:0">✓</span> Detection within the next 2-hour cycle</li>
+          <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--pine);font-weight:800;flex-shrink:0">✓</span> Whole team sees the alert at the same time</li>
+          <li style="padding:12px 0;display:flex;gap:10px;font-size:.93rem;color:var(--on-ink-soft)"><span style="color:var(--pine);font-weight:800;flex-shrink:0">✓</span> Alert includes diagnosis and suggested action</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Slack alerts included <em class="s">from Growth plan.</em></h2>
+      <p class="lede" style="margin-top:14px">WhatsApp and Email are included on all plans. Slack integration starts with Growth.</p>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <div class="plan-name">Starter</div>
+        <div class="amount"><span>€</span>79</div>
+        <div class="per">/ month · 1 ad account · under €10k spend</div>
+        <ul class="feat-list">
+          <li>WhatsApp + Email alerts</li>
+          <li>ROAS, CPA, CTR monitoring</li>
+          <li>Shopify MER cross-validation</li>
+          <li>2-hour check cadence</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <div class="plan-name">Growth</div>
+        <div class="amount"><span>€</span>149</div>
+        <div class="per">/ month · 3 ad accounts · €10k–50k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Starter</li>
+          <li>Slack integration ✓</li>
+          <li>3 Facebook ad accounts</li>
+          <li>Multi-store Shopify</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <div class="plan-name">Pro</div>
+        <div class="amount"><span>€</span>249</div>
+        <div class="per">/ month · unlimited accounts · €50k–200k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited ad accounts</li>
+          <li>Team seats</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start free trial — Slack included</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Slack integration <em class="s">questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can I send alerts to multiple Slack channels?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. You can configure different alert types to go to different channels — for example, ROAS drop alerts to #paid-performance and budget drift alerts to #finance-ops. You can also route alerts per ad account to separate channels if you're managing multiple brands.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Does crumplz need write access to my Slack workspace?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz needs permission to post messages to the channels you configure. It does not read your Slack messages, access DMs, or touch any other channels. The OAuth scope is limited to incoming webhook posting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can I use both Slack and WhatsApp for the same alert?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. You can enable multiple delivery channels for the same alert — useful if you want the team to see it in Slack and the founder to receive it on WhatsApp simultaneously. Each channel can be toggled independently per alert type.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Get started</span>
+    <h2 style="margin-top:14px">Your Meta Ads drift.<br><em class="s">Your Slack channel should know.</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect Meta Ads, Shopify and Slack in 3 minutes. crumplz will post the first alert to your workspace before your next team standup.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Connect Slack now</a>
+      <a class="btn btn-ghost" href="meta-ads-whatsapp-alerts.html">Compare WhatsApp alerts</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only Meta access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Alerts</h4>
+        <a href="meta-ads-whatsapp-alerts.html">WhatsApp alerts</a>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="meta-ads-cpa-monitoring.html">CPA monitoring</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

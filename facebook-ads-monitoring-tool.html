@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facebook Ads Monitoring Tool for DTC — Real-Time Alerts | crumplz</title>
+<meta name="description" content="The Facebook Ads monitoring tool built for DTC Shopify brands. crumplz detects ROAS drops, CPA spikes and budget drift every 2 hours — and sends the exact action to take via WhatsApp or Slack.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/facebook-ads-monitoring-tool">
+<meta property="og:title" content="Facebook Ads Monitoring Tool — Alerts Before Budget Burns | crumplz">
+<meta property="og:description" content="Stop checking dashboards. crumplz monitors your Facebook Ads every 2 hours and alerts you with the exact fix — before the damage compounds.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"crumplz","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Facebook Ads monitoring tool that detects ROAS drops, CPA spikes and budget drift every 2 hours for DTC Shopify brands.","featureList":["ROAS drop alerts","CPA spike detection","Budget drift warnings","MER cross-validation","WhatsApp and Slack notifications","Shopify integration"],"offers":{"@type":"AggregateOffer","lowPrice":"79","highPrice":"249","priceCurrency":"EUR"},"url":"https://crumplz.co"}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}.pain-box{padding:28px 22px;border-right:2px solid var(--ink)}.pain-box:last-child{border-right:0}.pain-grid.two-row{grid-template-columns:repeat(3,1fr)}@media(max-width:700px){.pain-grid .pain-box{border-right:0;border-bottom:2px solid var(--ink)}.pain-grid .pain-box:last-child{border-bottom:0}}.pain-box .pain-num{font-size:2.6rem;font-weight:900;letter-spacing:-.04em;color:var(--coral-deep);line-height:1;margin-bottom:8px}.pain-box h3{margin-bottom:8px;font-size:1.1rem}.pain-box p{font-size:.9rem;color:var(--ink-2)}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.how-steps{grid-template-columns:1fr}}.step{padding:26px 20px;border-right:2px solid var(--ink);position:relative}.step:last-child{border-right:0}@media(max-width:700px){.step{border-right:0;border-bottom:2px solid var(--ink)}.step:last-child{border-bottom:0}}.step-num{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:12px}.step h3{margin-bottom:8px;font-size:1.05rem}.step p{font-size:.88rem;color:var(--ink-2)}
+.alert-card{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin-top:36px;border:2px solid var(--ink);max-width:600px}.alert-card .alert-label{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}.alert-card .alert-title{font-size:1.3rem;font-weight:800;margin-bottom:10px}.alert-card .alert-body{font-size:.95rem;color:var(--on-ink-soft);line-height:1.7}.alert-card .alert-meta{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}.alert-card .alert-meta span{font-size:.8rem;font-weight:700;color:var(--on-ink-soft)}.alert-card .alert-meta span strong{color:var(--coral);font-weight:900}
+.vs-wrap{overflow-x:auto;margin-top:36px}.vs-table{width:100%;border-collapse:collapse;font-size:.95rem}.vs-table th,.vs-table td{padding:14px 16px;border:2px solid var(--ink);text-align:left}.vs-table th{background:var(--ink);color:var(--paper);font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.vs-table th:first-child{background:var(--paper);color:var(--ink)}.vs-table tr:nth-child(even) td{background:rgba(22,18,11,.03)}.vs-table td:first-child{font-weight:700;font-size:.88rem}.check{color:var(--pine);font-weight:800}.cross{color:var(--ink-faint);font-weight:700}.badge-w{display:inline-block;background:var(--coral);color:var(--ink);font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-left:5px;vertical-align:middle}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:36px}@media(max-width:700px){.feat-grid{grid-template-columns:1fr}}.feat-card{border:2px solid var(--ink);border-radius:10px;padding:26px 24px}.feat-card h3{margin-bottom:10px;font-size:1.1rem}.feat-card p{font-size:.9rem;color:var(--ink-2);line-height:1.6}
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}.price-box{padding:24px 20px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}.price-box .plan-name{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}.price-box .amount{font-size:2.3rem;font-weight:900;letter-spacing:-.04em;line-height:1}.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:4px;display:inline-block;font-weight:700}.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:12px}.price-box .feat-list li{font-size:.88rem;color:var(--ink-2);padding:4px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:7px}.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">Facebook Ads Monitoring Tool</span>
+    <h1>Stop checking. Start <em class="s">getting alerted.</em></h1>
+    <p class="lede">crumplz watches your Facebook Ads every 2 hours and sends you the exact action to take the moment ROAS drops, CPA spikes, or budget drifts — before the damage compounds.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start free — 3 min setup</a>
+      <a class="btn btn-ghost" href="index-en.html#how">See how it works</a>
+    </div>
+    <p class="microcopy">Read-only · No automation risk · WhatsApp, Slack, Email · GDPR</p>
+    <div class="badge-row">
+      <span>Checks every 2 hours</span><span>Avg detection: 4h17 faster</span><span>−19% wasted ad spend</span><span>Setup in 3 minutes</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The monitoring gap</span>
+      <h2>What happens <em class="s">without</em> a monitoring tool</h2>
+      <p class="lede" style="margin-top:14px">Facebook Ads performance degrades fast. Without a dedicated tool, you find out too late — every time.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-box">
+        <div class="pain-num">4h17</div>
+        <h3>Average detection delay</h3>
+        <p>The time between a ROAS drop starting and a DTC brand noticing it — when relying on manual dashboard checks.</p>
+      </div>
+      <div class="pain-box">
+        <div class="pain-num">€380</div>
+        <h3>Average loss per incident</h3>
+        <p>Budget burned on underperforming campaigns before corrective action is taken. Adds up across your ad accounts.</p>
+      </div>
+      <div class="pain-box">
+        <div class="pain-num">2h</div>
+        <h3>crumplz check cadence</h3>
+        <p>Every 2 hours, crumplz compares your live metrics to dynamic baselines and cross-validates with Shopify MER before alerting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What crumplz monitors</span>
+      <h2>Every metric that <em class="s">matters for DTC.</em></h2>
+      <p class="lede" style="margin-top:14px">Facebook's native tools show you data. crumplz tells you when something is wrong — and what to do about it.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <h3>ROAS drop detection</h3>
+        <p>crumplz establishes a dynamic baseline for each ad set and triggers an alert when ROAS falls outside the expected range — accounting for day-of-week and seasonal patterns.</p>
+      </div>
+      <div class="feat-card">
+        <h3>CPA spike alert</h3>
+        <p>When your cost per acquisition rises without a matching increase in revenue quality, crumplz surfaces the affected campaigns with a diagnostic reason: creative fatigue, audience exhaustion, or algorithm instability.</p>
+      </div>
+      <div class="feat-card">
+        <h3>CTR degradation warning</h3>
+        <p>A declining CTR is often the first sign of creative fatigue. crumplz catches it early — giving you time to refresh creatives before ROAS follows.</p>
+      </div>
+      <div class="feat-card">
+        <h3>MER cross-validation</h3>
+        <p>Before every alert, crumplz checks your Shopify Marketing Efficiency Ratio. If the drop in Facebook metrics is offset by other channels performing better, you won't receive a false alarm.</p>
+      </div>
+      <div class="feat-card">
+        <h3>Budget drift detection</h3>
+        <p>Ad spend that creeps above or below target is caught within hours. Whether it's a rogue campaign or an underspending ad set, crumplz flags it before the month-end reconciliation headache.</p>
+      </div>
+      <div class="feat-card">
+        <h3>Actionable alert format</h3>
+        <p>Every alert includes what drifted, by how much, for how long, and what to check first. No more digging through reports to understand whether to pause, adjust bid, or refresh creative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alert example</span>
+      <h2>What an alert <em class="s">actually looks like.</em></h2>
+      <p class="lede" style="margin-top:14px">Not a dashboard notification. A message you can act on immediately — wherever you are.</p>
+    </div>
+    <div class="alert-card">
+      <div class="alert-label">crumplz alert · Facebook Ads</div>
+      <div class="alert-title">⚠ ROAS drop detected — Retargeting — Women 25–34</div>
+      <div class="alert-body">ROAS has fallen from 3.8× to 2.1× over the last 6 hours. CPA is up +42% vs 7-day baseline. CTR down 18% — consistent with creative fatigue. Shopify MER is flat, confirming this is a Facebook-side issue.<br><br><strong>Suggested action:</strong> Pause top-spend creatives in this ad set and rotate in the backup variants prepared last week. Check frequency — it's at 4.7× which is above threshold.</div>
+      <div class="alert-meta">
+        <span>Ad account: <strong>Brand EU Main</strong></span>
+        <span>Detected: <strong>14:02</strong></span>
+        <span>Duration: <strong>~6h</strong></span>
+        <span>Est. impact: <strong>€190</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Monitoring options compared</span>
+      <h2>Native tools vs. <em class="s">dedicated monitoring.</em></h2>
+      <p class="lede" style="margin-top:14px">Facebook's built-in tools give you data. crumplz gives you alerts — at a fraction of the cost of a manual process.</p>
+    </div>
+    <div class="vs-wrap">
+      <table class="vs-table">
+        <thead>
+          <tr><th>Feature</th><th>Facebook Ads Manager</th><th>Manual checks</th><th>crumplz <span class="badge-w">Recommended</span></th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Automated monitoring</td><td class="cross">✗ Manual only</td><td class="cross">✗ Human-dependent</td><td class="check">✓ Every 2 hours</td></tr>
+          <tr><td>ROAS drop alert</td><td class="cross">✗ Rules only</td><td class="cross">✗ Delayed</td><td class="check">✓ Dynamic baseline</td></tr>
+          <tr><td>CPA spike detection</td><td class="cross">✗ Manual</td><td class="cross">✗ Hours late</td><td class="check">✓ With diagnosis</td></tr>
+          <tr><td>MER cross-validation</td><td class="cross">✗ No</td><td class="cross">✗ No</td><td class="check">✓ Shopify connected</td></tr>
+          <tr><td>WhatsApp / Slack alert</td><td class="cross">✗ No</td><td class="cross">✗ No</td><td class="check">✓ Instant</td></tr>
+          <tr><td>Actionable guidance</td><td class="cross">✗ Data only</td><td class="cross">✗ Analyst needed</td><td class="check">✓ Every alert</td></tr>
+          <tr><td>False positive filtering</td><td class="cross">✗ No</td><td class="cross">✗ No</td><td class="check">✓ MER-validated</td></tr>
+          <tr><td>Setup time</td><td>—</td><td>—</td><td class="check">✓ 3 minutes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From connect to alert <em class="s">in minutes.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz is read-only. It watches. It never touches your campaigns.</p>
+    </div>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Connect Facebook Ads</h3>
+        <p>Read-only OAuth connection. No write permissions. crumplz can never modify your campaigns, budget, or bids.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Connect Shopify</h3>
+        <p>Link your store so crumplz can cross-validate Facebook performance drops against overall MER before alerting.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>Set alert channels</h3>
+        <p>Choose WhatsApp, Slack, or email. You can enable multiple channels for the same alert if your team is distributed.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 04</div>
+        <h3>Get alerts when it matters</h3>
+        <p>Every 2 hours, crumplz runs its checks. If something drifts, you get a message with the exact action to take — nothing else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Pays for itself <em class="s">on the first alert.</em></h2>
+      <p class="lede" style="margin-top:14px">Average brands save €380 per incident caught early. crumplz starts at €79/month.</p>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <div class="plan-name">Starter</div>
+        <div class="amount"><span>€</span>79</div>
+        <div class="per">/ month · 1 ad account · under €10k spend</div>
+        <ul class="feat-list">
+          <li>ROAS, CPA, CTR monitoring</li>
+          <li>2-hour check cadence</li>
+          <li>WhatsApp + Email alerts</li>
+          <li>Shopify MER cross-validation</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <div class="plan-name">Growth</div>
+        <div class="amount"><span>€</span>149</div>
+        <div class="per">/ month · 3 ad accounts · €10k–50k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Starter</li>
+          <li>3 Facebook ad accounts</li>
+          <li>Slack integration</li>
+          <li>Multi-store Shopify</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <div class="plan-name">Pro</div>
+        <div class="amount"><span>€</span>249</div>
+        <div class="per">/ month · unlimited accounts · €50k–200k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited ad accounts</li>
+          <li>Team seats</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start monitoring — free trial</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions about <em class="s">Facebook Ads monitoring.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Does crumplz work with Facebook Business Manager?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. crumplz connects via the Meta Marketing API using standard OAuth. It works with any Business Manager setup including multiple ad accounts, agencies, and shared access configurations. The connection is read-only — crumplz cannot make changes to your account.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Is "Facebook Ads" the same as "Meta Ads" in crumplz?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes — entirely. Meta rebranded Facebook Ads as Meta Ads in 2021, but the underlying platform, API, and metrics are the same. crumplz monitors Meta Ads which covers campaigns running across Facebook, Instagram, Messenger and Audience Network.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">How is crumplz different from Facebook's built-in automated rules?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Facebook's automated rules trigger actions on your campaigns — pausing, adjusting bids, changing budgets. crumplz is a monitoring tool: it detects drifts, cross-validates with your Shopify MER, and sends you an actionable alert. You make the decision and take the action. This means no automation risk, no false positives pausing healthy campaigns, and always human judgment in the loop.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can crumplz monitor multiple Facebook ad accounts?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Yes. The Growth plan covers 3 ad accounts and the Pro plan covers unlimited ad accounts. Each account is monitored independently with its own dynamic baselines. Alerts are tagged by account so you always know which one is drifting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Get started</span>
+    <h2 style="margin-top:14px">Your Facebook Ads are running right now.<br><em class="s">Are they performing?</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect in 3 minutes. crumplz will have your first monitoring cycle done before you finish your next coffee.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Turn on monitoring</a>
+      <a class="btn btn-ghost" href="meta-ads-anomaly-detection.html">How anomaly detection works</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Comparisons</h4>
+        <a href="triple-whale-alternative.html">vs Triple Whale</a>
+        <a href="northbeam-alternative.html">vs Northbeam</a>
+        <a href="madgicx-alternative.html">vs Madgicx</a>
+        <a href="best-meta-ads-monitoring-tools.html">Best tools</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

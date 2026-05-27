@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Ad Spend Drift? How to Detect It Before It Burns Your Margin | crumplz</title>
+<meta name="description" content="Ad spend drift is the gradual or sudden deviation of Meta Ads performance from its baseline — costing DTC brands thousands before they notice. Learn what causes drift, how to detect it early, and how to stop it.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/what-is-ad-spend-drift">
+<meta property="og:title" content="What Is Ad Spend Drift? The Silent Budget Killer | crumplz">
+<meta property="og:description" content="Ad spend drift happens when your Meta Ads performance silently deviates from its baseline. Most DTC brands catch it 4+ hours too late. Here's what it is and how to stop it.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is Ad Spend Drift? How to Detect It Before It Burns Your Margin",
+  "description": "Ad spend drift is the gradual or sudden deviation of Meta Ads performance from its baseline. This article explains what causes drift, how it compounds, and how early-warning systems catch it.",
+  "author": {"@type": "Organization", "name": "crumplz"},
+  "publisher": {"@type": "Organization", "name": "crumplz", "url": "https://crumplz.co"},
+  "datePublished": "2026-05-01",
+  "url": "https://crumplz.co/what-is-ad-spend-drift"
+}
+</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--article-max:720px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}.wrap-article{max-width:var(--article-max);margin:0 auto;padding:0 24px}
+section{position:relative;padding:80px 0}@media(max-width:720px){section{padding:56px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3,h4{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.07}h1{font-weight:900;font-size:clamp(2.2rem,5vw,3.8rem)}h2{font-size:clamp(1.7rem,3.5vw,2.5rem)}h3{font-size:1.4rem;letter-spacing:-.015em}h4{font-size:1.12rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.18rem);max-width:54ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+/* Article hero */
+.article-hero{padding-top:140px;padding-bottom:56px;border-bottom:2px solid var(--ink)}
+.article-meta{display:flex;gap:20px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
+.article-meta time{font-size:.82rem;font-weight:700;color:var(--ink-faint)}
+.article-meta .tag{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--coral);color:var(--ink);padding:3px 8px;border-radius:4px}
+.article-hero h1{margin-bottom:22px}
+.article-hero .lede{font-size:clamp(1.06rem,1.7vw,1.22rem)}
+/* Article body */
+.article-body{padding:56px 0}
+.article-content p{color:var(--ink-2);margin-bottom:20px;font-size:1.02rem}
+.article-content h2{margin:44px 0 18px;padding-top:8px;border-top:2px solid var(--ink)}
+.article-content h3{margin:32px 0 14px}
+.article-content h4{margin:24px 0 10px}
+.article-content ul,
+.article-content ol{margin:16px 0 20px;padding-left:0}
+.article-content ul li,.article-content ol li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:var(--ink-2);font-size:1rem}
+.article-content ul li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0;margin-top:2px}
+.article-content ol{counter-reset:ol-counter}.article-content ol li{counter-increment:ol-counter}.article-content ol li::before{content:counter(ol-counter)".";color:var(--coral-deep);font-weight:900;flex-shrink:0;min-width:20px}
+.article-content blockquote{margin:28px 0;padding:20px 22px;border-left:4px solid var(--coral);background:var(--stone);border-radius:0 6px 6px 0}
+.article-content blockquote p{color:var(--ink);font-weight:700;font-size:1.06rem;margin-bottom:0}
+.article-content strong{color:var(--ink);font-weight:800}
+/* Callout box */
+.callout{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:24px 26px;margin:32px 0}
+.callout h4{color:var(--coral);margin-bottom:10px}.callout p{color:var(--on-ink-soft);font-size:.96rem}
+/* In-article CTA */
+.inline-cta{border:2px solid var(--ink);border-radius:10px;padding:28px;margin:40px 0;text-align:center}
+.inline-cta h3{margin-bottom:10px}.inline-cta p{color:var(--ink-2);font-size:.96rem;max-width:42ch;margin:0 auto 20px}
+/* Drift types table */
+.drift-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.94rem}
+.drift-table th,.drift-table td{padding:12px 14px;border:2px solid var(--ink);text-align:left;vertical-align:top}
+.drift-table th{background:var(--ink);color:var(--paper);font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.drift-table tr:nth-child(even) td{background:rgba(22,18,11,.03)}
+/* Footer */
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.94rem;color:var(--on-ink-soft);margin-bottom:10px;transition:color .15s}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html" aria-label="crumplz home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links" aria-label="Primary"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<section class="article-hero">
+  <div class="wrap-article">
+    <div class="article-meta">
+      <span class="tag">Ad spend drift</span>
+      <time datetime="2026-05">May 2026</time>
+    </div>
+    <h1>What is ad spend drift?<br><em class="s">And how do you catch it<br>before it burns your margin?</em></h1>
+    <p class="lede" style="margin-top:18px">Every day, DTC brands lose thousands in ad spend to a phenomenon they rarely name: ad spend drift. It's not a crash. It's not a bug. It's a quiet, compounding deviation that turns a healthy campaign into a money sink — and most teams don't notice for hours.</p>
+  </div>
+</section>
+
+<section class="article-body">
+  <div class="wrap-article">
+    <div class="article-content">
+
+      <h2>The definition: what is ad spend drift?</h2>
+      <p>Ad spend drift is the deviation of a paid advertising campaign's performance from its established baseline — in terms of ROAS, CPA, CTR, or MER — without a corresponding change in strategy, budget, or creative.</p>
+      <p>In other words: your campaign was performing at 3.8x ROAS yesterday. Today it's at 2.1x. You didn't change anything. The drift happened on its own — caused by factors outside your direct control, or by slow-moving decay inside the campaign that your dashboard didn't surface.</p>
+      <p>The key characteristic of ad spend drift is that it's <strong>silent</strong>. Unlike a payment failure, a tracking error, or a policy violation, drift doesn't generate an error message. Your campaign keeps running. Meta keeps charging. The money keeps leaving your account — just with lower return.</p>
+
+      <blockquote><p>"Every day, thousands of dollars go up in smoke. Dashboards don't warn you. crumplz does."</p></blockquote>
+
+      <h2>The two types of drift</h2>
+      <p>Ad spend drift manifests in two distinct patterns, each with different causes and different detection requirements:</p>
+
+      <table class="drift-table">
+        <thead>
+          <tr><th>Type</th><th>Pattern</th><th>Common causes</th><th>Detection window</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Velocity drift</strong></td>
+            <td>Sudden, large deviation within 2–6 hours</td>
+            <td>Algorithm instability, competitor surge, landing page failure, payment processor issue</td>
+            <td>Hours — requires real-time monitoring</td>
+          </tr>
+          <tr>
+            <td><strong>Trend drift</strong></td>
+            <td>Gradual, consistent directional movement over days</td>
+            <td>Creative fatigue, audience exhaustion, seasonal shifts, competition increase</td>
+            <td>Days — requires trend detection, not just threshold alerts</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Most alert tools only catch velocity drift — the dramatic sudden drop that crosses a static threshold. Trend drift, which often costs more in aggregate, goes unnoticed until it's deep.</p>
+
+      <h2>What causes ad spend drift on Meta?</h2>
+      <p>The most common causes of Meta Ads drift, roughly ordered by frequency:</p>
+      <ul>
+        <li><strong>Creative fatigue</strong> — your top creative stops resonating. CTR drops, cost-per-click rises, ROAS follows. Meta's algorithm keeps allocating budget to the creative it "knows" rather than the one currently performing.</li>
+        <li><strong>Audience exhaustion</strong> — your lookalike or retargeting audience has seen your ad too many times. Frequency rises, conversion rate drops, CPA climbs.</li>
+        <li><strong>Meta algorithm instability</strong> — especially post-learning phase exit, during budget changes, or when a competitor surges in the same auction. CPM rises, ROAS drops without any action from you.</li>
+        <li><strong>Landing page or checkout issues</strong> — a Shopify theme update, slow page load, or broken checkout step cuts your conversion rate. Meta keeps spending at the previous CPA assumption.</li>
+        <li><strong>External events</strong> — seasonality shifts, a news cycle in your product category, or a competitor promotion that redirects your audience's attention.</li>
+      </ul>
+
+      <h2>How much does ad spend drift cost?</h2>
+      <p>The cost of drift depends on three variables: the severity of the deviation, the speed of detection, and the daily ad spend level.</p>
+      <p>For a DTC brand spending €500/day on Meta Ads, a 40% ROAS drop that goes undetected for 4 hours costs roughly €80 in excess spend at below-target ROAS. Over a full day of detection delay — which is common when the drift starts on a weekend or evening — that's €200–€500 per incident.</p>
+      <p>Industry benchmark: <strong>average detection delay without an alert system is 4 hours 17 minutes. Average budget lost per drift incident is approximately €380.</strong> For brands spending €10k+/month, a single undetected weekend drift event can cost €1,000+.</p>
+      <p>Drift doesn't just cost money — it costs data. A campaign running off-baseline for hours produces distorted performance data that pollutes your future budget allocation decisions.</p>
+
+      <div class="callout">
+        <h4>The compounding problem</h4>
+        <p>Drift compounds. A ROAS drop reduces conversion data, which degrades Meta's algorithm optimization, which further reduces ROAS, which Meta keeps funding at full budget. Without intervention, a velocity drift can deepen into a trend drift within 24 hours.</p>
+      </div>
+
+      <h2>Why dashboards don't catch drift in time</h2>
+      <p>The core problem with dashboards — whether Meta Ads Manager, Triple Whale, or Northbeam — is that they're pull tools. They answer the question "what happened?" when you ask them. They don't answer "what's happening right now?" without you logging in.</p>
+      <p>Most DTC operators check their dashboards once or twice a day. Campaigns run 24/7. The window between when a drift starts and when it gets noticed is typically the period between your last check and your next one — which on a Saturday evening can be 14+ hours.</p>
+      <p>Even when you're in the dashboard, drift is hard to see without a baseline comparison. A ROAS of 2.1x looks fine in isolation. It looks alarming when you know yesterday's baseline was 3.8x. Most dashboards don't surface that comparison automatically — they show you the current number, not the deviation.</p>
+
+      <h2>What early detection of drift looks like</h2>
+      <p>Effective drift detection requires four things that static dashboard alerts typically don't provide:</p>
+      <ol>
+        <li><strong>Proactive monitoring</strong> — checks that happen on a schedule, not when you remember to look.</li>
+        <li><strong>Dynamic baselines</strong> — thresholds that account for your campaign's historical pattern, not fixed absolute values.</li>
+        <li><strong>Multi-metric correlation</strong> — combining ROAS, CPA, CTR and MER to distinguish real drift from statistical noise.</li>
+        <li><strong>Actionable context</strong> — not just a data point, but an indication of what the drift pattern suggests and what to do about it.</li>
+      </ol>
+      <p>An ideal early-warning system catches drift within 2 hours of it starting, cross-validates it against real revenue data (not just Meta's reported metrics, which can lag or over-attribute), and delivers the alert with a specific recommended response — not just a raw number that requires you to diagnose the cause yourself.</p>
+
+      <div class="inline-cta">
+        <h3>crumplz catches ad spend drift in under 2 hours</h3>
+        <p>Checks every 2 hours. Dynamic thresholds. Shopify MER cross-validation. WhatsApp, Slack or email — with the recommended action.</p>
+        <a class="btn btn-primary" href="index-en.html#pricing">Start free — 3 min setup</a>
+      </div>
+
+      <h2>How to detect ad spend drift yourself</h2>
+      <p>If you're not using an automated monitoring tool, here's a manual framework for drift detection:</p>
+      <ul>
+        <li><strong>Set a daily baseline</strong> — record your 7-day rolling average ROAS, CPA and CTR for each active campaign. This is your normal.</li>
+        <li><strong>Check twice daily</strong> — morning and afternoon. Weekend campaigns especially need mid-day checks.</li>
+        <li><strong>Cross-reference with Shopify</strong> — Meta's reported ROAS can lag. Check your actual Shopify revenue and MER daily to catch attribution gaps.</li>
+        <li><strong>Use percentage deviation, not absolute thresholds</strong> — "alert when CPA > €40" will miss drift on a campaign whose normal CPA is €38. "Alert when CPA is 25% above 7-day average" catches it.</li>
+        <li><strong>Monitor CTR alongside ROAS</strong> — a CTR drop often precedes a ROAS drop by 4–6 hours. Catching CTR drift first gives you a head start.</li>
+      </ul>
+      <p>The limitation of manual monitoring is obvious: it requires you to remember, to check regularly, and to compute deviations against baselines by hand. It fails on weekends, evenings, and any day you're heads-down on something else.</p>
+
+      <h2>The language of drift</h2>
+      <p>Ad spend drift is a relatively new framing for a problem that DTC operators have always felt but rarely named. The existing vocabulary — "performance dip," "CPA spike," "ROAS drop" — describes symptoms, not the underlying dynamic.</p>
+      <p>Calling it drift captures something the symptom language misses: it's directional, it's continuous, and it compounds if left unaddressed. A ROAS "drop" implies a discrete event. A ROAS "drift" implies an ongoing process that needs to be caught and stopped.</p>
+      <p>As automated monitoring tools become standard in DTC media buying, the language of drift — and early-warning for drift — will become the dominant frame for discussing Meta Ads performance monitoring.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center">
+    <div style="max-width:520px;margin:0 auto">
+      <h2>Stop finding out about drift<br><em class="s">after the budget's gone.</em></h2>
+      <p style="font-size:1.06rem;margin:18px auto 28px;max-width:44ch">crumplz catches ad spend drift in under 2 hours. Shopify cross-validated. Actionable alert. No dashboard to open.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><a class="btn btn-primary" href="index-en.html#pricing">Start free — no credit card</a><a class="btn btn-ghost" href="meta-ads-anomaly-detection.html" style="border-color:var(--ink)">How crumplz detects drift</a></div>
+      <p style="margin-top:14px;font-size:.84rem;font-weight:600">14-day trial · 3 min setup · WhatsApp, Slack or Email</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a><p>A lifeguard for your ad spend.</p></div>
+      <div class="foot-col"><h4>Learn</h4><a href="what-is-ad-spend-drift.html">What is ad spend drift?</a><a href="meta-ads-anomaly-detection.html">Anomaly detection</a><a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a></div>
+      <div class="foot-col"><h4>Compare</h4><a href="triple-whale-alternative.html">vs Triple Whale</a><a href="northbeam-alternative.html">vs Northbeam</a><a href="best-meta-ads-monitoring-tools.html">Best tools</a></div>
+      <div class="foot-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
+    </div>
+    <div class="foot-bot"><p>&copy; 2026 crumplz. All rights reserved.</p><p>Not another dashboard.</p></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+</script>
+</body>
+</html>

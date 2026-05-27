@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>crumplz — Alertes précoces pour vos campagnes Meta Ads</title>
+<meta name="description" content="crumplz surveille vos campagnes Meta Ads toutes les 2 heures, repère les dérives de ROAS, CPA, CTR et MER, et vous envoie une alerte actionnable sur WhatsApp, Slack ou email. Pas un dashboard de plus. Installation en 3 minutes.">
+<meta name="theme-color" content="#f6f4f1">
+<meta property="og:title" content="crumplz — Un maître-nageur pour votre budget pub">
+<meta property="og:description" content="Repérez la dérive avant qu'elle ne vous coûte cher. Alertes précoces pour vos Meta Ads, sur WhatsApp, Slack ou email.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3Cg stroke='%2316120b' stroke-width='2.6' stroke-linecap='round'%3E%3Cline x1='16' y1='3' x2='16' y2='8'/%3E%3Cline x1='16' y1='24' x2='16' y2='29'/%3E%3Cline x1='3' y1='16' x2='8' y2='16'/%3E%3Cline x1='24' y1='16' x2='29' y2='16'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper:#f6f4f1; --stone:#e4ded2; --stone-2:#d9d2c3;
+  --ink:#16120b; --ink-2:#46413a; --ink-faint:#635d50;
+  --coral:#f95c4b; --coral-deep:#cc3a22;
+  --petrol:#235650; --pine:#2f6e4b; --oxblood:#9e2b20; --slate:#2a5c79;
+  --on-ink:#f6f4f1; --on-ink-soft:#b6afa0;
+  --line:rgba(22,18,11,.14);
+  --wa-head:#075e54; --wa-bg:#e5ddd4; --wa-in:#ffffff; --wa-out:#d8fdd2;
+  --wa-tick:#34b3f1; --wa-link:#027eb5; --wa-meta:#667781; --wa-send:#00a884;
+  --max:1180px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --f-sans:'Work Sans',system-ui,sans-serif;
+  --f-serif:'Libre Baskerville',Georgia,serif;
+}
+/* ============ RESET ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--f-sans);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+ul{list-style:none}
+em{font-style:normal}
+::selection{background:var(--coral);color:var(--ink)}
+:focus-visible{outline:3px solid var(--slate);outline-offset:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:200}
+.skip:focus{left:0}
+/* ============ LAYOUT ============ */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{position:relative;padding:104px 0}
+@media(max-width:720px){section{padding:70px 0}}
+.sec-stone{background:var(--stone)}
+.sec-ink{background:var(--ink);color:var(--on-ink)}
+.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-sans);font-size:.74rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink);
+}
+.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}
+.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.03}
+h1{font-weight:900}
+h2{font-size:clamp(2.1rem,5vw,3.5rem)}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}
+.sec-ink em.s{color:var(--coral)}
+.sec-coral em.s{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.lede{color:var(--ink-2);font-size:clamp(1.04rem,1.5vw,1.22rem);max-width:48ch}
+.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{max-width:700px;margin-bottom:52px}
+.sec-head h2{margin-top:18px}
+.sec-head.mid{margin-inline:auto;text-align:center}
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--f-sans);font-weight:700;
+  font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);
+  transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s;
+}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-primary:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}
+.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.sec-coral .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(22,18,11,.35)}
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}
+.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--f-sans);font-weight:900;font-size:1.4rem;letter-spacing:-.04em}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;gap:30px}
+.nav-links a{font-size:.95rem;font-weight:600;position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2.5px;background:var(--coral);transition:width .22s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-cta .login{font-size:.95rem;font-weight:600}
+.nav-cta .login:hover{color:var(--coral-deep)}
+.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+.mobile-menu{display:none;flex-direction:column;padding:12px 24px 22px;background:var(--paper);border-bottom:2px solid var(--ink)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:13px 4px;font-weight:600;border-bottom:1px solid var(--line)}
+.mobile-menu .btn{margin-top:16px;justify-content:center}
+@media(max-width:900px){
+  .nav-links,.nav-cta .login,.nav-cta .btn{display:none}
+  .burger{display:flex}
+}
+/* ============ HERO ============ */
+.hero{padding-top:150px;padding-bottom:90px}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,6.2vw,5.1rem);margin:22px 0 24px}
+.hero .lede{max-width:42ch;font-size:clamp(1.06rem,1.7vw,1.3rem)}
+.hero-cta{display:flex;gap:14px;margin:30px 0 16px;flex-wrap:wrap}
+.microcopy{font-size:.84rem;font-weight:600;color:var(--ink-faint)}
+.trust{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:30px;padding-top:24px;border-top:2px solid var(--ink)}
+.trust span{font-size:.76rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:7px}
+.trust span::before{content:"";width:7px;height:7px;background:var(--pine);border-radius:50%}
+.hero-visual{position:relative;display:flex;justify-content:center}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:54px}
+  .hero{padding-top:120px}
+  .hero .lede{max-width:50ch}
+}
+/* ============ WHATSAPP PHONE ============ */
+.phone{
+  width:328px;flex-shrink:0;background:var(--ink);border-radius:44px;padding:11px;
+  box-shadow:14px 16px 0 rgba(22,18,11,.16);transform:rotate(-2.4deg);
+}
+.phone-screen{border-radius:34px;overflow:hidden;background:var(--wa-bg);position:relative}
+.wa-status{background:var(--wa-head);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:7px 20px 3px;font-size:.72rem;font-weight:700}
+.wa-status .sig{display:flex;gap:4px;align-items:center}
+.wa-status .sig span{width:4px;height:8px;background:#fff;border-radius:1px;display:block}
+.wa-status .bat{width:22px;height:11px;border:1.5px solid #fff;border-radius:3px;position:relative;display:flex;padding:1.5px}
+.wa-status .bat::after{content:"";width:2px;height:5px;background:#fff;position:absolute;right:-4px;top:2px;border-radius:0 2px 2px 0}
+.wa-status .bat i{background:#fff;width:72%;border-radius:1px}
+.wa-head{background:var(--wa-head);color:#fff;display:flex;align-items:center;gap:11px;padding:8px 14px 12px}
+.wa-head .chev{font-size:1.4rem;line-height:1;opacity:.95}
+.wa-av{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-av svg{width:27px;height:27px}
+.wa-id{flex:1;min-width:0}
+.wa-id .nm{font-weight:700;font-size:.96rem;line-height:1.2}
+.wa-id .on{font-size:.72rem;opacity:.85}
+.wa-head .ic{display:flex;gap:18px;opacity:.95}
+.wa-head .ic svg{width:19px;height:19px}
+.wa-chat{padding:16px 12px 12px;display:flex;flex-direction:column;gap:9px;
+  background-image:linear-gradient(rgba(229,221,212,.5),rgba(229,221,212,.5));min-height:330px}
+.wa-day{align-self:center;background:#fff;color:var(--wa-meta);font-size:.66rem;font-weight:700;
+  padding:5px 12px;border-radius:8px;box-shadow:0 1px 1px rgba(0,0,0,.08);letter-spacing:.04em}
+.bubble{max-width:84%;padding:8px 9px 6px;border-radius:11px;font-size:.83rem;line-height:1.45;
+  position:relative;box-shadow:0 1px 1.5px rgba(0,0,0,.13)}
+.bubble.in{background:var(--wa-in);align-self:flex-start;border-top-left-radius:3px;color:#1c2733}
+.bubble.out{background:var(--wa-out);align-self:flex-end;border-top-right-radius:3px;color:#1c2733}
+.bubble.in::before{content:"";position:absolute;top:0;left:-7px;border:7px solid transparent;
+  border-top-color:var(--wa-in);border-right:0}
+.bubble.out::before{content:"";position:absolute;top:0;right:-7px;border:7px solid transparent;
+  border-top-color:var(--wa-out);border-left:0}
+.wa-alert .ttl{display:flex;align-items:center;gap:5px;color:var(--oxblood);font-weight:800;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
+.wa-alert .ttl svg{width:12px;height:12px}
+.wa-alert .big{font-weight:800;font-size:1.18rem;margin:5px 0 1px;letter-spacing:-.02em;color:#111b21}
+.wa-alert .sub{color:var(--wa-meta);font-size:.74rem;font-weight:600}
+.wa-alert .rec{margin-top:7px;padding-top:7px;border-top:1px solid #e9edef}
+.wa-alert .rec b{font-weight:800}
+.wa-time{font-size:.62rem;color:var(--wa-meta);font-weight:600;text-align:right;margin-top:3px;
+  display:flex;align-items:center;justify-content:flex-end;gap:3px}
+.wa-time svg{width:15px;height:15px}
+.wa-btns{margin:7px -9px -6px;border-top:1px solid #e9edef}
+.wa-btns button{width:100%;padding:9px;display:flex;align-items:center;justify-content:center;gap:6px;
+  color:var(--wa-link);font-weight:700;font-size:.8rem;border-bottom:1px solid #e9edef}
+.wa-btns button:last-child{border-bottom:0}
+.wa-btns svg{width:14px;height:14px}
+.wa-input{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--wa-bg)}
+.wa-input .field{flex:1;background:#fff;border-radius:20px;padding:9px 14px;color:var(--wa-meta);
+  font-size:.8rem;display:flex;align-items:center;gap:8px}
+.wa-input .send{width:38px;height:38px;border-radius:50%;background:var(--wa-send);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.wa-input .send svg{width:18px;height:18px}
+.flag{position:absolute;background:var(--paper);border:2px solid var(--ink);border-radius:9px;
+  font-size:.73rem;font-weight:700;padding:8px 12px;display:flex;align-items:center;gap:7px;
+  box-shadow:3px 3px 0 var(--ink);z-index:3}
+.flag.f1{top:8px;right:-6px;transform:rotate(3deg)}
+.flag.f2{bottom:26px;left:-22px;transform:rotate(-4deg)}
+.flag .dot{width:8px;height:8px;border-radius:50%;background:var(--pine)}
+.flag.f2 .dot{background:var(--coral)}
+@media(max-width:380px){.phone{width:300px}}
+/* ============ MARQUEE ============ */
+.marquee{overflow:hidden;padding:16px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.marquee-row{display:flex;gap:34px;width:max-content;animation:scroll 32s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee:hover .marquee-row{animation-play-state:paused}
+.marquee-row span{font-family:var(--f-sans);font-weight:800;font-size:1.05rem;text-transform:uppercase;
+  letter-spacing:.02em;display:flex;align-items:center;gap:34px;color:var(--on-ink)}
+.marquee-row span::after{content:"";width:9px;height:9px;background:var(--coral);flex-shrink:0}
+/* ============ PROBLEM ============ */
+.problem-grid{display:grid;grid-template-columns:1fr .82fr;gap:56px;align-items:center}
+.problem h2{margin:18px 0 20px}
+.kicker{margin-top:22px;font-family:var(--f-serif);font-style:italic;font-size:1.3rem;color:var(--on-ink)}
+.kicker b{font-style:normal;font-family:var(--f-sans);font-weight:800;color:var(--coral)}
+.burn{
+  background:#0f0c07;border:2px solid var(--coral);border-radius:16px;padding:38px 30px;text-align:center;
+  position:relative;overflow:hidden;box-shadow:10px 10px 0 rgba(249,92,75,.25);
+}
+.burn::before{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(249,92,75,.34),transparent 72%)}
+.burn-l{position:relative;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.burn-n{position:relative;font-family:var(--f-sans);font-weight:900;letter-spacing:-.04em;
+  font-size:clamp(2.8rem,7.4vw,4.6rem);line-height:1;margin:12px 0 6px;color:var(--coral);
+  font-variant-numeric:tabular-nums}
+.burn-c{position:relative;font-size:.82rem;color:var(--on-ink-soft);font-weight:500}
+.ember{position:absolute;bottom:34%;width:5px;height:5px;border-radius:50%;background:var(--coral);opacity:0;animation:rise 3.6s infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(1)}16%{opacity:.95}100%{opacity:0;transform:translateY(-140px) scale(.2)}}
+@media(max-width:820px){.problem-grid{grid-template-columns:1fr;gap:40px}}
+/* ============ STEPS ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:28px 24px;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.step:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--coral)}
+.step-n{font-family:var(--f-serif);font-style:italic;font-size:1.5rem;color:var(--coral-deep)}
+.step-ic{width:50px;height:50px;border:2px solid var(--ink);border-radius:11px;display:flex;
+  align-items:center;justify-content:center;margin:14px 0 15px;background:var(--coral)}
+.step-ic svg{width:26px;height:26px;stroke:var(--ink)}
+.step h3{font-size:1.32rem;margin-bottom:8px}
+.step p{color:var(--ink-2);font-size:.96rem}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+/* ============ PRODUCT ============ */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.prod+.prod{margin-top:48px}
+.prod.rev .ptext{order:2}
+.ptext h3{font-size:clamp(1.6rem,3vw,2.2rem);margin:14px 0 13px}
+.ptext p{color:var(--ink-2);margin-bottom:16px}
+.flist li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;font-size:.97rem;font-weight:500}
+.flist li::before{content:"";flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--coral);
+  border:2px solid var(--ink);margin-top:1px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2316120b' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center}
+.chart-card{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:22px;
+  box-shadow:8px 8px 0 var(--ink)}
+.chart-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;
+  font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.chart-top .ok{color:var(--pine)}
+.chart-legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.chart-legend span{font-size:.72rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.lg{width:14px;height:4px;border-radius:2px}
+/* product whatsapp mini bubbles */
+.wa-strip{display:flex;flex-direction:column;gap:11px}
+.mini{max-width:90%;background:var(--wa-in);border:2px solid var(--ink);border-radius:12px;
+  border-top-left-radius:4px;padding:13px 15px;box-shadow:5px 5px 0 var(--ink)}
+.mini .m-top{display:flex;align-items:center;gap:6px;font-size:.64rem;font-weight:800;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--oxblood)}
+.mini .m-top svg{width:13px;height:13px}
+.mini .m-metric{font-weight:900;font-size:1.15rem;margin:5px 0 2px;letter-spacing:-.02em}
+.mini .m-act{font-size:.9rem;color:var(--ink-2)}
+.mini .m-act b{color:var(--ink);font-weight:800}
+.mini .m-time{font-size:.66rem;color:var(--wa-meta);font-weight:600;text-align:right;margin-top:5px}
+@media(max-width:820px){.prod,.prod.rev .ptext{grid-template-columns:1fr;order:0}.prod{gap:32px}}
+/* ============ DIFFERENTIATORS ============ */
+.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.diff{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:30px 28px;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.diff:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.diff-ic{width:48px;height:48px;border:2px solid var(--ink);border-radius:11px;display:flex;
+  align-items:center;justify-content:center;margin-bottom:16px;background:var(--stone)}
+.diff-ic svg{width:24px;height:24px;stroke:var(--ink)}
+.diff h3{font-size:1.28rem;margin-bottom:8px}
+.diff p{color:var(--ink-2);font-size:.96rem}
+@media(max-width:720px){.diff-grid{grid-template-columns:1fr}}
+/* ============ SOCIAL PROOF ============ */
+.stats{display:flex;gap:20px;margin-bottom:42px;flex-wrap:wrap}
+.stat{flex:1;min-width:210px;background:var(--ink);color:var(--on-ink);border-radius:14px;padding:30px 30px}
+.stat:nth-child(2){background:var(--coral);color:var(--ink)}
+.stat-n{font-family:var(--f-sans);font-weight:900;font-size:clamp(2.8rem,5.4vw,3.8rem);
+  letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat-l{font-size:.96rem;font-weight:600;margin-top:6px}
+.stat:nth-child(1) .stat-l{color:var(--on-ink-soft)}
+.quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.quote{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:24px 22px;
+  display:flex;flex-direction:column}
+.quote p{font-family:var(--f-serif);font-style:italic;font-size:.97rem;line-height:1.55;flex:1;color:var(--ink)}
+.q-by{display:flex;align-items:center;gap:11px;margin-top:18px;padding-top:15px;border-top:2px solid var(--ink)}
+.q-av{width:40px;height:40px;border-radius:9px;border:2px solid var(--ink);flex-shrink:0;display:flex;
+  align-items:center;justify-content:center;font-weight:900;font-size:1rem;color:var(--ink)}
+.q-nm{font-weight:800;font-size:.92rem}
+.q-rl{font-size:.74rem;font-weight:500;color:var(--ink-faint)}
+@media(max-width:980px){.quotes{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.quotes{grid-template-columns:1fr}}
+/* ============ INTEGRATIONS ============ */
+.integ{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.icard{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:26px 24px;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.icard:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.icard-ic{width:52px;height:52px;border:2px solid var(--ink);border-radius:12px;display:flex;
+  align-items:center;justify-content:center;margin-bottom:15px}
+.icard-ic svg{width:27px;height:27px}
+.icard h3{font-size:1.18rem;margin-bottom:7px}
+.icard p{color:var(--ink-2);font-size:.93rem}
+.icard .ro{margin-top:11px;font-size:.74rem;font-weight:700;color:var(--pine);display:flex;align-items:center;gap:6px}
+.icard .ro svg{width:14px;height:14px}
+.sec-strip{display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;margin-top:28px;
+  padding:16px;border:2px solid var(--ink);border-radius:12px;background:var(--paper)}
+.sec-strip span{font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:7px}
+.sec-strip svg{width:16px;height:16px;stroke:var(--pine)}
+@media(max-width:820px){.integ{grid-template-columns:1fr}}
+/* ============ PRICING ============ */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.price{background:var(--paper);border:2px solid var(--ink);border-radius:16px;padding:30px 26px;position:relative}
+.price.pop{background:var(--ink);color:var(--on-ink);box-shadow:9px 9px 0 var(--coral)}
+.pop-tag{position:absolute;top:-15px;left:26px;background:var(--coral);color:var(--ink);
+  border:2px solid var(--ink);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:7px}
+.price-nm{font-weight:800;font-size:1.15rem}
+.price-am{font-family:var(--f-sans);font-weight:900;font-size:2.7rem;letter-spacing:-.04em;margin:12px 0 2px}
+.price-am span{font-size:.95rem;font-weight:600;color:var(--ink-faint)}
+.price.pop .price-am span{color:var(--on-ink-soft)}
+.price-for{font-size:.86rem;font-weight:500;color:var(--ink-2);min-height:40px}
+.price.pop .price-for{color:var(--on-ink-soft)}
+.price-feats{margin:18px 0 22px;border-top:2px solid currentColor;padding-top:18px}
+.price-feats li{display:flex;gap:9px;padding:6px 0;font-size:.9rem;font-weight:500}
+.price-feats svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:var(--coral)}
+.price .btn{width:100%;justify-content:center}
+.price.pop .btn-ghost{color:var(--paper);border-color:var(--paper)}
+.price.pop .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.reassure{display:flex;flex-wrap:wrap;gap:9px 16px;justify-content:center;margin-top:30px}
+.reassure span{font-size:.78rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:7px}
+.reassure span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+@media(max-width:880px){.price-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}.price.pop{order:-1}}
+/* ============ FAQ ============ */
+.faq-wrap{max-width:760px;margin:0 auto;border-top:2px solid var(--ink)}
+.faq-item{border-bottom:2px solid var(--ink)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:22px 2px;text-align:left;font-family:var(--f-sans);font-weight:800;font-size:1.08rem}
+.faq-q:hover{color:var(--coral-deep)}
+.faq-ic{width:28px;height:28px;flex-shrink:0;background:var(--coral);border:2px solid var(--ink);
+  border-radius:7px;position:relative;transition:transform .3s var(--ease)}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;top:50%;left:50%;width:11px;height:2.4px;
+  background:var(--ink);transform:translate(-50%,-50%)}
+.faq-ic::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s var(--ease)}
+.faq-item.open .faq-ic{transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .34s var(--ease)}
+.faq-a-in{padding:0 2px 24px;color:var(--ink-2);font-size:.99rem;max-width:62ch}
+/* ============ FINAL ============ */
+.final-box{text-align:center;max-width:800px;margin:0 auto}
+.final-box h2{font-size:clamp(2.1rem,5.2vw,3.8rem);margin-bottom:14px}
+.final-box .lede{margin:0 auto 26px;color:var(--ink);font-weight:500}
+.final-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.final-box .microcopy{color:rgba(22,18,11,.7)}
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:34px;margin-bottom:44px}
+.foot-brand .logo{color:var(--on-ink);margin-bottom:13px}
+.foot-brand p{color:var(--on-ink-soft);font-size:.93rem;max-width:32ch;font-family:var(--f-serif);font-style:italic}
+.foot-col h4{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--coral);margin-bottom:14px}
+.foot-col a{display:block;color:var(--on-ink-soft);font-size:.93rem;padding:5px 0}
+.foot-col a:hover{color:var(--on-ink)}
+.foot-bot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:24px;
+  border-top:1px solid rgba(246,244,241,.16);font-size:.78rem;color:var(--on-ink-soft);font-weight:500}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .marquee-row,.ember{animation:none}
+  .phone{transform:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div id="nav-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:80px;pointer-events:none"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="Accueil crumplz">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
+        <circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/>
+        <g stroke="#16120b" stroke-width="2.7" stroke-linecap="round">
+          <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
+          <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
+        </g>
+      </svg>
+      crumplz
+    </a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="#how">Comment ça marche</a>
+      <a href="#product">Produit</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="#">Connexion</a>
+      <a class="btn btn-primary" href="#pricing">Activer les alertes</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how">Comment ça marche</a>
+    <a href="#product">Produit</a>
+    <a href="#pricing">Tarifs</a>
+    <a href="#faq">FAQ</a>
+    <a href="#">Connexion</a>
+    <a class="btn btn-primary" href="#pricing">Activer les alertes</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow reveal">Alerte précoce pour vos campagnes Meta Ads</span>
+      <h1 id="hero-h" class="reveal" data-d="1">Repérez la <em class="s">dérive</em> avant qu&rsquo;elle ne vous coûte cher.</h1>
+      <p class="lede reveal" data-d="2">Vos campagnes Meta plantent sans prévenir. crumplz les surveille toutes les 2 heures, repère la dérive et vous dit exactement quoi faire. Pas un dashboard de plus. Un maître-nageur pour votre budget pub.</p>
+      <div class="hero-cta reveal" data-d="3">
+        <a class="btn btn-primary" href="#pricing">Activer les alertes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#how">Voir comment ça marche</a>
+      </div>
+      <p class="microcopy reveal" data-d="3">Installation en 3 minutes. Accès en lecture seule. Sans engagement.</p>
+      <div class="trust reveal" data-d="3">
+        <span>Se connecte à Meta Ads + Shopify</span>
+        <span>Lecture seule</span>
+        <span>Hébergement UE</span>
+        <span>Conforme RGPD</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal" data-d="2">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-status">
+            <span>9:24</span>
+            <span class="sig"><span style="height:5px"></span><span style="height:7px"></span><span style="height:9px"></span><span style="height:11px"></span><i class="bat"><i style="display:block"></i></i></span>
+          </div>
+          <div class="wa-head">
+            <span class="chev" aria-hidden="true">&#8249;</span>
+            <div class="wa-av">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
+                <circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/>
+                <g stroke="#16120b" stroke-width="2.7" stroke-linecap="round">
+                  <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
+                  <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
+                </g>
+              </svg>
+            </div>
+            <div class="wa-id">
+              <div class="nm">crumplz</div>
+              <div class="on">en ligne</div>
+            </div>
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+            </div>
+          </div>
+          <div class="wa-chat">
+            <span class="wa-day">AUJOURD&rsquo;HUI</span>
+            <div class="bubble in wa-alert">
+              <div class="ttl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+                Dérive détectée
+              </div>
+              <div class="big">CPA +42%</div>
+              <div class="sub">Campagne &laquo;&nbsp;Summer Launch&nbsp;&raquo; &middot; vs référence 7 jours</div>
+              <div class="rec">Recommandé : <b>couper le budget de &minus;30% pendant 12h</b>, puis revérifier.</div>
+              <div class="wa-btns">
+                <button type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+                  Ouvrir la campagne
+                </button>
+                <button type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                  Reporter 2h
+                </button>
+              </div>
+              <div class="wa-time">09:24</div>
+            </div>
+            <div class="bubble out">
+              Fait. &minus;30% coupé.
+              <div class="wa-time">09:25
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--wa-tick)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 12.5 7 17.5 14 8"/><polyline points="10 17.5 17 8"/></svg>
+              </div>
+            </div>
+            <div class="bubble in">
+              On garde un œil. Prochaine vérif dans 2h.
+              <div class="wa-time">09:25</div>
+            </div>
+          </div>
+          <div class="wa-input">
+            <div class="field">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              Message
+            </div>
+            <div class="send">
+              <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flag f1"><span class="dot"></span>Vérifié il y a 14 min</div>
+      <div class="flag f2"><span class="dot"></span>Hémorragie stoppée en 2 taps</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee sec-ink" aria-hidden="true">
+  <div class="marquee-row">
+    <span>ROAS qui glisse<span></span>CPA qui grimpe<span></span>CTR qui faiblit<span></span>MER qui dérive<span></span>Budget qui fuit<span></span>Fatigue d&rsquo;audience<span></span>Usure créa<span></span>ROAS qui glisse<span></span>CPA qui grimpe<span></span>CTR qui faiblit<span></span>MER qui dérive<span></span>Budget qui fuit<span></span>Fatigue d&rsquo;audience<span></span>Usure créa</span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem sec-ink" aria-labelledby="prob-h">
+  <div class="wrap problem-grid">
+    <div>
+      <span class="eyebrow reveal">L&rsquo;angle mort</span>
+      <h2 id="prob-h" class="reveal" data-d="1">Chaque jour, des milliers d&rsquo;euros partent en <em class="s">fumée</em>.</h2>
+      <p class="lede reveal" data-d="2">Le ROAS chute de moitié. Le CPA s&rsquo;envole. Le CTR s&rsquo;effrite. Et personne ne voit rien pendant des heures, parce qu&rsquo;un dashboard montre le passé, pas le danger. Quand vous l&rsquo;ouvrez, l&rsquo;argent est déjà parti.</p>
+      <p class="kicker reveal" data-d="2">Les dashboards ne vous alertent pas. <b>crumplz, si.</b></p>
+    </div>
+    <div class="burn reveal" data-d="1">
+      <span class="ember" style="left:24%;animation-delay:0s"></span>
+      <span class="ember" style="left:44%;animation-delay:1.2s"></span>
+      <span class="ember" style="left:60%;animation-delay:2.1s"></span>
+      <span class="ember" style="left:76%;animation-delay:.7s"></span>
+      <div class="burn-l">Budget qui brûle pendant que personne ne regarde</div>
+      <div class="burn-n" id="burnNum" data-target="12480">0&nbsp;&euro;</div>
+      <div class="burn-c">Illustratif. Chaque heure où une dérive passe inaperçue, la facture grimpe.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="sec-stone" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Comment ça marche</span>
+      <h2 id="how-h" class="reveal" data-d="1">Vous développez. <em class="s">On veille.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal" data-d="1">
+        <div class="step-n">01</div>
+        <div class="step-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7V3M15 7V3"/><path d="M7 7h10v4a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></svg>
+        </div>
+        <h3>Connecter</h3>
+        <p>Branchez Meta Ads et Shopify. Lecture seule, permissions minimales. C&rsquo;est fait en moins de 3 minutes.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="step-n">02</div>
+        <div class="step-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>On surveille</h3>
+        <p>crumplz vérifie ROAS, CPA, CTR et MER toutes les 2 heures, jour et nuit. Le tout recoupé avec votre vrai revenu Shopify.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step-n">03</div>
+        <div class="step-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+        </div>
+        <h3>Vous agissez</h3>
+        <p>Dès qu&rsquo;une dérive démarre, vous recevez un message sur WhatsApp, Slack ou email. Il vous dit ce qui cloche et quoi faire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT ============ -->
+<section id="product" aria-labelledby="prod-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Le produit</span>
+      <h2 id="prod-h" class="reveal" data-d="1">Pas de boîte noire. Juste un <em class="s">maître-nageur</em> pour vos Meta Ads.</h2>
+    </div>
+
+    <div class="prod">
+      <div class="ptext reveal" data-d="1">
+        <span class="eyebrow">Anomaly Engine</span>
+        <h3>Il apprend ce qui est normal. Et ce qui ne l&rsquo;est pas.</h3>
+        <p>crumplz apprend le rythme normal de chaque campagne et fixe ses seuils en conséquence. Il les recoupe avec votre revenu et votre AOV Shopify réels, pour qu&rsquo;un bon pic de ventes ne déclenche jamais de fausse alerte.</p>
+        <ul class="flist">
+          <li>Des seuils propres à chaque campagne et à son historique</li>
+          <li>Le recoupement avec Shopify écarte les fausses alertes</li>
+          <li>Le MER, votre vraie vue sur la marge</li>
+        </ul>
+      </div>
+      <div class="chart-card reveal" data-d="2">
+        <div class="chart-top">
+          <span>MER &middot; dernières 24h</span>
+          <span class="ok">Rattrapé à 14:00</span>
+        </div>
+        <svg viewBox="0 0 480 210" role="img" aria-label="Graphique montrant le MER qui dérive vers le bas avant que crumplz ne le rattrape et qu'il se rétablisse">
+          <defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="rgba(249,92,75,.28)"/><stop offset="1" stop-color="rgba(249,92,75,0)"/>
+          </linearGradient></defs>
+          <g stroke="rgba(22,18,11,.1)" stroke-width="1">
+            <line x1="0" y1="52" x2="480" y2="52"/><line x1="0" y1="104" x2="480" y2="104"/><line x1="0" y1="156" x2="480" y2="156"/>
+          </g>
+          <path d="M0,88 L48,82 L96,94 L144,80 L192,92 L240,86 L260,96 L300,128 L340,158 L360,174 L360,210 L0,210 Z" fill="url(#fl)"/>
+          <path d="M0,88 L48,82 L96,94 L144,80 L192,92 L240,86 L260,96" fill="none" stroke="#16120b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M260,96 L300,128 L340,158 L360,174" fill="none" stroke="#f95c4b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M360,174 L404,162 L444,152 L480,148" fill="none" stroke="#2f6e4b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="360" y1="30" x2="360" y2="174" stroke="rgba(47,110,75,.5)" stroke-width="1.4" stroke-dasharray="4 4"/>
+          <circle cx="360" cy="174" r="10" fill="none" stroke="#2f6e4b" stroke-width="2.4"><animate attributeName="r" values="6;13;6" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.6s" repeatCount="indefinite"/></circle>
+          <circle cx="360" cy="174" r="5.5" fill="#2f6e4b"/>
+          <text x="350" y="22" fill="#2f6e4b" font-family="Work Sans,sans-serif" font-size="12" font-weight="700" text-anchor="end">crumplz a rattrapé</text>
+        </svg>
+        <div class="chart-legend">
+          <span><span class="lg" style="background:#16120b"></span>Stable</span>
+          <span><span class="lg" style="background:#f95c4b"></span>Dérive</span>
+          <span><span class="lg" style="background:#2f6e4b"></span>Après l&rsquo;alerte</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod rev">
+      <div class="ptext reveal" data-d="1">
+        <span class="eyebrow">Actionable Alert</span>
+        <h3>Chaque alerte se termine par un <em class="s">geste</em>.</h3>
+        <p>Pas un vague &laquo;&nbsp;quelque chose cloche&nbsp;&raquo;. crumplz vous dit ce qui dérive et le geste exact à faire. Une instruction concrète, applicable en deux taps, sans quitter WhatsApp.</p>
+      </div>
+      <div class="wa-strip reveal" data-d="2">
+        <div class="mini">
+          <div class="m-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Dérive détectée</div>
+          <div class="m-metric">CPA +42%</div>
+          <div class="m-act">Coupez le budget de <b>&minus;30%</b> pendant 12h. Ouvrir la campagne.</div>
+          <div class="m-time">via WhatsApp &middot; 09:24</div>
+        </div>
+        <div class="mini" style="margin-left:auto">
+          <div class="m-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Dérive détectée</div>
+          <div class="m-metric">ROAS &minus;35%</div>
+          <div class="m-act">Mettez en pause les placements <b>Audience Network</b>. Test 24h.</div>
+          <div class="m-time">via Slack &middot; 11:00</div>
+        </div>
+        <div class="mini">
+          <div class="m-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Dérive détectée</div>
+          <div class="m-metric">CTR &minus;28%</div>
+          <div class="m-act">Renouvelez les créas. <b>Relancez votre top 3 d&rsquo;annonces.</b></div>
+          <div class="m-time">via Email &middot; 13:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATORS ============ -->
+<section class="sec-stone" aria-labelledby="diff-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Pourquoi crumplz</span>
+      <h2 id="diff-h" class="reveal" data-d="1">Conçu pour les opérateurs, <em class="s">pas pour les analystes.</em></h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff reveal" data-d="1">
+        <div class="diff-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>L&rsquo;alerte vient à vous</h3>
+        <p>Aucun dashboard à materner. crumplz vous écrit sur WhatsApp, Slack ou email. Vous n&rsquo;ouvrez rien.</p>
+      </div>
+      <div class="diff reveal" data-d="2">
+        <div class="diff-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+        </div>
+        <h3>Une action, pas un chiffre</h3>
+        <p>Chaque alerte se termine par un geste, couper, mettre en pause, renouveler. Vous décidez, crumplz ne touche jamais à vos campagnes.</p>
+      </div>
+      <div class="diff reveal" data-d="1">
+        <div class="diff-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-5 4 3 5-7"/></svg>
+        </div>
+        <h3>La marge, pas les apparences</h3>
+        <p>Le MER croise la donnée Meta avec le revenu et l&rsquo;AOV Shopify réels. Vous suivez le profit réel, pas un beau ROAS qui ment.</p>
+      </div>
+      <div class="diff reveal" data-d="2">
+        <div class="diff-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>De garde, même la nuit</h3>
+        <p>Vérification toutes les 2 heures, 24/7. Les agences dorment. crumplz, non.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section aria-labelledby="proof-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Des opérateurs comme vous</span>
+      <h2 id="proof-h" class="reveal" data-d="1">Ce qui change, une fois crumplz <em class="s">de votre côté.</em></h2>
+    </div>
+    <div class="stats">
+      <div class="stat reveal" data-d="1">
+        <div class="stat-n"><span id="st1" data-target="137">+0</span>&nbsp;%</div>
+        <div class="stat-l">de rapidité de réaction</div>
+      </div>
+      <div class="stat reveal" data-d="2">
+        <div class="stat-n">&minus;<span id="st2" data-target="19">0</span>&nbsp;%</div>
+        <div class="stat-l">de budget gaspillé</div>
+      </div>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal" data-d="1">
+        <p>&laquo;&nbsp;L&rsquo;alerte WhatsApp est arrivée avant que le ROAS ne plonge. Deux taps et l&rsquo;hémorragie s&rsquo;est arrêtée.&nbsp;&raquo;</p>
+        <div class="q-by">
+          <div class="q-av" style="background:#e4ded2">M</div>
+          <div><div class="q-nm">Mateo</div><div class="q-rl">Head of Growth &middot; Mode DTC, FR</div></div>
+        </div>
+      </div>
+      <div class="quote reveal" data-d="2">
+        <p>&laquo;&nbsp;Pas de dashboard. Juste un message sur lequel je peux agir.&nbsp;&raquo;</p>
+        <div class="q-by">
+          <div class="q-av" style="background:#f95c4b">L</div>
+          <div><div class="q-nm">Linn</div><div class="q-rl">Marketing Lead &middot; Maison et jardin, USA</div></div>
+        </div>
+      </div>
+      <div class="quote reveal" data-d="3">
+        <p>&laquo;&nbsp;Le CPA grimpait depuis des heures. crumplz l&rsquo;a repéré et on a coupé le budget de &minus;30%.&nbsp;&raquo;</p>
+        <div class="q-by">
+          <div class="q-av" style="background:#e4ded2">N</div>
+          <div><div class="q-nm">Noor</div><div class="q-rl">Fondatrice &middot; Animalerie</div></div>
+        </div>
+      </div>
+      <div class="quote reveal" data-d="3">
+        <p>&laquo;&nbsp;Avant crumplz, je perdais 400&nbsp;&euro; par jour sans m&rsquo;en rendre compte. Maintenant je suis prévenue avant que ça dérape.&nbsp;&raquo;</p>
+        <div class="q-by">
+          <div class="q-av" style="background:#f95c4b">S</div>
+          <div><div class="q-nm">Sarah</div><div class="q-rl">CEO &middot; Maison DTC, FR</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTEGRATIONS ============ -->
+<section class="sec-stone" aria-labelledby="integ-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Branché sur votre boutique</span>
+      <h2 id="integ-h" class="reveal" data-d="1">Connecté en moins de <em class="s">3 minutes.</em></h2>
+    </div>
+    <div class="integ">
+      <div class="icard reveal" data-d="1">
+        <div class="icard-ic" style="background:#e7eefc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2a5c79" stroke-width="1.9"><path d="M5 16c-2 0-3.5-2-3.5-4.5S3 7 5 7s3.2 2 4.5 4.5C11 14 12.5 16 14.5 16S18 14 18 11.5 16.5 7 14.5 7 11 9 9.5 11.5"/></svg>
+        </div>
+        <h3>Meta Ads</h3>
+        <p>Synchronise campagnes, ad sets, dépense, CTR, CPA et ROAS.</p>
+        <div class="ro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Lecture seule, rien d&rsquo;autre</div>
+      </div>
+      <div class="icard reveal" data-d="2">
+        <div class="icard-ic" style="background:#e4f3e6">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2f6e4b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        </div>
+        <h3>Shopify</h3>
+        <p>Récupère revenu, AOV et taux de conversion pour valider chaque signal pub.</p>
+        <div class="ro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Lecture seule, rien d&rsquo;autre</div>
+      </div>
+      <div class="icard reveal" data-d="3">
+        <div class="icard-ic" style="background:#dcf4e8">
+          <svg viewBox="0 0 24 24" fill="#075e54" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.4-.2-2.6.7.7-2.5-.300-.4A8 8 0 0 1 12 4zm-3 4.2c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3-.3-.2-1.5-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.6.9-.8 1.1-.1.1-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.3-.5c.1-.2 0-.3 0-.5 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.5-.4z"/></svg>
+        </div>
+        <h3>Canaux d&rsquo;alerte</h3>
+        <p>WhatsApp, Slack et Email. Instantané, actionnable, sans dashboard à materner.</p>
+        <div class="ro" style="color:var(--slate)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>À choisir lors de l&rsquo;installation</div>
+      </div>
+    </div>
+    <div class="sec-strip reveal">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/></svg>Accès en lecture seule</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/></svg>Permissions minimales</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/></svg>Hébergement UE</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/></svg>Conforme RGPD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" aria-labelledby="price-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Tarifs</span>
+      <h2 id="price-h" class="reveal" data-d="1">Tarif simple. <em class="s">Zéro blabla.</em></h2>
+      <p class="lede reveal" data-d="2" style="margin-top:14px">Conçu pour votre marge, pas pour gonfler la facture. Une formule par palier de dépense pub.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal" data-d="1">
+        <div class="price-nm">Starter</div>
+        <div class="price-am">79&nbsp;&euro;<span> /mois</span></div>
+        <div class="price-for">Pour les marques sous 10k&nbsp;&euro;/mois de budget pub.</div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Anomaly Engine</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>1 compte publicitaire</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Alertes WhatsApp, Slack et Email</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Vérification toutes les 2 heures</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Choisir Starter</a>
+      </div>
+      <div class="price pop reveal" data-d="2">
+        <div class="pop-tag">Le plus choisi</div>
+        <div class="price-nm">Growth</div>
+        <div class="price-am">149&nbsp;&euro;<span> /mois</span></div>
+        <div class="price-for">Pour 10k à 50k&nbsp;&euro;/mois de budget pub.</div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Tout Starter</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>3 comptes publicitaires</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Seuils personnalisés</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Support prioritaire</li>
+        </ul>
+        <a class="btn btn-primary" href="#">Choisir Growth</a>
+      </div>
+      <div class="price reveal" data-d="3">
+        <div class="price-nm">Pro</div>
+        <div class="price-am">249&nbsp;&euro;<span> /mois</span></div>
+        <div class="price-for">Pour 50k à 200k&nbsp;&euro;/mois, multi-comptes.</div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Tout Growth</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-boutiques</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Rôles et permissions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Roadmap, automatisations de budget</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Choisir Pro</a>
+      </div>
+    </div>
+    <div class="reassure reveal">
+      <span>Installation en 3 minutes</span><span>Accès en lecture seule</span><span>Sans engagement</span><span>Conforme RGPD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="sec-stone" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <span class="eyebrow reveal">FAQ</span>
+      <h2 id="faq-h" class="reveal" data-d="1">Des réponses <em class="s">claires.</em></h2>
+    </div>
+    <div class="faq-wrap reveal" data-d="1">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">C&rsquo;est encore un dashboard ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Non. crumplz n&rsquo;a aucun dashboard à materner. L&rsquo;alerte vient à vous, sur WhatsApp, Slack ou email. Vous n&rsquo;ouvrez rien.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Est-ce que crumplz va toucher à mes campagnes ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Jamais. L&rsquo;accès est en lecture seule, point. crumplz repère la dérive et recommande le geste. Vous décidez, vous agissez.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Mes données sont-elles en sécurité ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Accès en lecture seule, permissions minimales, hébergement UE et conformité RGPD. crumplz lit ce dont il a besoin, rien de plus.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">J&rsquo;ai déjà une agence.<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">crumplz ne remplace pas votre agence. Il couvre les heures où personne ne regarde. Les agences dorment, crumplz vérifie toutes les 2 heures.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Combien de temps pour l&rsquo;installation ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Environ 3 minutes. Vous connectez Meta Ads et Shopify, et c&rsquo;est fini.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Comment évitez-vous les fausses alertes ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Les seuils sont dynamiques, par campagne et par historique. crumplz croise la donnée Meta avec le revenu et l&rsquo;AOV Shopify réels, pour que le bruit ne devienne jamais une fausse alerte.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Pourquoi ne pas utiliser les règles automatiques de Meta ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Les règles Meta réagissent à la donnée Meta seule. crumplz raisonne sur la rentabilité réelle, MER, revenu Shopify, AOV, et vous laisse la décision plutôt que de couper à l&rsquo;aveugle.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">C&rsquo;est cher pour une simple alerte ?<span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Une seule dérive ratée coûte souvent plus cher qu&rsquo;un mois de crumplz.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="sec-coral" aria-labelledby="final-h">
+  <div class="wrap">
+    <div class="final-box reveal">
+      <h2 id="final-h">Un mauvais jour de pub ne devient jamais une <em class="s">mauvaise semaine.</em></h2>
+      <p class="lede">Activez crumplz. Il monte la garde quand vous ne pouvez pas.</p>
+      <div class="final-cta">
+        <a class="btn btn-primary" href="#pricing">Activer les alertes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#how">Voir comment ça marche</a>
+      </div>
+      <p class="microcopy">Installation en 3 minutes. Accès en lecture seule. Sans engagement.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
+            <circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/>
+            <g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round">
+              <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
+              <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
+            </g>
+          </svg>
+          crumplz
+        </a>
+        <p>Un maître-nageur pour votre budget pub.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Produit</h4>
+        <a href="#how">Comment ça marche</a>
+        <a href="#product">Produit</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Entreprise</h4>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Légal</h4>
+        <a href="#">Confidentialité</a>
+        <a href="#">Conditions</a>
+        <a href="#">RGPD</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>&copy; 2026 crumplz. Tous droits réservés.</p>
+      <p>Pas un dashboard de plus.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* nav state — IntersectionObserver on a top sentinel (no scroll listener) */
+  var nav = document.getElementById('nav');
+  var sentinel = document.getElementById('nav-sentinel');
+  if ('IntersectionObserver' in window && sentinel) {
+    new IntersectionObserver(function(es){
+      nav.classList.toggle('scrolled', !es[0].isIntersecting);
+    }, {threshold:0}).observe(sentinel);
+  } else {
+    nav.classList.add('scrolled');
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger'), menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+  });
+
+  /* reveal on scroll */
+  var revs = document.querySelectorAll('.reveal');
+  if (rm || !('IntersectionObserver' in window)) {
+    revs.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.15});
+    revs.forEach(function(el){ io.observe(el); });
+  }
+
+  /* count-up */
+  function countUp(el, target, dur, prefix, suffix){
+    if (rm){ el.textContent = prefix + target.toLocaleString('fr-FR') + suffix; return; }
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = prefix + Math.round(target*eased).toLocaleString('fr-FR') + suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function whenVisible(el, cb){
+    if (!('IntersectionObserver' in window)) { cb(); return; }
+    var o = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ cb(); o.disconnect(); } });
+    }, {threshold:.5});
+    o.observe(el);
+  }
+  ['st1','st2'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var t = +el.getAttribute('data-target');
+    whenVisible(el, function(){ countUp(el, t, 1400, id==='st1'?'+':'', ''); });
+  });
+
+  /* burn counter */
+  var burn = document.getElementById('burnNum');
+  if (burn){
+    var target = +burn.getAttribute('data-target');
+    whenVisible(burn, function(){
+      countUp(burn, target, 2400, '', ' €');
+      if (rm) return;
+      var v = target;
+      setTimeout(function tick(){
+        v += Math.floor(Math.random()*7)+1;
+        burn.textContent = v.toLocaleString('fr-FR') + ' €';
+        setTimeout(tick, 700 + Math.random()*900);
+      }, 2600);
+    });
+  }
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){
+        item.classList.add('open');
+        q.setAttribute('aria-expanded','true');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

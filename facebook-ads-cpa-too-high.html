@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facebook Ads CPA Too High — Diagnose and Fix CPA Spikes | crumplz</title>
+<meta name="description" content="When your Facebook Ads CPA is too high, the cause matters as much as the fix. crumplz diagnoses CPA spikes — creative fatigue, audience exhaustion, algorithm instability — and alerts you with the exact action every 2 hours.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/facebook-ads-cpa-too-high">
+<meta property="og:title" content="Facebook Ads CPA Too High? Here's How to Diagnose and Fix It | crumplz">
+<meta property="og:description" content="High CPA on Facebook Ads isn't one problem — it's four. crumplz identifies which cause is driving your CPA spike and tells you the exact fix before the damage compounds.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Facebook Ads CPA Too High: How to Diagnose and Fix It","description":"When Facebook Ads CPA spikes, it can have four distinct causes. This guide explains how to identify the root cause and take the right corrective action.","author":{"@type":"Organization","name":"crumplz"},"publisher":{"@type":"Organization","name":"crumplz","url":"https://crumplz.co"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://crumplz.co/facebook-ads-cpa-too-high"}}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.cause-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.cause-grid{grid-template-columns:1fr}}.cause-box{padding:28px 24px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink)}.cause-box:nth-child(2n){border-right:0}.cause-box:nth-child(3),.cause-box:nth-child(4){border-bottom:0}@media(max-width:700px){.cause-box{border-right:0;border-bottom:2px solid var(--ink)}.cause-box:last-child{border-bottom:0}}.cause-box .cause-num{font-size:2.2rem;font-weight:900;color:var(--coral-deep);letter-spacing:-.04em;line-height:1;margin-bottom:8px}.cause-box h3{margin-bottom:8px;font-size:1.1rem}.cause-box p{font-size:.9rem;color:var(--ink-2);margin-bottom:12px}.cause-box .cause-fix{font-size:.84rem;font-weight:700;color:var(--pine);border-top:1px solid var(--line);padding-top:10px}.cause-box .cause-fix::before{content:"Fix: "}
+.diag-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:36px}.diag-table th,.diag-table td{padding:12px 14px;border:2px solid var(--ink);text-align:left}.diag-table th{background:var(--ink);color:var(--paper);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.diag-table tr:nth-child(even) td{background:rgba(22,18,11,.03)}.diag-table td:first-child{font-weight:700;font-size:.85rem}.check{color:var(--pine);font-weight:800}.cross{color:var(--ink-faint);font-weight:700}
+.alert-card{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin-top:36px;border:2px solid var(--ink);max-width:620px}.alert-card .alert-label{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}.alert-card .alert-title{font-size:1.3rem;font-weight:800;margin-bottom:10px}.alert-card .alert-body{font-size:.95rem;color:var(--on-ink-soft);line-height:1.7}.alert-card .alert-meta{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}.alert-card .alert-meta span{font-size:.8rem;font-weight:700;color:var(--on-ink-soft)}.alert-card .alert-meta span strong{color:var(--coral);font-weight:900}
+.pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}.price-box{padding:24px 20px;border-right:2px solid var(--ink)}.price-box:last-child{border-right:0}.price-box .plan-name{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-faint)}.price-box .amount{font-size:2.3rem;font-weight:900;letter-spacing:-.04em;line-height:1}.price-box .amount span{font-size:1.1rem;vertical-align:top;margin-top:4px;display:inline-block;font-weight:700}.price-box .per{font-size:.8rem;color:var(--ink-faint);margin-bottom:12px}.price-box .feat-list li{font-size:.88rem;color:var(--ink-2);padding:4px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:7px}.price-box .feat-list li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.popular{background:var(--ink);color:var(--paper)}.popular .plan-name,.popular .per{color:var(--on-ink-soft)}.popular .feat-list li{color:var(--on-ink-soft);border-color:rgba(255,255,255,.1)}@media(max-width:700px){.pricing-strip{grid-template-columns:1fr}.price-box{border-right:0;border-bottom:2px solid var(--ink)}.price-box:last-child{border-bottom:0}}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">High CPA Diagnosis</span>
+    <h1>Facebook Ads CPA too high?<br><em class="s">There are 4 causes. Here's how to tell them apart.</em></h1>
+    <p class="lede">A CPA spike on Facebook Ads can mean four different things — and each requires a different fix. crumplz diagnoses which cause is driving your CPA every 2 hours and sends the exact corrective action before the damage compounds.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">Detect CPA spikes automatically</a>
+      <a class="btn btn-ghost" href="meta-ads-cpa-monitoring.html">CPA monitoring details</a>
+    </div>
+    <p class="microcopy">Read-only · WhatsApp, Slack, Email · Shopify MER validated · GDPR</p>
+    <div class="badge-row">
+      <span>CPA trend monitoring every 2h</span><span>Root cause diagnosis in every alert</span><span>MER cross-validated</span><span>No false alarms</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The 4 causes of high CPA</span>
+      <h2>Same symptom. <em class="s">Four different problems.</em></h2>
+      <p class="lede" style="margin-top:14px">Treating the wrong cause makes things worse. Here's how to tell them apart — and what crumplz checks to diagnose each one.</p>
+    </div>
+    <div class="cause-grid">
+      <div class="cause-box">
+        <div class="cause-num">01</div>
+        <h3>Creative fatigue</h3>
+        <p>Your audience has seen these ads too many times. CTR declines first, then conversion rate, then CPA spikes. The tell: high frequency (3.5×+) alongside the CPA rise. Shopify MER may hold if other channels are performing.</p>
+        <div class="cause-fix">Rotate creatives. Introduce new hooks, formats, or offers. Reduce frequency cap.</div>
+      </div>
+      <div class="cause-box">
+        <div class="cause-num">02</div>
+        <h3>Audience exhaustion</h3>
+        <p>Your targetable audience has been fully saturated. Unlike creative fatigue, refreshing creatives won't fix it. The tell: high frequency but CTR still reasonable — the remaining audience just doesn't convert as well as the early movers.</p>
+        <div class="cause-fix">Expand audience. Test broader targeting, lookalikes, or new interest segments.</div>
+      </div>
+      <div class="cause-box">
+        <div class="cause-num">03</div>
+        <h3>Algorithm instability</h3>
+        <p>Meta's delivery system enters an unstable phase after budget changes, audience edits, or creative swaps. CPA spikes 2–3× for 24–72 hours while the algorithm re-optimises. The tell: no changes to creative or audience but sudden CPA spike with CTR stable.</p>
+        <div class="cause-fix">Wait 48–72 hours before intervening. Do not make further changes — they reset the learning phase.</div>
+      </div>
+      <div class="cause-box">
+        <div class="cause-num">04</div>
+        <h3>Landing page / offer degradation</h3>
+        <p>Click-through is fine but conversion rate dropped. Something changed downstream from the ad — the landing page, the offer, the price point, checkout friction. The tell: CTR and CPM are stable but CPC-to-conversion rate has fallen sharply.</p>
+        <div class="cause-fix">Check landing page load speed, offer clarity, and checkout flow. Restore the previous landing page version if recently changed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Diagnostic framework</span>
+      <h2>How to identify <em class="s">which cause it is.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz runs this diagnostic automatically. Here's the logic behind every CPA spike alert.</p>
+    </div>
+    <div style="overflow-x:auto;margin-top:36px">
+      <table class="diag-table">
+        <thead>
+          <tr><th>Cause</th><th>CTR</th><th>Frequency</th><th>Impression volume</th><th>Conv. rate</th><th>MER</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Creative fatigue</td><td>↓ Declining</td><td>↑ High (3.5×+)</td><td>Stable</td><td>↓ Falling</td><td>↓ Falling</td></tr>
+          <tr><td>Audience exhaustion</td><td>Stable/slight ↓</td><td>↑↑ Very high</td><td>↓ Declining</td><td>↓ Falling</td><td>↓ Falling</td></tr>
+          <tr><td>Algorithm instability</td><td>Stable</td><td>Normal</td><td>Normal/↑</td><td>↓ Sudden drop</td><td>↓ Short-term</td></tr>
+          <tr><td>Landing page issue</td><td>Stable</td><td>Normal</td><td>Stable</td><td>↓↓ Sharp drop</td><td>↓ Falling</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alert example</span>
+      <h2>A CPA spike alert with <em class="s">built-in diagnosis.</em></h2>
+    </div>
+    <div class="alert-card">
+      <div class="alert-label">crumplz alert · CPA Spike</div>
+      <div class="alert-title">⚠ CPA up +58% — Prospecting — Broad EU</div>
+      <div class="alert-body">CPA has risen from €24 to €38 over 8 hours. Diagnosis: creative fatigue. CTR is down 21% vs 7-day baseline, frequency is at 4.2× (threshold: 3.5×), and conversion rate has fallen. CPM and impression volume are stable — this is not an algorithm issue. Shopify MER is also down 14%, confirming real impact on revenue efficiency.<br><br><strong>Suggested action:</strong> Rotate creatives in Prospecting Broad EU. Introduce 3 new ad variants — prioritise new hook angles rather than just new visuals. Check that backup creative set approved last week is ready to activate.</div>
+      <div class="alert-meta">
+        <span>Ad set: <strong>Prospecting Broad EU</strong></span>
+        <span>CPA: <strong>€38 (was €24)</strong></span>
+        <span>Cause: <strong>Creative fatigue</strong></span>
+        <span>Frequency: <strong>4.2×</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Automated CPA monitoring</span>
+      <h2>Stop diagnosing CPA spikes <em class="s">after the fact.</em></h2>
+      <p class="lede" style="margin-top:14px">crumplz monitors your CPA trend every 2 hours — and sends the diagnosis with every alert so you can act immediately rather than investigate first.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:36px">
+      <div style="border:2px solid rgba(255,255,255,.15);border-radius:10px;padding:24px">
+        <h3 style="color:var(--on-ink);margin-bottom:10px;font-size:1.1rem">Without crumplz</h3>
+        <ul style="list-style:none">
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">1. CPA spikes — you don't know yet</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">2. You notice the next time you check (hours or days later)</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">3. You dig through metrics to find the cause</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">4. You make a fix — hope it's the right one</li>
+          <li style="padding:8px 0;font-size:.9rem;color:var(--on-ink-soft)">5. €380+ wasted budget on average per incident</li>
+        </ul>
+      </div>
+      <div style="border:2px solid var(--coral);border-radius:10px;padding:24px">
+        <h3 style="color:var(--coral);margin-bottom:10px;font-size:1.1rem">With crumplz</h3>
+        <ul style="list-style:none">
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">1. CPA trend starts rising</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">2. crumplz detects it within the next 2-hour cycle</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">3. Alert arrives with root cause identified</li>
+          <li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--on-ink-soft)">4. You implement the specific recommended fix</li>
+          <li style="padding:8px 0;font-size:.9rem;color:var(--on-ink-soft)">5. Damage contained — average 137% faster than manual</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>CPA monitoring from <em class="s">€79 / month.</em></h2>
+    </div>
+    <div class="pricing-strip">
+      <div class="price-box">
+        <div class="plan-name">Starter</div>
+        <div class="amount"><span>€</span>79</div>
+        <div class="per">/ month · 1 ad account · under €10k spend</div>
+        <ul class="feat-list">
+          <li>CPA trend monitoring</li>
+          <li>Root cause diagnosis</li>
+          <li>Shopify MER cross-validation</li>
+          <li>WhatsApp + Email alerts</li>
+        </ul>
+      </div>
+      <div class="price-box popular">
+        <div class="plan-name">Growth</div>
+        <div class="amount"><span>€</span>149</div>
+        <div class="per">/ month · 3 ad accounts · €10k–50k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Starter</li>
+          <li>3 ad accounts</li>
+          <li>Slack integration</li>
+          <li>Multi-store Shopify</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <div class="plan-name">Pro</div>
+        <div class="amount"><span>€</span>249</div>
+        <div class="per">/ month · unlimited accounts · €50k–200k spend</div>
+        <ul class="feat-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited ad accounts</li>
+          <li>Team seats</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="index-en.html#pricing">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>High CPA <em class="s">questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">How does crumplz know which cause is driving my CPA spike?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz cross-references multiple signals simultaneously: CTR trend, frequency, impression volume, CPM, conversion rate, and Shopify MER. The pattern of which signals are moving — and in which direction — points to one of the four causes. It's the same diagnostic framework a performance marketer uses manually, automated and run every 2 hours.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">What's the difference between a CPA spike and a CPA trend?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">A CPA spike is a single-period anomaly — CPA is high for one check but normalises. This can be noise. A CPA trend is a consistent direction across multiple monitoring cycles — this is actionable. crumplz distinguishes between the two: spikes are logged but don't trigger alerts unless the pattern persists across 2–3 cycles.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">My CPA is high but ROAS is fine — should I be worried?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">This can happen when average order value increases — more expensive items are converting, pushing CPA up while ROAS holds or improves. crumplz's Shopify MER cross-validation catches this: if revenue per order is higher, the apparent CPA spike is not a problem. The alert won't fire unless the MER signal confirms real efficiency loss.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Stop flying blind</span>
+    <h2 style="margin-top:14px">Your CPA is drifting right now.<br><em class="s">Know why — within 2 hours.</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect Meta Ads and Shopify in 3 minutes. crumplz will diagnose your next CPA spike before you even know it started.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Turn on CPA monitoring</a>
+      <a class="btn btn-ghost" href="meta-ads-cpa-monitoring.html">CPA monitoring deep dive</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Monitoring</h4>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="meta-ads-cpa-monitoring.html">CPA monitoring</a>
+        <a href="meta-ads-creative-fatigue.html">Creative fatigue</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="what-is-mer-marketing-efficiency-ratio.html">What is MER?</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>

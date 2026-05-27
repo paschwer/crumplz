@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Marketing Efficiency Ratio (MER)? The DTC Guide | crumplz</title>
+<meta name="description" content="Marketing Efficiency Ratio (MER) is the true measure of overall marketing performance for DTC brands. Learn how to calculate MER, why it beats channel ROAS, and how crumplz uses it to prevent false alerts.">
+<meta name="theme-color" content="#f6f4f1">
+<link rel="canonical" href="https://crumplz.co/what-is-mer-marketing-efficiency-ratio">
+<meta property="og:title" content="What Is Marketing Efficiency Ratio (MER)? DTC Guide | crumplz">
+<meta property="og:description" content="MER = Total Revenue / Total Ad Spend. The north star metric for DTC brands running Meta Ads. Here's why it matters — and how crumplz uses it to validate every alert.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f4f1'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23f95c4b' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.5' fill='none' stroke='%2316120b' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is Marketing Efficiency Ratio (MER)? The Complete DTC Guide","description":"Marketing Efficiency Ratio (MER) measures total revenue divided by total ad spend. This guide explains how DTC Shopify brands use MER to assess marketing health and prevent false alarms in performance monitoring.","author":{"@type":"Organization","name":"crumplz"},"publisher":{"@type":"Organization","name":"crumplz","url":"https://crumplz.co"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://crumplz.co/what-is-mer-marketing-efficiency-ratio"}}</script>
+<style>
+:root{--paper:#f6f4f1;--stone:#e4ded2;--ink:#16120b;--ink-2:#46413a;--ink-faint:#635d50;--coral:#f95c4b;--coral-deep:#cc3a22;--pine:#2f6e4b;--slate:#2a5c79;--on-ink:#f6f4f1;--on-ink-soft:#b6afa0;--line:rgba(22,18,11,.14);--max:1100px;--ease:cubic-bezier(.2,.7,.2,1);--f-sans:'Work Sans',system-ui,sans-serif;--f-serif:'Libre Baskerville',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}ul{list-style:none}em{font-style:normal}::selection{background:var(--coral);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}section{padding:88px 0}@media(max-width:720px){section{padding:60px 0}}
+.sec-stone{background:var(--stone)}.sec-ink{background:var(--ink);color:var(--on-ink)}.sec-coral{background:var(--coral);color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow::before{content:"";width:14px;height:14px;background:var(--coral);display:inline-block}.sec-ink .eyebrow{color:var(--on-ink)}
+h1,h2,h3,h4{font-family:var(--f-sans);font-weight:800;letter-spacing:-.025em;line-height:1.05}h1{font-weight:900;font-size:clamp(2.4rem,5.5vw,4.2rem)}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.25rem}h4{font-size:1.05rem;letter-spacing:-.01em}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--coral-deep);letter-spacing:0}.sec-ink em.s{color:var(--coral)}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}
+.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.article-wrap{display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:start}@media(max-width:860px){.article-wrap{grid-template-columns:1fr}}.article-body h3{margin:36px 0 12px;font-size:1.2rem}.article-body h4{margin:24px 0 8px}.article-body p{color:var(--ink-2);margin-bottom:18px;font-size:.97rem;line-height:1.72}.article-body ul{margin:12px 0 18px;padding-left:0}.article-body ul li{padding:6px 0 6px 22px;position:relative;color:var(--ink-2);font-size:.95rem;border-bottom:1px solid var(--line)}.article-body ul li:last-child{border-bottom:0}.article-body ul li::before{content:"→";position:absolute;left:0;color:var(--coral-deep);font-weight:800}.article-body blockquote{border-left:4px solid var(--coral);padding:16px 22px;margin:24px 0;background:var(--stone);border-radius:0 8px 8px 0}.article-body blockquote p{font-size:1rem;color:var(--ink);font-weight:600;margin:0}
+.formula-box{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin:28px 0;text-align:center}.formula-box .formula{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;letter-spacing:-.03em;margin:12px 0}.formula-box .formula-note{font-size:.88rem;color:var(--on-ink-soft)}
+.vs-table-sm{width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0}.vs-table-sm th,.vs-table-sm td{padding:10px 12px;border:2px solid var(--ink);text-align:left}.vs-table-sm th{background:var(--ink);color:var(--paper);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.vs-table-sm tr:nth-child(even) td{background:rgba(22,18,11,.03)}.vs-table-sm td:first-child{font-weight:700;font-size:.85rem}
+.sidebar-card{border:2px solid var(--ink);border-radius:10px;padding:22px 20px;margin-bottom:24px;position:sticky;top:90px}.sidebar-card h4{margin-bottom:14px;font-size:.95rem}.sidebar-card ul li{font-size:.88rem;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px}.sidebar-card ul li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.sidebar-card ul li:last-child{border-bottom:0}.sidebar-cta{background:var(--coral);border:2px solid var(--ink);border-radius:10px;padding:22px 20px;margin-bottom:24px}.sidebar-cta h4{margin-bottom:10px;font-size:1rem}.sidebar-cta p{font-size:.86rem;color:var(--ink-2);margin-bottom:14px}.sidebar-cta .btn{width:100%;justify-content:center;font-size:.88rem;padding:12px 16px}
+.faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
+footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index-en.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/><g stroke="#16120b" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow">DTC Marketing Metrics</span>
+    <h1>What is Marketing<br>Efficiency Ratio<br><em class="s">(MER)?</em></h1>
+    <p class="lede">MER is the north-star metric for DTC brands running paid social. It captures overall marketing health — across all channels — where channel-level ROAS cannot. Here's how it works, why it matters, and how crumplz uses it to prevent false alerts.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index-en.html#pricing">See crumplz in action</a>
+      <a class="btn btn-ghost" href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+    </div>
+    <div class="badge-row">
+      <span>Used by DTC brands worldwide</span><span>Core to crumplz's alert engine</span><span>Shopify-native calculation</span>
+    </div>
+  </div></div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="article-wrap">
+      <div class="article-body">
+
+        <h3>The simple definition</h3>
+        <p>Marketing Efficiency Ratio (MER) — sometimes called "blended ROAS" or "portfolio ROAS" — is the ratio of total revenue to total marketing spend across all channels.</p>
+
+        <div class="formula-box">
+          <div style="font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft)">The formula</div>
+          <div class="formula">MER = Total Revenue ÷ Total Ad Spend</div>
+          <div class="formula-note">Example: €80,000 revenue / €20,000 total ad spend = MER of 4.0×</div>
+        </div>
+
+        <p>If you spent €20,000 across Meta, Google, and TikTok and generated €80,000 in revenue, your MER is 4.0×. Every €1 of marketing spend returned €4 of revenue — across all channels combined.</p>
+
+        <h3>Why MER beats channel ROAS for DTC</h3>
+        <p>Channel-level ROAS — what Meta Ads Manager, Google Analytics, and every ad platform reports — has a fundamental problem: attribution. Each platform claims credit for the same sale. A customer sees a Meta ad, searches Google, and converts via a branded search. Meta calls it a Meta conversion. Google calls it a Google conversion. You're double-counting revenue that happened once.</p>
+
+        <p>MER sidesteps the attribution problem entirely. It measures what actually came in (Shopify revenue) divided by what actually went out (total ad spend across all channels). No attribution model. No last-click vs data-driven debate. Just the business reality.</p>
+
+        <blockquote><p>"Channel ROAS tells you what each platform wants you to believe. MER tells you what actually happened to your business."</p></blockquote>
+
+        <h3>MER vs ROAS: the key differences</h3>
+        <table class="vs-table-sm">
+          <thead><tr><th>Metric</th><th>ROAS (channel-level)</th><th>MER</th></tr></thead>
+          <tbody>
+            <tr><td>What it measures</td><td>Revenue attributed to one channel</td><td>Total revenue / total spend</td></tr>
+            <tr><td>Attribution required</td><td>Yes — platform-dependent</td><td>No — direct from Shopify</td></tr>
+            <tr><td>Cross-channel view</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Double-counting risk</td><td>High</td><td>None</td></tr>
+            <tr><td>Best used for</td><td>Campaign-level decisions</td><td>Overall profitability assessment</td></tr>
+            <tr><td>Available in</td><td>Each ad platform</td><td>Shopify + manual calculation</td></tr>
+          </tbody>
+        </table>
+
+        <h3>What's a good MER for a DTC brand?</h3>
+        <p>MER benchmarks vary widely by business model, margin structure, and growth stage. As a rough guide:</p>
+        <ul>
+          <li>MER 2.0–2.5×: Viable for high-margin brands (cosmetics, apparel with 70%+ gross margin)</li>
+          <li>MER 3.0–4.0×: Healthy for most DTC brands in scale mode</li>
+          <li>MER 4.0–6.0×: Efficient — often indicates strong organic/repeat revenue mix</li>
+          <li>MER below 1.5×: Typically loss-making on marketing spend (depends on LTV model)</li>
+        </ul>
+        <p>The number that matters most is your own target MER — set based on your blended gross margin, CAC targets, and LTV horizon. A subscription brand can sustain a lower MER than a pure transactional one.</p>
+
+        <h3>How crumplz uses MER to prevent false alerts</h3>
+        <p>This is where MER becomes operational rather than analytical.</p>
+        <p>crumplz monitors Meta Ads metrics — ROAS, CPA, CTR — every 2 hours. When a metric drifts outside the expected range, crumplz cross-validates the signal against your Shopify MER before sending an alert.</p>
+        <p>Why? Because a Meta ROAS drop can happen for two completely different reasons:</p>
+        <ul>
+          <li>Reason A: Meta performance actually degraded — creative fatigue, audience exhaustion, algorithm instability. MER will also drop. Alert is valid.</li>
+          <li>Reason B: Organic traffic, email, or another channel spiked — pulling revenue that Meta is no longer "getting credit for." Meta ROAS drops but MER holds or improves. Alert would be a false positive.</li>
+        </ul>
+        <p>Without MER cross-validation, scenario B generates a false alarm. A brand pauses campaigns that are working fine — just under-attributed in this window. crumplz checks MER before alerting so you only hear about real problems.</p>
+
+        <h3>How to track MER with Shopify</h3>
+        <p>The cleanest way to track MER manually: pull total Shopify revenue (gross, before refunds) from the Analytics tab, and total ad spend from all platforms you run. Divide. Do it daily or weekly.</p>
+        <p>The limitation of manual tracking: it's always yesterday's data. MER fluctuates intraday, especially during high-spend periods. A spike or drop that starts at 09:00 won't show up in your manual tracking until the next morning review.</p>
+        <p>crumplz connects directly to Shopify via the Storefront API and reads MER in real time — which is what makes the cross-validation meaningful. A 2-hour monitoring cycle is only useful if the MER signal is also near-real-time.</p>
+
+        <h3>MER as a daily operating metric</h3>
+        <p>Beyond alert validation, MER is worth tracking as a daily north-star number. Some practical applications for DTC brands:</p>
+        <ul>
+          <li>Set a daily MER floor (e.g. "alert me if MER falls below 3.0×") as a profitability tripwire</li>
+          <li>Use weekly MER trend to decide whether to scale Meta spend or hold</li>
+          <li>Compare MER across promotional periods to understand true ROI of sale events</li>
+          <li>Use MER to evaluate new channel launches — does adding TikTok spend help or hurt total MER?</li>
+        </ul>
+
+        <h3>Common MER misconceptions</h3>
+        <h4>Misconception 1: "MER is just blended ROAS"</h4>
+        <p>Not quite. Blended ROAS usually refers to the average ROAS across paid channels. MER includes all revenue sources — organic, direct, email — divided by paid spend only. This makes it a better measure of marketing leverage.</p>
+        <h4>Misconception 2: "A rising MER always means better performance"</h4>
+        <p>A rising MER can also mean you're underspending on paid acquisition. If organic revenue is growing but you're cutting ad spend, MER improves while overall growth slows. Context matters.</p>
+        <h4>Misconception 3: "Channel ROAS and MER should be consistent"</h4>
+        <p>They rarely are — and the gap is often significant. The delta between the sum of channel-level ROAS claims and actual MER is the "attribution inflation" in your account. Most brands find their actual efficiency is 20–40% below what platforms report.</p>
+
+      </div>
+      <div>
+        <div class="sidebar-cta">
+          <h4>Monitor MER automatically</h4>
+          <p>crumplz cross-validates every Meta Ads alert against your Shopify MER — so you only hear about real problems.</p>
+          <a class="btn btn-primary" href="index-en.html#pricing">Start free — 3 min setup</a>
+        </div>
+        <div class="sidebar-card">
+          <h4>Related articles</h4>
+          <ul>
+            <li><a href="what-is-ad-spend-drift.html">What is ad spend drift?</a></li>
+            <li><a href="meta-ads-anomaly-detection.html">Meta Ads anomaly detection</a></li>
+            <li><a href="roas-drop-alert.html">ROAS drop alerts</a></li>
+            <li><a href="meta-ads-cpa-monitoring.html">CPA spike monitoring</a></li>
+            <li><a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h4>Quick MER formula</h4>
+          <ul>
+            <li>Total Shopify revenue ÷ total ad spend</li>
+            <li>Include all paid channels</li>
+            <li>Use gross revenue (before refunds)</li>
+            <li>Calculate daily for operational use</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-stone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>MER questions <em class="s">answered.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Should I track MER daily or weekly?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">Both. Use daily MER as an operational health check — did today's spend generate the expected return? Use weekly MER for trend analysis and scaling decisions. Daily MER will have more noise; weekly smooths it. crumplz reads MER continuously and uses it specifically for alert cross-validation rather than reporting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Does crumplz display my MER as a dashboard metric?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">crumplz is not a dashboard or analytics tool. It uses MER as a cross-validation signal internally — to determine whether a Meta Ads anomaly is a real profitability issue or a false positive caused by channel-level attribution noise. The MER signal informs every alert but isn't surfaced as a standalone reporting metric.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">What's the difference between MER and nMER (new customer MER)?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">nMER (new customer Marketing Efficiency Ratio) measures only the revenue from new customers divided by total ad spend — stripping out repeat revenue to isolate acquisition efficiency. It's useful for brands with high repeat purchase rates where total MER can look healthy even when new customer acquisition is inefficient. crumplz uses total MER for alert cross-validation, as it captures overall marketing health most reliably.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-coral">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto">
+    <span class="eyebrow">Put MER to work</span>
+    <h2 style="margin-top:14px">MER is your truth metric.<br><em class="s">Let crumplz use it automatically.</em></h2>
+    <p style="margin-top:16px;font-size:1.08rem;max-width:44ch;margin-left:auto;margin-right:auto">Connect Shopify and Meta Ads in 3 minutes. crumplz uses your live MER to validate every alert — so you only act when it's real.</p>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="index-en.html#pricing">Turn on MER-validated alerts</a>
+      <a class="btn btn-ghost" href="meta-ads-anomaly-detection.html">How detection works</a>
+    </div>
+    <p style="margin-top:14px;font-size:.84rem;font-weight:600;opacity:.7">Read-only access · No automation risk · Cancel anytime</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index-en.html#how">How it works</a>
+        <a href="index-en.html#product">Features</a>
+        <a href="index-en.html#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Comparisons</h4>
+        <a href="triple-whale-alternative.html">vs Triple Whale</a>
+        <a href="northbeam-alternative.html">vs Northbeam</a>
+        <a href="madgicx-alternative.html">vs Madgicx</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="what-is-ad-spend-drift.html">What is ad spend drift?</a>
+        <a href="meta-ads-anomaly-detection.html">Anomaly detection</a>
+        <a href="roas-drop-alert.html">ROAS drop alerts</a>
+        <a href="meta-ads-monitoring-dtc.html">DTC monitoring guide</a>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.closest('.faq-item').classList.toggle('open')});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click()});});
+</script>
+</body>
+</html>
