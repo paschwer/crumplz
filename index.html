@@ -141,7 +141,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 .wa-head{background:var(--wa-head);color:#fff;display:flex;align-items:center;gap:11px;padding:8px 14px 12px}
 .wa-head .chev{font-size:1.4rem;line-height:1;opacity:.95}
 .wa-av{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wa-av svg{width:27px;height:27px}
+.wa-av svg{width:27px;height:27px}.wa-av img{width:24px;height:28px;object-fit:contain}
 .wa-id{flex:1;min-width:0}
 .wa-id .nm{font-weight:700;font-size:.96rem;line-height:1.2}
 .wa-id .on{font-size:.72rem;opacity:.85}
@@ -373,6 +373,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
   .phone{transform:none}
   *{transition-duration:.01ms!important}
 }
+.logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
 </style>
 </head>
 <body>
@@ -383,15 +384,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
 <header class="nav" id="nav">
   <div class="nav-in">
     <a class="logo" href="#top" aria-label="crumplz home">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
-        <circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/>
-        <g stroke="#16120b" stroke-width="2.7" stroke-linecap="round">
-          <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
-          <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
-        </g>
-      </svg>
-      crumplz
+      <img src="assets/crumplzLogo.svg" alt="crumplz" height="28" loading="eager" class="logo-wordmark">
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#how">How it works</a>
@@ -451,14 +444,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
           <div class="wa-head">
             <span class="chev" aria-hidden="true">&#8249;</span>
             <div class="wa-av">
-              <svg viewBox="0 0 32 32" aria-hidden="true">
-                <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
-                <circle cx="16" cy="16" r="4.6" fill="none" stroke="#16120b" stroke-width="2.7"/>
-                <g stroke="#16120b" stroke-width="2.7" stroke-linecap="round">
-                  <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
-                  <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
-                </g>
-              </svg>
+              <img src="assets/crumplzMiniLogo.svg" alt="" aria-hidden="true" width="24" height="28">
             </div>
             <div class="wa-id">
               <div class="nm">crumplz</div>
@@ -914,15 +900,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="logo" href="#top">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/>
-            <circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/>
-            <g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round">
-              <line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/>
-              <line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/>
-            </g>
-          </svg>
-          crumplz
+          <img src="assets/crumplzLogo.svg" alt="crumplz" height="28" loading="eager" class="logo-wordmark logo-wordmark--invert">
         </a>
         <p>A lifeguard for your ad spend.</p>
       </div>
