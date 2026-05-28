@@ -44,12 +44,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 64px 72px;
+      align-items: center;
+      padding: 64px 48px;
       min-height: 100vh;
       background: var(--paper);
     }
 
-    .form-wrap { width: 100%; max-width: 420px; }
+    .form-wrap { width: 100%; max-width: 440px; }
 
     /* Logo */
     .logo {
@@ -552,9 +553,10 @@
   }
 
   (function initFeed() {
-    const picks = [...NAMES].sort(() => Math.random() - .5).slice(0, 3);
+    // shuffle guarantees 3 distinct names
+    const shuffled = [...NAMES].sort(() => Math.random() - .5);
     const times = ['1 min ago', '5 min ago', '12 min ago'];
-    picks.forEach(function(n, i) {
+    shuffled.slice(0, 3).forEach(function(n, i) {
       const el = document.createElement('div');
       el.className = 'feed-item';
       el.innerHTML = '<div class="feed-dot"></div><div class="feed-txt"><b>' + n[0] + ' ' + n[1] + '</b> just joined the waitlist</div><div class="feed-time">' + times[i] + '</div>';
