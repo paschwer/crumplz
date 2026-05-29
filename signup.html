@@ -368,6 +368,41 @@
     .feed-txt b { color: var(--paper); font-weight: 700; }
     .feed-time { font-size: .71rem; color: rgba(246,244,241,.22); white-space: nowrap; }
 
+    /* Reassurance 3-col */
+    .reassurance {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .r-item {
+      border: 1px solid rgba(246,244,241,.1);
+      border-radius: 10px;
+      padding: 16px 14px;
+      background: rgba(246,244,241,.04);
+      text-align: center;
+    }
+    .r-sq {
+      width: 22px; height: 22px;
+      background: var(--coral);
+      border-radius: 4px;
+      margin: 0 auto 10px;
+      opacity: .9;
+    }
+    .r-title {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.3;
+      letter-spacing: .01em;
+    }
+    .r-desc {
+      font-size: .68rem;
+      color: rgba(246,244,241,.4);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
     /* ─── MOBILE ─────────────────────────────────── */
     @media (max-width: 900px) {
       body { flex-direction: column; }
@@ -424,13 +459,7 @@
       </button>
 
       <div class="err" id="err">Please enter your first name and a valid email.</div>
-      <p class="microcopy">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
-
-      <div class="trust">
-        <span>Quick set up</span>
-        <span>Works with your tools</span>
-        <span>Cancel anytime</span>
-      </div>
+      <p class="microcopy">Join the founding cohort &nbsp;·&nbsp; Limited spots</p>
     </div>
 
     <div class="success" id="ok">
@@ -460,6 +489,24 @@
     <div class="counter-txt">
       <strong>500+ founders already joined</strong>
       <span>37 joined in the last 24h</span>
+    </div>
+  </div>
+
+  <div class="reassurance">
+    <div class="r-item">
+      <div class="r-sq"></div>
+      <div class="r-title">Quick set up</div>
+      <div class="r-desc">Live in under 3 min</div>
+    </div>
+    <div class="r-item">
+      <div class="r-sq"></div>
+      <div class="r-title">Works with your tools</div>
+      <div class="r-desc">Meta Ads, Shopify &amp; more</div>
+    </div>
+    <div class="r-item">
+      <div class="r-sq"></div>
+      <div class="r-title">Cancel anytime</div>
+      <div class="r-desc">No lock-in, ever</div>
     </div>
   </div>
 
