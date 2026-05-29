@@ -554,38 +554,22 @@
     btn.innerHTML = 'Joining…';
 
     try {
-      const res = await fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/148579035/8ccf77c1-cb56-4376-9f9f-411fa02f36fe',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: fn },
-              { name: 'lastname',  value: ln },
-              { name: 'email',     value: em }
-            ],
-            context: { pageUri: window.location.href, pageName: 'crumplz — Early Access' }
-          })
-        }
-      );
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstname: fn, lastname: ln, email: em })
+      });
 
-      const body = await res.text();
-      console.log('[crumplz] HubSpot status:', res.status, '| body:', body);
+      const data = await res.json();
+      console.log('[crumplz] signup response:', res.status, data);
 
-      if (res.ok) {
+      if (res.ok && data.ok) {
         document.getElementById('formArea').style.display = 'none';
         document.getElementById('ok').classList.add('on');
         addFeed(fn + (ln ? ' ' + ln[0] + '.' : ''));
+        if (data.warnings) console.warn('[crumplz] warnings:', data.warnings);
       } else {
-        // Parse HubSpot error detail if available
-        let detail = '';
-        try {
-          const parsed = JSON.parse(body);
-          if (parsed.errors && parsed.errors.length) detail = ' (' + parsed.errors[0].message + ')';
-          else if (parsed.message) detail = ' (' + parsed.message + ')';
-        } catch(_) {}
-        throw new Error('HTTP ' + res.status + detail);
+        throw new Error('HTTP ' + res.status);
       }
     } catch(e) {
       console.error('[crumplz] HubSpot error:', e.message);
