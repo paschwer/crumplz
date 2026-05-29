@@ -374,12 +374,20 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
   *{transition-duration:.01ms!important}
 }
 .logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
+/* ============ PRICING TOGGLES (B002) ============ */
+.price-controls{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin:30px 0 4px}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:9px;overflow:hidden;background:var(--paper)}
+.seg button{padding:9px 17px;font-size:.88rem;font-weight:700;color:var(--ink-2);transition:background .18s var(--ease),color .18s var(--ease)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button+button{border-left:2px solid var(--ink)}
+.bill-save{font-size:.78rem;font-weight:700;color:var(--pine);letter-spacing:.02em}
+.bill-save[hidden]{display:none}
 </style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "crumplz", "url": "https://crumplz.co", "description": "Early-warning alerts for Meta Ads drifts. Catch ROAS drops, CPA spikes and CTR drifts before they burn your margin.", "potentialAction": {"@type": "SearchAction", "target": "https://crumplz.co/search?q={search_term_string}", "query-input": "required name=search_term_string"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "crumplz", "url": "https://crumplz.co", "logo": "https://crumplz.co/assets/crumplzLogo.svg", "sameAs": [], "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "availableLanguage": ["English", "French"]}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "crumplz", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://crumplz.co", "description": "Automatic anomaly detection for Meta Ads. crumplz watches your campaigns every 2 hours and sends one actionable alert on WhatsApp, Slack or email when ROAS drops, CPA spikes or CTR drifts.", "offers": [{"@type": "Offer", "name": "Starter", "price": "79", "priceCurrency": "EUR", "billingDuration": "P1M", "description": "For ad spend under €10k/month. 1 ad account, WhatsApp/Slack/Email alerts, checks every 2h."}, {"@type": "Offer", "name": "Growth", "price": "149", "priceCurrency": "EUR", "billingDuration": "P1M", "description": "For €10–50k/month ad spend. 3 ad accounts, custom thresholds, priority support."}, {"@type": "Offer", "name": "Pro", "price": "249", "priceCurrency": "EUR", "billingDuration": "P1M", "description": "For €50–200k/month, multi-account. Roles & permissions, multi-stores."}], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "47"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this just another dashboard?", "acceptedAnswer": {"@type": "Answer", "text": "No. crumplz has no dashboard to babysit. The alert comes to you, on WhatsApp, Slack or email. You open nothing."}}, {"@type": "Question", "name": "Will crumplz touch my campaigns?", "acceptedAnswer": {"@type": "Answer", "text": "Never. crumplz is read-only. It reads your data, alerts you, and you decide what to do. Zero risk of accidental changes."}}, {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. EU hosting, GDPR-compliant, read-only Meta API access and Shopify read scopes only. Your data is never shared or sold."}}, {"@type": "Question", "name": "How long is setup?", "acceptedAnswer": {"@type": "Answer", "text": "3 minutes. Connect Meta Ads, connect Shopify, set your alert channel. That's it."}}, {"@type": "Question", "name": "Why not just use Meta's automated rules?", "acceptedAnswer": {"@type": "Answer", "text": "Meta rules are rigid, threshold-based, and don't cross-validate with your real revenue. crumplz uses dynamic thresholds per campaign history, pulls Shopify signals (revenue, AOV) to avoid false positives, and calculates MER. It's a fundamentally different approach."}}, {"@type": "Question", "name": "Isn't it expensive for just an alert?", "acceptedAnswer": {"@type": "Answer", "text": "One missed drift often costs more than a month of crumplz. A CPA spike left undetected for 48h on €500/day spend = €400 wasted. The Starter plan costs €79/month."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "crumplz", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://crumplz.co", "description": "Automatic anomaly detection for Meta Ads. crumplz watches your campaigns every 2 hours and sends one actionable alert on WhatsApp, Slack or email when ROAS drops, CPA spikes or CTR drifts.", "offers": [{"@type": "Offer", "name": "Starter", "price": "89", "priceCurrency": "USD", "billingDuration": "P1M", "description": "For ad spend under $10k/month. 1 ad account, WhatsApp/Slack/Email alerts, checks every 2h."}, {"@type": "Offer", "name": "Growth", "price": "169", "priceCurrency": "USD", "billingDuration": "P1M", "description": "For $10–50k/month ad spend. 3 ad accounts, custom thresholds, priority support."}, {"@type": "Offer", "name": "Pro", "price": "299", "priceCurrency": "USD", "billingDuration": "P1M", "description": "For $50–200k/month, multi-account. Roles & permissions, multi-stores."}], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "47"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this just another dashboard?", "acceptedAnswer": {"@type": "Answer", "text": "No. crumplz has no dashboard to babysit. The alert comes to you, on WhatsApp, Slack or email. You open nothing."}}, {"@type": "Question", "name": "Will crumplz touch my campaigns?", "acceptedAnswer": {"@type": "Answer", "text": "Never. crumplz is read-only. It reads your data, alerts you, and you decide what to do. Zero risk of accidental changes."}}, {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. EU hosting, GDPR-compliant, read-only Meta API access and Shopify read scopes only. Your data is never shared or sold."}}, {"@type": "Question", "name": "How long is setup?", "acceptedAnswer": {"@type": "Answer", "text": "3 minutes. Connect Meta Ads, connect Shopify, set your alert channel. That's it."}}, {"@type": "Question", "name": "Why not just use Meta's automated rules?", "acceptedAnswer": {"@type": "Answer", "text": "Meta rules are rigid, threshold-based, and don't cross-validate with your real revenue. crumplz uses dynamic thresholds per campaign history, pulls Shopify signals (revenue, AOV) to avoid false positives, and calculates MER. It's a fundamentally different approach."}}, {"@type": "Question", "name": "Isn't it expensive for just an alert?", "acceptedAnswer": {"@type": "Answer", "text": "One missed drift often costs more than a month of crumplz. A CPA spike left undetected for 48h on $500/day spend = $400 wasted. The Starter plan costs $89/month."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -793,13 +801,20 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <span class="eyebrow reveal">Pricing</span>
       <h2 id="price-h" class="reveal" data-d="1">Simple pricing. <em class="s">Zero fluff.</em></h2>
       <p class="lede reveal" data-d="2" style="margin-top:14px">Built for margin, priced for control. One plan per ad-spend tier.</p>
-      <p class="reveal" data-d="2" style="font-size:.92rem;color:var(--ink-2);margin-top:10px;max-width:48ch;margin-left:auto;margin-right:auto">One missed drift costs an average of &euro;400/day. The Starter plan pays for itself in under 5 hours of protection.</p>
+      <p class="reveal" data-d="2" style="font-size:.92rem;color:var(--ink-2);margin-top:10px;max-width:48ch;margin-left:auto;margin-right:auto">One missed drift costs an average of $400/day. The Starter plan pays for itself in under 5 hours of protection.</p>
+    </div>
+    <div class="price-controls reveal" data-d="2">
+      <div class="seg seg-bill" role="group" aria-label="Billing period">
+        <button type="button" data-bill="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-bill="annual" aria-pressed="false">Annual</button>
+      </div>
+      <span class="bill-save" id="bill-save" hidden>2 months free</span>
     </div>
     <div class="price-grid">
       <div class="price reveal" data-d="1">
         <div class="price-nm">Starter</div>
-        <div class="price-am">&euro;79<span> /mo</span></div>
-        <div class="price-for">For brands under &euro;10k/mo in ad spend.</div>
+        <div class="price-am" id="pa-starter">$89<span> /mo</span></div>
+        <div class="price-for" id="pf-starter">For brands under $10k/mo in ad spend.</div>
         <ul class="price-feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Anomaly Engine</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>1 ad account</li>
@@ -811,8 +826,8 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <div class="price pop reveal" data-d="2">
         <div class="pop-tag">Most popular</div>
         <div class="price-nm">Growth</div>
-        <div class="price-am">&euro;149<span> /mo</span></div>
-        <div class="price-for">For &euro;10k to &euro;50k/mo in ad spend.</div>
+        <div class="price-am" id="pa-growth">$169<span> /mo</span></div>
+        <div class="price-for" id="pf-growth">For $10k to $50k/mo in ad spend.</div>
         <ul class="price-feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Starter</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>3 ad accounts</li>
@@ -823,8 +838,8 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       </div>
       <div class="price reveal" data-d="3">
         <div class="price-nm">Pro</div>
-        <div class="price-am">&euro;249<span> /mo</span></div>
-        <div class="price-for">For &euro;50k to &euro;200k/mo, multi-account.</div>
+        <div class="price-am" id="pa-pro">$299<span> /mo</span></div>
+        <div class="price-for" id="pf-pro">For $50k to $200k/mo, multi-account.</div>
         <ul class="price-feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Growth</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-store</li>
@@ -839,6 +854,41 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     </div>
   </div>
 </section>
+<script>
+/* B002 — pricing currency auto-selected by visitor IP (no manual toggle) + monthly/annual toggle */
+(function(){
+  var P = {
+    USD:{sym:'$', m:{starter:89,growth:169,pro:299}, y:{starter:890,growth:1690,pro:2990},
+      f:{starter:'For brands under $10k/mo in ad spend.',growth:'For $10k to $50k/mo in ad spend.',pro:'For $50k to $200k/mo, multi-account.'}},
+    EUR:{sym:'€', m:{starter:79,growth:149,pro:249}, y:{starter:790,growth:1490,pro:2490},
+      f:{starter:'For brands under €10k/mo in ad spend.',growth:'For €10k to €50k/mo in ad spend.',pro:'For €50k to €200k/mo, multi-account.'}}
+  };
+  var TIERS = ['starter','growth','pro'];
+  var cur = 'USD', bill = 'monthly';
+  function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function render(){
+    var d = P[cur], amts = (bill==='annual'? d.y : d.m), per = (bill==='annual'? ' /yr' : ' /mo');
+    TIERS.forEach(function(t){
+      var pa = document.getElementById('pa-'+t); if(pa) pa.innerHTML = d.sym + fmt(amts[t]) + '<span>' + per + '</span>';
+      var pf = document.getElementById('pf-'+t); if(pf) pf.textContent = d.f[t];
+    });
+    var bs = document.getElementById('bill-save'); if(bs) bs.hidden = (bill!=='annual');
+    document.querySelectorAll('[data-bill]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-bill')===bill); });
+  }
+  // Currency: auto from visitor IP. Cache last geo result to avoid a flash on repeat visits, then refresh.
+  var cachedCur = get('crumplz_geo_cur'); if(cachedCur==='USD'||cachedCur==='EUR') cur = cachedCur;
+  var savedBill = get('crumplz_bill'); if(savedBill==='monthly'||savedBill==='annual') bill = savedBill;
+  render();
+  try{
+    fetch('/api/geo').then(function(r){ return r.json(); }).then(function(j){
+      if(j && (j.currency==='USD'||j.currency==='EUR')){ set('crumplz_geo_cur', j.currency); if(j.currency!==cur){ cur = j.currency; render(); } }
+    }).catch(function(){});
+  }catch(e){}
+  document.querySelectorAll('[data-bill]').forEach(function(b){ b.addEventListener('click', function(){ bill = b.getAttribute('data-bill'); set('crumplz_bill', bill); render(); }); });
+})();
+</script>
 
 <!-- ============ FAQ ============ -->
 <section id="faq" class="sec-stone" aria-labelledby="faq-h">
