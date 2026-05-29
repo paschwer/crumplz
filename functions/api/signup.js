@@ -9,8 +9,8 @@
 
 const HS_PORTAL  = '148579035';
 const HS_FORM    = '8ccf77c1-cb56-4376-9f9f-411fa02f36fe';
-const FROM_EMAIL = 'Pierre-Alain from crumplz <pa@crumplz.co>';
-const BRAND_URL  = 'https://crumplz.co';
+const FROM_EMAIL = 'Pierre-Alain from crumplz <pa@crumplz.com>';
+const BRAND_URL  = 'https://crumplz.com';
 
 // ─── Email HTML ────────────────────────────────────────────────────────────────
 function buildEmailHtml(firstname) {
