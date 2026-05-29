@@ -375,7 +375,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
 }
 .logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
 /* ============ PRICING TOGGLES (B002) ============ */
-.price-controls{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin:30px 0 4px}
+.price-controls{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin:30px 0 38px}
 .seg{display:inline-flex;border:2px solid var(--ink);border-radius:9px;overflow:hidden;background:var(--paper)}
 .seg button{padding:9px 17px;font-size:.88rem;font-weight:700;color:var(--ink-2);transition:background .18s var(--ease),color .18s var(--ease)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
@@ -870,6 +870,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
   function fmt(n){ return n.toLocaleString('en-US'); }
   function render(){
     var d = P[cur], amts = (bill==='annual'? d.y : d.m), per = (bill==='annual'? ' /yr' : ' /mo');
+    try{ window.__crumplzSym = d.sym; }catch(e){}
     TIERS.forEach(function(t){
       var pa = document.getElementById('pa-'+t); if(pa) pa.innerHTML = d.sym + fmt(amts[t]) + '<span>' + per + '</span>';
       var pf = document.getElementById('pf-'+t); if(pf) pf.textContent = d.f[t];
@@ -1079,17 +1080,26 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     whenVisible(el, function(){ countUp(el, t, 1400, id==='st1'?'+':'', ''); });
   });
 
-  /* burn counter */
+  /* burn counter — currency symbol follows geo (shared with pricing via window.__crumplzSym) */
   var burn = document.getElementById('burnNum');
   if (burn){
     var target = +burn.getAttribute('data-target');
+    var sym = function(){ return window.__crumplzSym === '€' ? '€' : '$'; };
+    burn.textContent = sym() + '0';
     whenVisible(burn, function(){
-      countUp(burn, target, 2400, '€', '');
-      if (rm) return;
-      var v = target;
+      if (rm){ burn.textContent = sym() + target.toLocaleString('en-US'); return; }
+      var start = null, v = target;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts-start)/2400, 1);
+        var eased = 1 - Math.pow(1-p, 3);
+        burn.textContent = sym() + Math.round(target*eased).toLocaleString('en-US');
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
       setTimeout(function tick(){
         v += Math.floor(Math.random()*7)+1;
-        burn.textContent = '€' + v.toLocaleString('en-US');
+        burn.textContent = sym() + v.toLocaleString('en-US');
         setTimeout(tick, 700 + Math.random()*900);
       }, 2600);
     });
