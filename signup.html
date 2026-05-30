@@ -559,6 +559,35 @@
 </div>
 
 <script>
+  /* ── BL-006: GA4 funnel instrumentation ──────────────────────────────────
+   * Taxonomy frozen by @cro (30_audits/2026-05-29_event-tracking-plan_cro). Do NOT
+   * rename events. Events queue into dataLayer; Consent Mode v2 (assets/analytics.js,
+   * BL-005) gates whether they're stored. gtag here shares dataLayer with analytics.js. */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  (function persistUtm(){
+    var p = new URLSearchParams(location.search), keys = ['utm_source','utm_medium','utm_campaign'];
+    var found = {};
+    keys.forEach(function(k){ if (p.get(k)) found[k] = p.get(k); });
+    if (Object.keys(found).length) { try { localStorage.setItem('crumplz_utm', JSON.stringify(found)); } catch(e){} }
+  })();
+  function utm(){ try { return JSON.parse(localStorage.getItem('crumplz_utm')||'{}'); } catch(e){ return {}; } }
+  function mapUtm(u){ return { source:u.utm_source, medium:u.utm_medium, campaign:u.utm_campaign }; }
+
+  async function sha256(s){
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s.toLowerCase().trim()));
+    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+  }
+
+  gtag('event','signup_view', Object.assign({ landing_slug: location.pathname }, mapUtm(utm())));
+
+  var _signupStarted = false;
+  document.getElementById('fn').addEventListener('focus', function(){
+    if (_signupStarted) return; _signupStarted = true;          // fire once per session
+    gtag('event','signup_started', { field: 'first_name' });
+  });
+
   async function handleSubmit() {
     const fn  = document.getElementById('fn').value.trim();
     const ln  = document.getElementById('ln').value.trim();
@@ -566,11 +595,17 @@
     const err = document.getElementById('err');
     const btn = document.getElementById('cta');
 
+    if (btn.disabled) return;                                   // double-fire guard (double click, Enter + click)
     err.classList.remove('on');
-    if (!fn || !em || !em.includes('@')) { err.classList.add('on'); return; }
+    if (!fn || !em || !em.includes('@')) {
+      gtag('event','signup_field_error', { error_type: !fn ? 'missing_name' : 'invalid_email' });
+      err.classList.add('on'); return;
+    }
 
     btn.disabled = true;
     btn.innerHTML = 'Joining…';
+
+    gtag('event','signup_submitted', Object.assign({ has_lastname: !!ln }, mapUtm(utm())));
 
     try {
       const res = await fetch('/api/signup', {
@@ -583,6 +618,8 @@
       console.log('[crumplz] signup response:', res.status, data);
 
       if (res.ok && data.ok) {
+        const uid = await sha256(em);                           // never send the email in clear
+        gtag('event','signup_succeeded', { user_id: uid });
         document.getElementById('formArea').style.display = 'none';
         document.getElementById('ok').classList.add('on');
         addFeed(fn + (ln ? ' ' + ln[0] + '.' : ''));
@@ -591,6 +628,7 @@
         throw new Error('HTTP ' + res.status);
       }
     } catch(e) {
+      gtag('event','signup_failed', { error_code: (e.message||'').startsWith('HTTP') ? e.message : 'network' });
       console.error('[crumplz] HubSpot error:', e.message);
       btn.disabled = false;
       btn.innerHTML = 'Get early access <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
