@@ -399,7 +399,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     </nav>
     <div class="nav-cta">
       <a class="login" href="#">Connexion</a>
-      <a class="btn btn-primary" href="/signup">Activer les alertes</a>
+      <a class="btn btn-primary" href="/signup?founding=1">Réserver ma place</a>
     </div>
     <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
@@ -411,7 +411,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     <a href="#pricing">Tarifs</a>
     <a href="#faq">FAQ</a>
     <a href="#">Connexion</a>
-    <a class="btn btn-primary" href="/signup">Activer les alertes</a>
+    <a class="btn btn-primary" href="/signup?founding=1">Réserver ma place</a>
   </div>
 </header>
 
@@ -422,16 +422,17 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
     <div class="hero-text">
+      <span class="reveal" style="display:inline-block;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;font-weight:700;background:var(--coral);color:var(--ink);padding:5px 13px;border-radius:999px;margin-bottom:12px">Founding 30 · prix verrouillé à vie</span>
       <span class="eyebrow reveal">Alerte précoce pour vos campagnes Meta Ads</span>
       <h1 id="hero-h" class="reveal" data-d="1">Repérez la <em class="s">dérive</em> avant qu&rsquo;elle ne vous coûte cher.</h1>
       <p class="lede reveal" data-d="2">Vos campagnes Meta plantent sans prévenir. crumplz les surveille toutes les 2 heures, repère la dérive et vous dit exactement quoi faire. Pas un dashboard de plus. Un maître-nageur pour votre budget pub.</p>
       <div class="hero-cta reveal" data-d="3">
-        <a class="btn btn-primary" href="/signup">Activer les alertes
+        <a class="btn btn-primary" href="/signup?founding=1">Réserver ma place
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="btn btn-ghost" href="#how">Voir comment ça marche</a>
       </div>
-      <p class="microcopy reveal" data-d="3">Installation en 3 minutes. Accès en lecture seule. Sans engagement.</p>
+      <p class="microcopy reveal" data-d="3">Première prise offerte &nbsp;·&nbsp; Sans carte bancaire &nbsp;·&nbsp; 30 places fondateur</p>
       <div class="trust reveal" data-d="3">
         <span>Se connecte à Meta Ads + Shopify</span>
         <span>Lecture seule</span>
@@ -507,6 +508,22 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <div class="flag f1"><span class="dot"></span>Vérifié il y a 14 min</div>
       <div class="flag f2"><span class="dot"></span>Hémorragie stoppée en 2 taps</div>
     </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDING 30 ============ -->
+<section class="founding" aria-labelledby="founding-h" style="background:var(--coral);color:var(--ink)">
+  <div class="wrap" style="text-align:center;padding-top:64px;padding-bottom:64px">
+    <span class="reveal" style="display:inline-block;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;font-weight:700;color:var(--ink);opacity:.72">Cohorte fondatrice · 30 places</span>
+    <h2 id="founding-h" class="reveal" data-d="1" style="font-family:var(--f-serif);font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:10px 0 14px">Rejoignez les <em class="s" style="color:var(--paper)">Founding 30</em>. Verrouillez le prix d&rsquo;aujourd&rsquo;hui à vie.</h2>
+    <p class="lede reveal" data-d="2" style="max-width:62ch;margin:0 auto 26px;color:var(--ink)">Première prise offerte. Branchez Meta et Shopify en lecture seule, et la première fois que crumplz repère une vraie dérive et vous dit quoi faire, vous décidez si elle mérite sa place dans votre stack. Les membres fondateurs gardent le prix d&rsquo;aujourd&rsquo;hui pour toujours, une ligne directe avec le fondateur, et un vote sur la roadmap.</p>
+    <div class="reveal" data-d="2" style="display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;margin-bottom:28px;font-weight:600">
+      <span>Prix verrouillé à vie</span><span aria-hidden="true">·</span><span>Première prise offerte</span><span aria-hidden="true">·</span><span>Ligne directe avec le fondateur</span><span aria-hidden="true">·</span><span>Vote sur la roadmap</span>
+    </div>
+    <div class="hero-cta reveal" data-d="3" style="justify-content:center">
+      <a class="btn" href="/signup?founding=1" style="background:var(--ink);color:var(--on-ink)">Réserver ma place fondateur</a>
+    </div>
+    <p class="microcopy reveal" data-d="3" style="margin:14px 0 0;color:var(--ink);opacity:.8"><span id="spotsLeft" data-spots-total="30">30</span> places fondateur restantes</p>
   </div>
 </section>
 
@@ -791,6 +808,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <span class="eyebrow reveal">Tarifs</span>
       <h2 id="price-h" class="reveal" data-d="1">Tarif simple. <em class="s">Zéro blabla.</em></h2>
       <p class="lede reveal" data-d="2" style="margin-top:14px">Conçu pour votre marge, pas pour gonfler la facture. Une formule par palier de dépense pub.</p>
+      <p class="reveal" data-d="2" style="font-weight:700;color:var(--coral-deep);margin-top:12px">Founding 30 : verrouillez le prix d&rsquo;aujourd&rsquo;hui à vie. 30 places, ensuite les prix montent.</p>
     </div>
     <div class="price-grid">
       <div class="price reveal" data-d="1">
@@ -888,7 +906,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <h2 id="final-h">Un mauvais jour de pub ne devient jamais une <em class="s">mauvaise semaine.</em></h2>
       <p class="lede">Activez crumplz. Il monte la garde quand vous ne pouvez pas.</p>
       <div class="final-cta">
-        <a class="btn btn-primary" href="/signup">Activer les alertes
+        <a class="btn btn-primary" href="/signup?founding=1">Réserver ma place
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="btn btn-ghost" href="#how">Voir comment ça marche</a>

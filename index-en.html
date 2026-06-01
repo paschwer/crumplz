@@ -408,7 +408,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     </nav>
     <div class="nav-cta">
       <a class="login" href="#">Log in</a>
-      <a class="btn btn-primary" href="/signup">Turn on alerts</a>
+      <a class="btn btn-primary" href="/signup?founding=1">Reserve your spot</a>
     </div>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
@@ -420,7 +420,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <a href="#">Log in</a>
-    <a class="btn btn-primary" href="/signup">Turn on alerts</a>
+    <a class="btn btn-primary" href="/signup?founding=1">Reserve your spot</a>
   </div>
 </header>
 
@@ -431,16 +431,17 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
     <div class="hero-text">
+      <span class="reveal" style="display:inline-block;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;font-weight:700;background:var(--coral);color:var(--ink);padding:5px 13px;border-radius:999px;margin-bottom:12px">Founding 30 · price locked for life</span>
       <span class="eyebrow reveal">Early-warning for Meta Ads drifts</span>
       <h1 id="hero-h" class="reveal" data-d="1">Catch the <em class="s">drift</em> before it burns your margin.</h1>
       <p class="lede reveal" data-d="2">Your Meta campaigns crash quietly. crumplz watches them every 2 hours, spots the drift, and texts you the exact move to make. Not another dashboard. A lifeguard for your ad spend.</p>
       <div class="hero-cta reveal" data-d="3">
-        <a class="btn btn-primary" href="/signup">Turn on alerts
+        <a class="btn btn-primary" href="/signup?founding=1">Reserve your spot
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
-      <p class="microcopy reveal" data-d="3">No credit card required &nbsp;·&nbsp; 3-minute setup &nbsp;·&nbsp; Cancel anytime.</p>
+      <p class="microcopy reveal" data-d="3">First catch free &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; 30 founding spots</p>
       <div class="trust reveal" data-d="3">
         <span>Connects to Meta Ads + Shopify</span>
         <span>Read-only</span>
@@ -516,6 +517,22 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <div class="flag f1"><span class="dot"></span>Checked 14 min ago</div>
       <div class="flag f2"><span class="dot"></span>Bleed stopped in 2 taps</div>
     </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDING 30 ============ -->
+<section class="founding" aria-labelledby="founding-h" style="background:var(--coral);color:var(--ink)">
+  <div class="wrap" style="text-align:center;padding-top:64px;padding-bottom:64px">
+    <span class="reveal" style="display:inline-block;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;font-weight:700;color:var(--ink);opacity:.72">Founding cohort · 30 spots</span>
+    <h2 id="founding-h" class="reveal" data-d="1" style="font-family:var(--f-serif);font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:10px 0 14px">Join the <em class="s" style="color:var(--paper)">Founding 30</em>. Lock today&rsquo;s price for life.</h2>
+    <p class="lede reveal" data-d="2" style="max-width:62ch;margin:0 auto 26px;color:var(--ink)">First catch free. Connect Meta and Shopify in read-only, and the first time crumplz catches a real drift and tells you the move, you decide if it earned a spot in your stack. Founding members keep today&rsquo;s price forever, get a direct line to the founder, and a vote on the roadmap.</p>
+    <div class="reveal" data-d="2" style="display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;margin-bottom:28px;font-weight:600">
+      <span>Price locked for life</span><span aria-hidden="true">·</span><span>First catch free</span><span aria-hidden="true">·</span><span>Direct line to the founder</span><span aria-hidden="true">·</span><span>Vote on the roadmap</span>
+    </div>
+    <div class="hero-cta reveal" data-d="3" style="justify-content:center">
+      <a class="btn" href="/signup?founding=1" style="background:var(--ink);color:var(--on-ink)">Reserve your founding spot</a>
+    </div>
+    <p class="microcopy reveal" data-d="3" style="margin:14px 0 0;color:var(--ink);opacity:.8"><span id="spotsLeft" data-spots-total="30">30</span> founding spots remaining</p>
   </div>
 </section>
 
@@ -802,7 +819,8 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <span class="eyebrow reveal">Pricing</span>
       <h2 id="price-h" class="reveal" data-d="1">Simple pricing. <em class="s">Zero fluff.</em></h2>
       <p class="lede reveal" data-d="2" style="margin-top:14px">Built for margin, priced for control. One plan per ad-spend tier.</p>
-      <p class="reveal" data-d="2" style="font-size:.92rem;color:var(--ink-2);margin-top:10px;max-width:48ch;margin-left:auto;margin-right:auto">One missed drift costs an average of $400/day. The Starter plan pays for itself in under 5 hours of protection.</p>
+      <p class="reveal" data-d="2" style="font-size:.92rem;color:var(--ink-2);margin-top:10px;max-width:48ch">One missed drift costs an average of $400/day. The Starter plan pays for itself in under 5 hours of protection.</p>
+      <p class="reveal" data-d="2" style="font-weight:700;color:var(--coral-deep);margin-top:12px">Founding 30: lock today&rsquo;s price for life. 30 spots, then prices rise.</p>
     </div>
     <div class="price-controls reveal" data-d="2">
       <div class="seg seg-bill" role="group" aria-label="Billing period">
@@ -943,7 +961,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:58px 0 34px}
       <h2 id="final-h">A bad ad day never becomes a <em class="s">bad ad week.</em></h2>
       <p class="lede">Turn on crumplz and let it watch the hours you can&rsquo;t.</p>
       <div class="final-cta">
-        <a class="btn btn-primary" href="/signup">Turn on alerts
+        <a class="btn btn-primary" href="/signup?founding=1">Reserve your spot
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
