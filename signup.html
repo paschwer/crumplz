@@ -575,6 +575,19 @@
   function utm(){ try { return JSON.parse(localStorage.getItem('crumplz_utm')||'{}'); } catch(e){ return {}; } }
   function mapUtm(u){ return { source:u.utm_source, medium:u.utm_medium, campaign:u.utm_campaign }; }
 
+  /* ── BL-021/BL-023: Founding 30 flag (?founding=1) ───────────────────────────
+   * Persisted so it survives a refresh, replayed in the HubSpot payload (founding_spot
+   * = reserved) and on the founding_spot_reserved GA4 event at signup success. */
+  (function persistFounding(){
+    if (new URLSearchParams(location.search).get('founding') === '1') {
+      try { localStorage.setItem('crumplz_founding', '1'); } catch(e){}
+    }
+  })();
+  function isFounding(){
+    try { if (localStorage.getItem('crumplz_founding') === '1') return true; } catch(e){}
+    return new URLSearchParams(location.search).get('founding') === '1';
+  }
+
   async function sha256(s){
     const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s.toLowerCase().trim()));
     return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -611,7 +624,7 @@
       const res = await fetch('/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstname: fn, lastname: ln, email: em })
+        body: JSON.stringify({ firstname: fn, lastname: ln, email: em, founding: isFounding() })
       });
 
       const data = await res.json();
@@ -620,6 +633,9 @@
       if (res.ok && data.ok) {
         const uid = await sha256(em);                           // never send the email in clear
         gtag('event','signup_succeeded', { user_id: uid });
+        if (isFounding()) {                                     // BL-023: founding reservation, UTM replayed for channel attribution
+          gtag('event','founding_spot_reserved', Object.assign({ user_id: uid }, mapUtm(utm())));
+        }
         document.getElementById('formArea').style.display = 'none';
         document.getElementById('ok').classList.add('on');
         addFeed(fn + (ln ? ' ' + ln[0] + '.' : ''));

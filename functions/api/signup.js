@@ -122,7 +122,7 @@ export async function onRequestPost({ request, env }) {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: corsHeaders });
   }
 
-  const { firstname = '', lastname = '', email = '' } = body;
+  const { firstname = '', lastname = '', email = '', founding = false } = body;
   if (!email || !email.includes('@')) {
     return new Response(JSON.stringify({ error: 'Email required' }), { status: 400, headers: corsHeaders });
   }
@@ -130,6 +130,17 @@ export async function onRequestPost({ request, env }) {
   const errors = [];
 
   // ── 1. HubSpot ──────────────────────────────────────────────────────────────
+  // BL-021: mark founding leads. `founding_spot` must exist as a HubSpot contact
+  // property (single-line text or enum incl. value "reserved") — sent only when the
+  // lead arrived via /signup?founding=1 so regular signups are never affected.
+  const hsFields = [
+    { name: 'firstname', value: firstname },
+    { name: 'lastname',  value: lastname  },
+    { name: 'email',     value: email     },
+  ];
+  if (founding === true) {
+    hsFields.push({ name: 'founding_spot', value: 'reserved' });
+  }
   try {
     const hsRes = await fetch(
       `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
@@ -137,11 +148,7 @@ export async function onRequestPost({ request, env }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          fields: [
-            { name: 'firstname', value: firstname },
-            { name: 'lastname',  value: lastname  },
-            { name: 'email',     value: email     },
-          ],
+          fields: hsFields,
           context: { pageUri: `${BRAND_URL}/signup`, pageName: 'crumplz — Early Access' },
         }),
       }
