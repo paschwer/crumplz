@@ -79,9 +79,9 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
 <body>
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="logo" href="index-en.html"><img src="assets/crumplzLogo.svg" alt="crumplz" height="28" loading="eager" class="logo-wordmark"></a>
-    <nav class="nav-links"><a href="index-en.html#how">How it works</a><a href="index-en.html#product">Product</a><a href="index-en.html#pricing">Pricing</a></nav>
-    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="index-en.html#pricing">Turn on alerts</a></div>
+    <a class="logo" href="/"><img src="assets/crumplzLogo.svg" alt="crumplz" height="28" loading="eager" class="logo-wordmark"></a>
+    <nav class="nav-links"><a href="/#how">How it works</a><a href="/#product">Product</a><a href="/#pricing">Pricing</a></nav>
+    <div class="nav-cta"><a class="login" href="#">Log in</a><a class="btn btn-primary" href="/#pricing">Turn on alerts</a></div>
     <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
@@ -92,7 +92,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
     <h1>Meta Ads Monitoring:<br><em class="s">The complete guide</em><br>for DTC brands.</h1>
     <p class="lede">What to monitor, why dashboards aren't enough, how anomaly detection works, and what changes when alerts come to you instead of waiting for you to check.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="index-en.html#pricing">Start monitoring — 3 min setup</a>
+      <a class="btn btn-primary" href="/#pricing">Start monitoring — 3 min setup</a>
       <a class="btn btn-ghost" href="#what-is">Read the guide</a>
     </div>
     <p class="microcopy">crumplz monitors every 2 hours · Shopify MER cross-validated · WhatsApp, Slack, Email</p>
@@ -128,7 +128,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
 
         <div class="inline-cta">
           <p>crumplz closes all three gaps: 2-hour detection cycles, dynamic baselines that eliminate false alarms, and 24/7 coverage including weekends.</p>
-          <a class="btn btn-ghost" href="index-en.html#pricing">Start monitoring</a>
+          <a class="btn btn-ghost" href="/#pricing">Start monitoring</a>
         </div>
 
         <h2 id="what-to-monitor">What metrics to monitor — and why</h2>
@@ -136,19 +136,19 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
 
         <h3>ROAS — the primary outcome metric</h3>
         <p>Return on Ad Spend is the ratio of revenue attributed to your ads divided by what you spent. For DTC brands, it's the most direct measure of whether your Meta investment is working. ROAS is a lagging indicator — by the time it drops significantly, the underlying cause (creative fatigue, audience exhaustion, algorithm instability) has usually been present for hours or days.</p>
-        <p>Monitoring ROAS requires dynamic baselines — comparing against the same ad set's performance on the same day of the week over recent history, not a fixed number. A ROAS of 2.8× on a Monday might be fine for an ad set that typically runs 2.6× on Mondays but alarming for one that runs 4.2×. Learn more: <a href="roas-drop-alert.html" style="color:var(--coral-deep);font-weight:700">ROAS drop detection →</a></p>
+        <p>Monitoring ROAS requires dynamic baselines — comparing against the same ad set's performance on the same day of the week over recent history, not a fixed number. A ROAS of 2.8× on a Monday might be fine for an ad set that typically runs 2.6× on Mondays but alarming for one that runs 4.2×. Learn more: <a href="/roas-drop-alert" style="color:var(--coral-deep);font-weight:700">ROAS drop detection →</a></p>
 
         <h3>CPA — the acquisition cost metric</h3>
-        <p>Cost per acquisition tells you what you're paying per customer (or conversion). CPA is a cleaner metric than ROAS for brands where average order value fluctuates, because it isolates the cost side without the revenue-attribution complications. A rising CPA trend across 3+ consecutive monitoring cycles is one of the clearest signals that something is drifting. See also: <a href="facebook-ads-cpa-too-high.html" style="color:var(--coral-deep);font-weight:700">diagnosing high CPA →</a></p>
+        <p>Cost per acquisition tells you what you're paying per customer (or conversion). CPA is a cleaner metric than ROAS for brands where average order value fluctuates, because it isolates the cost side without the revenue-attribution complications. A rising CPA trend across 3+ consecutive monitoring cycles is one of the clearest signals that something is drifting. See also: <a href="/facebook-ads-cpa-too-high" style="color:var(--coral-deep);font-weight:700">diagnosing high CPA →</a></p>
 
         <h3>CTR — the leading indicator</h3>
-        <p>Click-through rate is the earliest metric to move when creative fatigue begins. A CTR decline of 10–15% against the ad set's 7-day baseline, combined with rising frequency, typically precedes a ROAS drop by 24–48 hours. Monitoring CTR gives you a window to act before the damage reaches your CPA and ROAS. Full guide: <a href="meta-ads-creative-fatigue.html" style="color:var(--coral-deep);font-weight:700">creative fatigue detection →</a></p>
+        <p>Click-through rate is the earliest metric to move when creative fatigue begins. A CTR decline of 10–15% against the ad set's 7-day baseline, combined with rising frequency, typically precedes a ROAS drop by 24–48 hours. Monitoring CTR gives you a window to act before the damage reaches your CPA and ROAS. Full guide: <a href="/meta-ads-creative-fatigue" style="color:var(--coral-deep);font-weight:700">creative fatigue detection →</a></p>
 
         <h3>MER — the cross-channel truth metric</h3>
-        <p>Marketing Efficiency Ratio (total Shopify revenue ÷ total ad spend across all channels) is not a Meta-specific metric — it's a business-level metric. But it's essential for monitoring: a Meta ROAS drop that's offset by an organic traffic surge isn't a real problem. Cross-validating Meta signals against MER before alerting is what separates actionable monitoring from noise. Full guide: <a href="what-is-mer-marketing-efficiency-ratio.html" style="color:var(--coral-deep);font-weight:700">what is MER? →</a></p>
+        <p>Marketing Efficiency Ratio (total Shopify revenue ÷ total ad spend across all channels) is not a Meta-specific metric — it's a business-level metric. But it's essential for monitoring: a Meta ROAS drop that's offset by an organic traffic surge isn't a real problem. Cross-validating Meta signals against MER before alerting is what separates actionable monitoring from noise. Full guide: <a href="/what-is-mer-marketing-efficiency-ratio" style="color:var(--coral-deep);font-weight:700">what is MER? →</a></p>
 
         <h3>Budget pacing</h3>
-        <p>Is spend on track relative to daily and monthly budget targets? Campaigns that overspend early in the month compress your budget calendar and inflate costs in the final days. Campaigns that underspend indicate delivery problems that are worth investigating. Budget drift is often overlooked — it doesn't show up as a ROAS problem until the damage is done. Full guide: <a href="meta-ads-budget-protection.html" style="color:var(--coral-deep);font-weight:700">budget protection →</a></p>
+        <p>Is spend on track relative to daily and monthly budget targets? Campaigns that overspend early in the month compress your budget calendar and inflate costs in the final days. Campaigns that underspend indicate delivery problems that are worth investigating. Budget drift is often overlooked — it doesn't show up as a ROAS problem until the damage is done. Full guide: <a href="/meta-ads-budget-protection" style="color:var(--coral-deep);font-weight:700">budget protection →</a></p>
 
         <h2 id="monitoring-options">The three monitoring approaches — compared</h2>
         <p>DTC brands typically choose between three approaches to Meta Ads monitoring. Each has a different cost, coverage, and accuracy profile.</p>
@@ -163,7 +163,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
         </table>
 
         <p>The critical difference between native Meta rules and dedicated monitoring is the false positive rate. Meta's automated rules fire on single-period threshold breaches without context — they'll pause a healthy campaign that had one bad day, resetting its learning phase and costing you weeks of algorithm optimization. A monitoring tool with dynamic baselines and MER cross-validation only alerts when the signal is sustained and confirmed by business-level data.</p>
-        <p>For a deeper comparison: <a href="best-meta-ads-monitoring-tools.html" style="color:var(--coral-deep);font-weight:700">best Meta Ads monitoring tools →</a></p>
+        <p>For a deeper comparison: <a href="/best-meta-ads-monitoring-tools" style="color:var(--coral-deep);font-weight:700">best Meta Ads monitoring tools →</a></p>
 
         <h2 id="how-detection-works">How anomaly detection works</h2>
         <p>Modern Meta Ads monitoring doesn't compare your current ROAS against a fixed number you set. It compares against a dynamic baseline — a model of what "normal" looks like for that specific ad set, accounting for day-of-week patterns, recent trend changes, and historical variance.</p>
@@ -176,25 +176,25 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
           <li>Cross-validate against Shopify MER — if overall marketing efficiency is holding, suppress the alert (it's likely attribution noise, not a real problem)</li>
           <li>If the signal is sustained and MER-confirmed, generate an alert with the metric, the magnitude of drift, a root cause diagnosis, and a suggested action</li>
         </ol>
-        <p>The MER cross-validation step is what eliminates most false positives. Without it, any organic traffic spike that pulls conversions "away from Meta attribution" would generate an alert. With it, you only hear about problems that are actually affecting your business. Full technical breakdown: <a href="meta-ads-anomaly-detection.html" style="color:var(--coral-deep);font-weight:700">anomaly detection deep dive →</a></p>
+        <p>The MER cross-validation step is what eliminates most false positives. Without it, any organic traffic spike that pulls conversions "away from Meta attribution" would generate an alert. With it, you only hear about problems that are actually affecting your business. Full technical breakdown: <a href="/meta-ads-anomaly-detection" style="color:var(--coral-deep);font-weight:700">anomaly detection deep dive →</a></p>
 
         <h2 id="common-issues">The 5 most common Meta Ads issues monitoring catches</h2>
         <p>These are the events that cost DTC brands the most budget — and that systematic monitoring catches early enough to limit the damage.</p>
 
         <h3>1. Creative fatigue</h3>
-        <p>Your audience has seen the same ads too many times. CTR declines first, then conversion rate, then ROAS. Monitoring catches the CTR decline 24–48 hours before ROAS is affected — giving you time to rotate creatives before the revenue impact is severe. Average loss if undetected for 4+ days: €300–800 depending on spend level. <a href="meta-ads-creative-fatigue.html" style="color:var(--coral-deep);font-weight:700">Creative fatigue guide →</a></p>
+        <p>Your audience has seen the same ads too many times. CTR declines first, then conversion rate, then ROAS. Monitoring catches the CTR decline 24–48 hours before ROAS is affected — giving you time to rotate creatives before the revenue impact is severe. Average loss if undetected for 4+ days: €300–800 depending on spend level. <a href="/meta-ads-creative-fatigue" style="color:var(--coral-deep);font-weight:700">Creative fatigue guide →</a></p>
 
         <h3>2. CPA spike</h3>
-        <p>Cost per acquisition rises sharply, often due to one of four causes: creative fatigue, audience exhaustion, algorithm instability, or landing page issues. The fix depends on the cause — which is why monitoring tools that include root cause diagnosis are more valuable than tools that just notify you. <a href="meta-ads-cpa-monitoring.html" style="color:var(--coral-deep);font-weight:700">CPA monitoring →</a></p>
+        <p>Cost per acquisition rises sharply, often due to one of four causes: creative fatigue, audience exhaustion, algorithm instability, or landing page issues. The fix depends on the cause — which is why monitoring tools that include root cause diagnosis are more valuable than tools that just notify you. <a href="/meta-ads-cpa-monitoring" style="color:var(--coral-deep);font-weight:700">CPA monitoring →</a></p>
 
         <h3>3. Algorithm instability</h3>
         <p>After budget changes, audience edits, or creative swaps, Meta's delivery algorithm enters a "learning phase" that can cause CPA to spike 2–3× for 24–72 hours. Monitoring distinguishes this from a real performance problem: the right response is to wait, not to intervene further. Intervening resets the learning phase and extends the instability period.</p>
 
         <h3>4. Budget drift</h3>
-        <p>Campaigns that pace above budget target burn through their monthly allocation early, concentrating spend in lower-quality inventory windows. Campaigns that underspend signal delivery problems. Both are caught within hours by budget pacing monitoring. <a href="meta-ads-budget-protection.html" style="color:var(--coral-deep);font-weight:700">Budget protection →</a></p>
+        <p>Campaigns that pace above budget target burn through their monthly allocation early, concentrating spend in lower-quality inventory windows. Campaigns that underspend signal delivery problems. Both are caught within hours by budget pacing monitoring. <a href="/meta-ads-budget-protection" style="color:var(--coral-deep);font-weight:700">Budget protection →</a></p>
 
         <h3>5. ROAS decline</h3>
-        <p>The most common and costly issue — ROAS drifts gradually downward over days without a sharp break that would trigger a manual review. Slow declines are the hardest to catch without automated trend monitoring. <a href="roas-drop-alert.html" style="color:var(--coral-deep);font-weight:700">ROAS drop alerts →</a></p>
+        <p>The most common and costly issue — ROAS drifts gradually downward over days without a sharp break that would trigger a manual review. Slow declines are the hardest to catch without automated trend monitoring. <a href="/roas-drop-alert" style="color:var(--coral-deep);font-weight:700">ROAS drop alerts →</a></p>
 
         <h2 id="by-team-type">Meta Ads monitoring by team type</h2>
         <p>The right monitoring setup depends on who's responsible for the accounts and how they work.</p>
@@ -206,28 +206,28 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
         <p>You have a paid social specialist or a growth team, but they can't watch dashboards all day either. The right setup: Slack alerts routed to a #paid-ads-ops channel, so the whole team is notified simultaneously and whoever is available can triage. Individual ad account alerts routed to the account manager responsible for that brand.</p>
 
         <h3>Agency managing multiple DTC clients</h3>
-        <p>You're monitoring 5–20 client accounts. Manual monitoring doesn't scale: at 10 clients, you're spending 2–5 hours/day just checking dashboards. The right setup: crumplz Pro with multi-account monitoring, per-account alert routing, and team seats. Each account manager receives alerts for their assigned clients. <a href="meta-ads-monitoring-agency.html" style="color:var(--coral-deep);font-weight:700">Agency monitoring guide →</a></p>
+        <p>You're monitoring 5–20 client accounts. Manual monitoring doesn't scale: at 10 clients, you're spending 2–5 hours/day just checking dashboards. The right setup: crumplz Pro with multi-account monitoring, per-account alert routing, and team seats. Each account manager receives alerts for their assigned clients. <a href="/meta-ads-monitoring-agency" style="color:var(--coral-deep);font-weight:700">Agency monitoring guide →</a></p>
 
         <h2 id="shopify-integration">Meta Ads monitoring on Shopify</h2>
         <p>DTC brands on Shopify have a structural advantage in monitoring: Shopify revenue data is the cleanest source of business-level truth available. The Marketing Efficiency Ratio calculated from Shopify orders is attribution-model-agnostic — it doesn't care which platform claims credit for which sale. It just measures what came in.</p>
         <p>Connecting Shopify to your monitoring setup transforms individual Meta metrics from isolated signals into business-validated signals. A ROAS drop that's confirmed by MER is a real problem. A ROAS drop that occurs while MER holds is probably attribution noise — a Shopify email flow or organic search spike pulling "Meta's conversions" through a different touchpoint.</p>
-        <p>crumplz connects to Shopify via read-only Storefront API in under 2 minutes. The MER cross-validation runs with every 2-hour monitoring cycle. Full guide: <a href="shopify-meta-ads-monitoring.html" style="color:var(--coral-deep);font-weight:700">Shopify Meta Ads monitoring →</a></p>
+        <p>crumplz connects to Shopify via read-only Storefront API in under 2 minutes. The MER cross-validation runs with every 2-hour monitoring cycle. Full guide: <a href="/shopify-meta-ads-monitoring" style="color:var(--coral-deep);font-weight:700">Shopify Meta Ads monitoring →</a></p>
 
         <h2 id="cluster-pages">Explore monitoring by topic</h2>
         <p>Each section of this guide goes deep on one aspect of Meta Ads monitoring. Explore the full library:</p>
         <div class="cluster-links">
-          <a class="cluster-link" href="roas-drop-alert.html"><span>ROAS drop detection and alerts</span></a>
-          <a class="cluster-link" href="meta-ads-cpa-monitoring.html"><span>CPA monitoring and diagnosis</span></a>
-          <a class="cluster-link" href="meta-ads-creative-fatigue.html"><span>Creative fatigue detection</span></a>
-          <a class="cluster-link" href="meta-ads-budget-protection.html"><span>Budget protection and pacing</span></a>
-          <a class="cluster-link" href="meta-ads-anomaly-detection.html"><span>How anomaly detection works</span></a>
-          <a class="cluster-link" href="meta-ads-performance-drop.html"><span>Performance drop diagnosis</span></a>
-          <a class="cluster-link" href="facebook-ads-monitoring-tool.html"><span>Facebook Ads monitoring tool</span></a>
-          <a class="cluster-link" href="shopify-meta-ads-monitoring.html"><span>Shopify + Meta Ads monitoring</span></a>
-          <a class="cluster-link" href="meta-ads-whatsapp-alerts.html"><span>WhatsApp alerts</span></a>
-          <a class="cluster-link" href="meta-ads-slack-alerts.html"><span>Slack alerts</span></a>
-          <a class="cluster-link" href="meta-ads-monitoring-agency.html"><span>Monitoring for agencies</span></a>
-          <a class="cluster-link" href="ad-spend-monitoring-software.html"><span>Ad spend monitoring software</span></a>
+          <a class="cluster-link" href="/roas-drop-alert"><span>ROAS drop detection and alerts</span></a>
+          <a class="cluster-link" href="/meta-ads-cpa-monitoring"><span>CPA monitoring and diagnosis</span></a>
+          <a class="cluster-link" href="/meta-ads-creative-fatigue"><span>Creative fatigue detection</span></a>
+          <a class="cluster-link" href="/meta-ads-budget-protection"><span>Budget protection and pacing</span></a>
+          <a class="cluster-link" href="/meta-ads-anomaly-detection"><span>How anomaly detection works</span></a>
+          <a class="cluster-link" href="/meta-ads-performance-drop"><span>Performance drop diagnosis</span></a>
+          <a class="cluster-link" href="/facebook-ads-monitoring-tool"><span>Facebook Ads monitoring tool</span></a>
+          <a class="cluster-link" href="/shopify-meta-ads-monitoring"><span>Shopify + Meta Ads monitoring</span></a>
+          <a class="cluster-link" href="/meta-ads-whatsapp-alerts"><span>WhatsApp alerts</span></a>
+          <a class="cluster-link" href="/meta-ads-slack-alerts"><span>Slack alerts</span></a>
+          <a class="cluster-link" href="/meta-ads-monitoring-agency"><span>Monitoring for agencies</span></a>
+          <a class="cluster-link" href="/ad-spend-monitoring-software"><span>Ad spend monitoring software</span></a>
         </div>
 
         <h2 id="faq">FAQ</h2>
@@ -269,7 +269,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
         <div class="sidebar-cta">
           <h4>Monitor in 3 minutes</h4>
           <p>Connect Meta Ads + Shopify. crumplz will have your first cycle done before you finish reading.</p>
-          <a class="btn btn-primary" href="index-en.html#pricing">Start free trial</a>
+          <a class="btn btn-primary" href="/#pricing">Start free trial</a>
         </div>
       </div>
     </div>
@@ -281,8 +281,8 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
     <span class="eyebrow">Ready to monitor</span>
     <h2 style="margin-top:14px">Stop checking dashboards.<br><em class="s">Let monitoring come to you.</em></h2>
     <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-primary" href="index-en.html#pricing">Turn on Meta Ads monitoring</a>
-      <a class="btn btn-ghost" href="best-meta-ads-monitoring-tools.html">Compare all tools</a>
+      <a class="btn btn-primary" href="/#pricing">Turn on Meta Ads monitoring</a>
+      <a class="btn btn-ghost" href="/best-meta-ads-monitoring-tools">Compare all tools</a>
     </div>
   </div>
 </section>
@@ -291,12 +291,12 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="index-en.html" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
+        <a class="logo" href="/" style="color:var(--on-ink)"><svg viewBox="0 0 32 32" aria-hidden="true" width="26" height="26"><circle cx="16" cy="16" r="11" fill="none" stroke="#f95c4b" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="none" stroke="#f6f4f1" stroke-width="2.7"/><g stroke="#f6f4f1" stroke-width="2.7" stroke-linecap="round"><line x1="16" y1="2.5" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="29.5"/><line x1="2.5" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="29.5" y2="16"/></g></svg>crumplz</a>
         <p>Early-warning alert system for Meta Ads drifts. Built for DTC Shopify brands.</p>
       </div>
-      <div class="foot-col"><h4>Pillars</h4><a href="meta-ads-monitoring.html">Meta Ads monitoring guide</a><a href="meta-ads-performance-optimization.html">Performance optimization</a><a href="dtc-meta-ads-guide.html">DTC Meta Ads guide</a></div>
-      <div class="foot-col"><h4>Features</h4><a href="roas-drop-alert.html">ROAS drop alerts</a><a href="meta-ads-cpa-monitoring.html">CPA monitoring</a><a href="meta-ads-anomaly-detection.html">Anomaly detection</a><a href="meta-ads-budget-protection.html">Budget protection</a></div>
-      <div class="foot-col"><h4>Compare</h4><a href="triple-whale-alternative.html">vs Triple Whale</a><a href="northbeam-alternative.html">vs Northbeam</a><a href="madgicx-alternative.html">vs Madgicx</a><a href="best-meta-ads-monitoring-tools.html">Best tools</a></div>
+      <div class="foot-col"><h4>Pillars</h4><a href="/meta-ads-monitoring">Meta Ads monitoring guide</a><a href="/meta-ads-performance-optimization">Performance optimization</a><a href="/dtc-meta-ads-guide">DTC Meta Ads guide</a></div>
+      <div class="foot-col"><h4>Features</h4><a href="/roas-drop-alert">ROAS drop alerts</a><a href="/meta-ads-cpa-monitoring">CPA monitoring</a><a href="/meta-ads-anomaly-detection">Anomaly detection</a><a href="/meta-ads-budget-protection">Budget protection</a></div>
+      <div class="foot-col"><h4>Compare</h4><a href="/triple-whale-alternative">vs Triple Whale</a><a href="/northbeam-alternative">vs Northbeam</a><a href="/madgicx-alternative">vs Madgicx</a><a href="/best-meta-ads-monitoring-tools">Best tools</a></div>
     </div>
     <div class="foot-bot"><span>© 2026 crumplz. All rights reserved.</span><span>GDPR compliant · Read-only Meta access</span></div>
   </div>
