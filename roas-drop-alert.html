@@ -4,8 +4,8 @@
 <script src="/assets/analytics.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ROAS Drop Alert for Meta Ads — Catch the Drift in 2 Hours | crumplz</title>
-<meta name="description" content="crumplz monitors your Meta Ads ROAS every 2 hours and sends a WhatsApp, Slack or email alert the moment it drifts — with the exact action to take. Never lose hours of budget to a silent ROAS crash again.">
+<title>ROAS Alert Tool for Meta Ads — Catch Drops in 2 Hours | crumplz</title>
+<meta name="description" content="crumplz is a ROAS alert tool for Meta Ads. It monitors your ROAS every 2 hours, cross-checks Shopify revenue, and pings Slack, WhatsApp or email the moment it drifts.">
 <meta name="theme-color" content="#f6f4f1">
 <link rel="canonical" href="https://crumplz.com/roas-drop-alert">
 <meta property="og:title" content="ROAS Drop Alert for Meta Ads | crumplz">
@@ -26,7 +26,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 .lede{color:var(--ink-2);font-size:clamp(1rem,1.5vw,1.16rem);max-width:46ch}.sec-ink .lede{color:var(--on-ink-soft)}.sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
-.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.page-updated{margin-top:12px;font-size:.82rem;font-weight:600;color:var(--ink-faint);letter-spacing:.02em}.prose{max-width:62ch}.prose p{color:var(--ink-2);margin-bottom:18px;font-size:.97rem;line-height:1.72}.prose p:last-child{margin-bottom:0}.prose ol{margin:0 0 18px 0;padding-left:1.2em;list-style:decimal}.prose ol li{color:var(--ink-2);font-size:.97rem;line-height:1.72;margin-bottom:10px}.sec-ink .prose p,.sec-ink .prose ol li{color:var(--on-ink-soft)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
 /* Drift timeline */
 .timeline{margin-top:36px;border:2px solid var(--ink);border-radius:2px}
 .tl-row{display:grid;grid-template-columns:120px 1fr;border-bottom:2px solid var(--ink);align-items:stretch}
@@ -61,6 +61,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.94rem;color:var(--on-ink-soft);margin-bottom:10px;transition:color .15s}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 .logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly does crumplz detect a ROAS drop?","acceptedAnswer":{"@type":"Answer","text":"crumplz runs a full check every 2 hours. So the maximum lag between a ROAS drop happening and you receiving the alert is 2 hours. In practice, most teams using crumplz react within 20 minutes of receiving the alert — vs the industry average of 4h17 without an alert system."}},{"@type":"Question","name":"Will I get false alarms on normal fluctuations?","acceptedAnswer":{"@type":"Answer","text":"crumplz is designed to minimize false positives. Dynamic baselines account for day-of-week patterns and campaign history. And before alerting on a ROAS drop, crumplz cross-validates against Shopify MER — if Shopify revenue is holding, it holds the alert. The goal is one real signal, not a flood of noise."}},{"@type":"Question","name":"Can I set my own ROAS alert thresholds?","acceptedAnswer":{"@type":"Answer","text":"Yes. On the Growth and Pro plans you can set custom thresholds per campaign — for example \"alert when ROAS drops more than 35% from the 7-day average\" or \"alert if ROAS falls below 2.5x for more than 4 hours.\" Starter uses crumplz's automatic dynamic thresholds."}},{"@type":"Question","name":"Does crumplz monitor ROAS at campaign, ad set, or ad level?","acceptedAnswer":{"@type":"Answer","text":"crumplz monitors at campaign and ad set level by default. Campaign-level monitoring catches systemic drift; ad set level catches audience or placement-specific issues. Ad-level monitoring is on the roadmap for the Pro plan."}},{"@type":"Question","name":"Is crumplz a ROAS alert tool or a full analytics platform?","acceptedAnswer":{"@type":"Answer","text":"A ROAS alert tool, deliberately. crumplz watches your Meta Ads metrics, cross-checks them against Shopify revenue, and messages you with a recommended action when something drifts. Setup takes about 3 minutes. There is no dashboard to open, no report to build, no second analytics suite to maintain — if you want to explore your data, you already have tools for that."}}]}</script>
 </head>
 <body>
 
@@ -80,6 +81,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
     <div class="hero-inner">
       <span class="eyebrow">ROAS drop alert</span>
       <h1>Your ROAS dropped.<br><em class="s">crumplz knew before you did.</em></h1>
+      <p class="page-updated">Last updated: July 2026</p>
       <p class="lede">ROAS drifts don't announce themselves. They start quietly, compound for hours, and cost thousands before anyone opens a dashboard. crumplz monitors your Meta Ads ROAS every 2 hours and sends you the alert — with the recommended fix — before it burns your margin.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="/#pricing">Turn on ROAS alerts — free</a>
@@ -163,6 +165,20 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
   </div>
 </section>
 
+<!-- WHAT MAKES A GOOD ROAS ALERT TOOL -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Choosing a tool</span>
+      <h2>What makes a good ROAS alert tool</h2>
+    </div>
+    <div class="prose">
+      <p>Most teams try three things before buying one: Meta's automated rules, a spreadsheet ritual, or a full analytics suite. Each fails a different way. Automated rules fire on static thresholds, so they either spam you or sleep through a real drop. Spreadsheets tell you what happened yesterday. Analytics suites show you everything, which at 2am is the same as showing you nothing.</p>
+      <p>A ROAS alert tool has one job: notice the drift before it gets expensive, and tell you what to do about it. Four things to check before you pick one: a dynamic baseline (your Tuesday is not your Sunday), revenue cross-validation (platform ROAS lies, your store's revenue doesn't), detection latency under a few hours, and an action attached to every alert. If a tool only forwards numbers, it's a dashboard with a notification bell.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="sec-stone">
   <div class="wrap">
@@ -210,6 +226,10 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0">Does crumplz monitor ROAS at campaign, ad set, or ad level?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         <div class="faq-a">crumplz monitors at campaign and ad set level by default. Campaign-level monitoring catches systemic drift; ad set level catches audience or placement-specific issues. Ad-level monitoring is on the roadmap for the Pro plan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0">Is crumplz a ROAS alert tool or a full analytics platform?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">A ROAS alert tool, deliberately. crumplz watches your Meta Ads metrics, cross-checks them against Shopify revenue, and messages you with a recommended action when something drifts. Setup takes about 3 minutes. There is no dashboard to open, no report to build, no second analytics suite to maintain — if you want to explore your data, you already have tools for that.</div>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
 <script src="/assets/analytics.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Meta Ads Slack Alerts — Facebook Ads Slack Notifications | crumplz</title>
+<title>Slack Alerts for Facebook Ads — Meta Ads Slack Integration | crumplz</title>
 <meta name="description" content="Get Meta Ads alerts directly in Slack. crumplz monitors ROAS, CPA and budget drift every 2 hours and sends actionable Slack notifications the moment something goes wrong — with the exact fix.">
 <meta name="theme-color" content="#f6f4f1">
 <link rel="canonical" href="https://crumplz.com/meta-ads-slack-alerts">
@@ -28,7 +28,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 .sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
-.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.page-updated{margin-top:12px;font-size:.82rem;font-weight:600;color:var(--ink-faint);letter-spacing:.02em}.prose{max-width:62ch}.prose p{color:var(--ink-2);margin-bottom:18px;font-size:.97rem;line-height:1.72}.prose p:last-child{margin-bottom:0}.prose ol{margin:0 0 18px 0;padding-left:1.2em;list-style:decimal}.prose ol li{color:var(--ink-2);font-size:.97rem;line-height:1.72;margin-bottom:10px}.sec-ink .prose p,.sec-ink .prose ol li{color:var(--on-ink-soft)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
 .slack-mockup{background:#1a1d21;border-radius:12px;border:2px solid var(--ink);padding:0;overflow:hidden;max-width:640px;margin-top:36px}.slack-header{background:#19171d;padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.1)}.slack-channel{color:#fff;font-weight:700;font-size:.96rem}.slack-channel::before{content:"#";color:rgba(255,255,255,.5)}.slack-body{padding:18px 18px 22px}.slack-msg{display:flex;gap:12px;margin-bottom:18px}.slack-msg:last-child{margin-bottom:0}.slack-avatar{width:36px;height:36px;border-radius:8px;background:var(--coral);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--ink)}.slack-content{flex:1}.slack-name{font-size:.82rem;font-weight:800;color:#fff;margin-bottom:3px}.slack-name span{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.4);margin-left:8px}.slack-text{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.55}.slack-attachment{margin-top:8px;border-left:4px solid var(--coral);padding:10px 12px;background:rgba(255,255,255,.06);border-radius:0 6px 6px 0}.slack-attachment .attach-title{color:#fff;font-weight:800;font-size:.9rem;margin-bottom:6px}.slack-attachment .attach-body{color:rgba(255,255,255,.7);font-size:.82rem;line-height:1.55}.slack-attachment .attach-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:8px}.slack-attachment .field-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4)}.slack-attachment .field-val{font-size:.86rem;font-weight:700;color:#fff}
 .channel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.channel-grid{grid-template-columns:1fr}}.chan-box{padding:26px 22px;border-right:2px solid var(--ink)}.chan-box:last-child{border-right:0}@media(max-width:700px){.chan-box{border-right:0;border-bottom:2px solid var(--ink)}.chan-box:last-child{border-bottom:0}}.chan-box .chan-icon{font-size:1.8rem;margin-bottom:12px}.chan-box h3{margin-bottom:8px;font-size:1.05rem}.chan-box p{font-size:.9rem;color:var(--ink-2)}.chan-box .chan-best{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--pine);margin-top:12px}
 .setup-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:36px}@media(max-width:700px){.setup-steps{grid-template-columns:1fr}}.setup-step{padding:26px 22px;border-right:2px solid var(--ink)}.setup-step:last-child{border-right:0}@media(max-width:700px){.setup-step{border-right:0;border-bottom:2px solid var(--ink)}.setup-step:last-child{border-bottom:0}}.setup-step .step-num{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:12px}.setup-step h3{margin-bottom:8px;font-size:1.05rem}.setup-step p{font-size:.9rem;color:var(--ink-2)}
@@ -37,6 +37,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 .logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I send alerts to multiple Slack channels?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can configure different alert types to go to different channels — for example, ROAS drop alerts to #paid-performance and budget drift alerts to #finance-ops. You can also route alerts per ad account to separate channels if you're managing multiple brands."}},{"@type":"Question","name":"Does crumplz need write access to my Slack workspace?","acceptedAnswer":{"@type":"Answer","text":"crumplz needs permission to post messages to the channels you configure. It does not read your Slack messages, access DMs, or touch any other channels. The OAuth scope is limited to incoming webhook posting."}},{"@type":"Question","name":"Can I use both Slack and WhatsApp for the same alert?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can enable multiple delivery channels for the same alert — useful if you want the team to see it in Slack and the founder to receive it on WhatsApp simultaneously. Each channel can be toggled independently per alert type."}},{"@type":"Question","name":"Can I send Facebook Ads reports to Slack, not just alerts?","acceptedAnswer":{"@type":"Answer","text":"You get incident alerts plus a weekly summary, and that is deliberate. A channel that receives a daily performance report becomes background noise, and the one message that actually needed a reaction scrolls past with the rest. Alerts fire when something leaves its baseline; the weekly summary gives you the trend. Anything more granular belongs in a reporting tool, not in the channel you rely on to catch incidents."}}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -53,6 +54,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
   <div class="wrap"><div class="hero-inner">
     <span class="eyebrow">Meta Ads Slack Alerts</span>
     <h1>Meta Ads alerts<br>in <em class="s">your Slack workspace.</em></h1>
+    <p class="page-updated">Last updated: July 2026</p>
     <p class="lede">When your ROAS drops or CPA spikes, you need to know immediately — not when you next open Ads Manager. crumplz sends actionable alerts to your Slack channel the moment something drifts.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="/#pricing">Connect to Slack — 3 min setup</a>
@@ -163,6 +165,27 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
   </div>
 </section>
 
+<!-- STEP-BY-STEP INTEGRATION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Step by step</span>
+      <h2>Setting up a Facebook Ads Slack integration, step by step</h2>
+    </div>
+    <div class="prose">
+      <ol>
+        <li>Connect your Meta ad account (read-only OAuth, no posting permissions).</li>
+        <li>Connect your Shopify store so alerts are validated against real revenue, not platform attribution.</li>
+        <li>Pick a Slack channel: most teams create #ad-alerts and keep it clean of anything but incidents.</li>
+        <li>Set who gets paged for what: ROAS drops to the media buyer, delivery-at-zero to everyone, weekly summaries to the founder.</li>
+        <li>Test it: crumplz sends a sample alert so you see the format before the real one arrives.</li>
+      </ol>
+      <p>Total setup time is about 3 minutes. No Zapier chains, no webhook maintenance, no custom scripts to babysit.</p>
+      <p>Step 4 is the one worth thinking about. A channel that pages everyone for everything gets muted within a week, and a muted channel is the same as no monitoring at all. If ROAS is what you route first, the <a href="/roas-drop-alert">ROAS alert tool</a> side of crumplz explains what triggers those alerts and why they hold when Shopify disagrees. If you are still designing the wider system around them, the <a href="/dtc-meta-ads-guide">Meta Ads for DTC brands</a> guide covers where alerting fits.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec-ink">
   <div class="wrap">
     <div class="sec-head">
@@ -259,6 +282,10 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
       <div class="faq-item">
         <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can I use both Slack and WhatsApp for the same alert?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         <div class="faq-a">Yes. You can enable multiple delivery channels for the same alert — useful if you want the team to see it in Slack and the founder to receive it on WhatsApp simultaneously. Each channel can be toggled independently per alert type.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Can I send Facebook Ads reports to Slack, not just alerts?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a">You get incident alerts plus a weekly summary, and that is deliberate. A channel that receives a daily performance report becomes background noise, and the one message that actually needed a reaction scrolls past with the rest. Alerts fire when something leaves its baseline; the weekly summary gives you the trend. Anything more granular belongs in a reporting tool, not in the channel you rely on to catch incidents.</div>
       </div>
     </div>
   </div>

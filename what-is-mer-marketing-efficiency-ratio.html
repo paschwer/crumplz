@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What Is Marketing Efficiency Ratio (MER)? The DTC Guide | crumplz</title>
-<meta name="description" content="Marketing Efficiency Ratio (MER) is the true measure of overall marketing performance for DTC brands. Learn how to calculate MER, why it beats channel ROAS, and how crumplz uses it to prevent false alerts.">
+<meta name="description" content="Marketing Efficiency Ratio (MER) is the true measure of overall marketing performance for DTC brands. Formula, benchmarks and calculator, why it beats channel ROAS, and how crumplz uses it to prevent false alerts.">
 <meta name="theme-color" content="#f6f4f1">
 <link rel="canonical" href="https://crumplz.com/what-is-mer-marketing-efficiency-ratio">
 <meta property="og:title" content="What Is Marketing Efficiency Ratio (MER)? DTC Guide | crumplz">
@@ -28,15 +28,16 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--co
 .sec-head{margin-bottom:48px}.sec-head h2{margin-top:14px}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:9px;border:2px solid var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .16s}.btn-primary{background:var(--coral);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.btn-ghost{background:transparent;color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}.sec-ink .btn-ghost{color:var(--paper);border-color:var(--paper)}.sec-ink .btn-ghost:hover{background:var(--paper);color:var(--ink)}.sec-coral .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(22,18,11,.35)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .25s,border-color .25s;border-bottom:2px solid transparent}.nav.scrolled{background:var(--paper);border-bottom-color:var(--ink)}.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 24px}.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:1.4rem;letter-spacing:-.04em}.logo svg{width:30px;height:30px}.nav-links{display:flex;gap:28px}.nav-links a{font-size:.95rem;font-weight:600}.nav-links a:hover{color:var(--coral-deep)}.nav-cta{display:flex;align-items:center;gap:16px}.nav-cta .login{font-size:.95rem;font-weight:600}.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;align-items:center;justify-content:center}@media(max-width:900px){.nav-links,.nav-cta .login,.nav-cta .btn{display:none}.burger{display:flex}}
-.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
-.article-wrap{display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:start}@media(max-width:860px){.article-wrap{grid-template-columns:1fr}}.article-body h3{margin:36px 0 12px;font-size:1.2rem}.article-body h4{margin:24px 0 8px}.article-body p{color:var(--ink-2);margin-bottom:18px;font-size:.97rem;line-height:1.72}.article-body ul{margin:12px 0 18px;padding-left:0}.article-body ul li{padding:6px 0 6px 22px;position:relative;color:var(--ink-2);font-size:.95rem;border-bottom:1px solid var(--line)}.article-body ul li:last-child{border-bottom:0}.article-body ul li::before{content:"→";position:absolute;left:0;color:var(--coral-deep);font-weight:800}.article-body blockquote{border-left:4px solid var(--coral);padding:16px 22px;margin:24px 0;background:var(--stone);border-radius:0 8px 8px 0}.article-body blockquote p{font-size:1rem;color:var(--ink);font-weight:600;margin:0}
-.formula-box{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin:28px 0;text-align:center}.formula-box .formula{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;letter-spacing:-.03em;margin:12px 0}.formula-box .formula-note{font-size:.88rem;color:var(--on-ink-soft)}
+.hero{padding-top:150px;padding-bottom:80px}.hero-inner{max-width:760px}.hero h1{margin:20px 0 22px}.hero .lede{margin-bottom:30px;font-size:clamp(1.08rem,1.7vw,1.25rem)}.hero-cta{display:flex;gap:14px;flex-wrap:wrap}.microcopy{margin-top:14px;font-size:.84rem;font-weight:600;color:var(--ink-faint)}.page-updated{margin-top:12px;font-size:.82rem;font-weight:600;color:var(--ink-faint);letter-spacing:.02em}.badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:2px solid var(--ink)}.badge-row span{font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:7px;color:var(--ink-2)}.badge-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pine)}
+.article-wrap{display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:start}@media(max-width:860px){.article-wrap{grid-template-columns:1fr}}.article-body h3{margin:36px 0 12px;font-size:1.2rem}.article-body h2{margin:42px 0 14px;font-size:1.7rem;letter-spacing:-.03em;scroll-margin-top:90px}.article-body h4{margin:24px 0 8px}.article-body p{color:var(--ink-2);margin-bottom:18px;font-size:.97rem;line-height:1.72}.article-body ul{margin:12px 0 18px;padding-left:0}.article-body ul li{padding:6px 0 6px 22px;position:relative;color:var(--ink-2);font-size:.95rem;border-bottom:1px solid var(--line)}.article-body ul li:last-child{border-bottom:0}.article-body ul li::before{content:"→";position:absolute;left:0;color:var(--coral-deep);font-weight:800}.article-body blockquote{border-left:4px solid var(--coral);padding:16px 22px;margin:24px 0;background:var(--stone);border-radius:0 8px 8px 0}.article-body blockquote p{font-size:1rem;color:var(--ink);font-weight:600;margin:0}
+.formula-box{background:var(--ink);color:var(--on-ink);border-radius:10px;padding:28px 32px;margin:28px 0;text-align:center}.mer-calc{border:2px solid var(--ink);border-radius:10px;padding:24px 26px;margin:28px 0;max-width:480px;background:var(--paper)}.mer-calc h3{margin-bottom:16px}.mer-calc label{display:block;font-size:.86rem;font-weight:700;color:var(--ink-2);margin-bottom:6px}.mer-calc input{width:100%;font-family:inherit;font-size:1rem;font-weight:600;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:8px;padding:11px 13px;margin-bottom:16px}.mer-calc input:last-of-type{margin-bottom:0}.mer-out{margin-top:18px;font-size:.95rem;line-height:1.6;color:var(--ink-2)}.mer-out:empty{margin-top:0}.mer-out strong{display:block;font-size:1.5rem;font-weight:900;letter-spacing:-.03em;color:var(--ink);margin-bottom:6px}@media(max-width:520px){.mer-calc{padding:20px}}.formula-box .formula{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;letter-spacing:-.03em;margin:12px 0}.formula-box .formula-note{font-size:.88rem;color:var(--on-ink-soft)}
 .vs-table-sm{width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0}.vs-table-sm th,.vs-table-sm td{padding:10px 12px;border:2px solid var(--ink);text-align:left}.vs-table-sm th{background:var(--ink);color:var(--paper);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.vs-table-sm tr:nth-child(even) td{background:rgba(22,18,11,.03)}.vs-table-sm td:first-child{font-weight:700;font-size:.85rem}
 .sidebar-card{border:2px solid var(--ink);border-radius:10px;padding:22px 20px;margin-bottom:24px;position:sticky;top:90px}.sidebar-card h4{margin-bottom:14px;font-size:.95rem}.sidebar-card ul li{font-size:.88rem;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px}.sidebar-card ul li::before{content:"→";color:var(--coral-deep);font-weight:800;flex-shrink:0}.sidebar-card ul li:last-child{border-bottom:0}.sidebar-cta{background:var(--coral);border:2px solid var(--ink);border-radius:10px;padding:22px 20px;margin-bottom:24px}.sidebar-cta h4{margin-bottom:10px;font-size:1rem}.sidebar-cta p{font-size:.86rem;color:var(--ink-2);margin-bottom:14px}.sidebar-cta .btn{width:100%;justify-content:center;font-size:.88rem;padding:12px 16px}
 .faq-list{margin-top:36px}.faq-item{border-bottom:2px solid var(--ink);padding:20px 0}.faq-item:first-child{border-top:2px solid var(--ink)}.faq-q{font-weight:800;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s}.faq-item.open .faq-q svg{transform:rotate(45deg)}.faq-a{display:none;padding-top:12px;color:var(--ink-2);max-width:66ch;font-size:.96rem}.faq-item.open .faq-a{display:block}
 footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}.foot-brand p{color:var(--on-ink-soft);font-size:.95rem;margin-top:14px;max-width:26ch}.foot-col h4{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-soft);margin-bottom:16px}.foot-col a{display:block;font-size:.92rem;color:var(--on-ink-soft);margin-bottom:10px}.foot-col a:hover{color:var(--on-ink)}.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:var(--on-ink-soft)}@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 .logo-wordmark{height:28px;width:auto;display:block}.logo-wordmark--invert{filter:brightness(0) invert(1)}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I track MER daily or weekly?","acceptedAnswer":{"@type":"Answer","text":"Both. Use daily MER as an operational health check — did today's spend generate the expected return? Use weekly MER for trend analysis and scaling decisions. Daily MER will have more noise; weekly smooths it. crumplz reads MER continuously and uses it specifically for alert cross-validation rather than reporting."}},{"@type":"Question","name":"Does crumplz display my MER as a dashboard metric?","acceptedAnswer":{"@type":"Answer","text":"crumplz is not a dashboard or analytics tool. It uses MER as a cross-validation signal internally — to determine whether a Meta Ads anomaly is a real profitability issue or a false positive caused by channel-level attribution noise. The MER signal informs every alert but isn't surfaced as a standalone reporting metric."}},{"@type":"Question","name":"What's the difference between MER and nMER (new customer MER)?","acceptedAnswer":{"@type":"Answer","text":"nMER (new customer Marketing Efficiency Ratio) measures only the revenue from new customers divided by total ad spend — stripping out repeat revenue to isolate acquisition efficiency. It's useful for brands with high repeat purchase rates where total MER can look healthy even when new customer acquisition is inefficient. crumplz uses total MER for alert cross-validation, as it captures overall marketing health most reliably."}}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -53,6 +54,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
   <div class="wrap"><div class="hero-inner">
     <span class="eyebrow">DTC Marketing Metrics</span>
     <h1>What is Marketing<br>Efficiency Ratio<br><em class="s">(MER)?</em></h1>
+    <p class="page-updated">Last updated: July 2026</p>
     <p class="lede">MER is the north-star metric for DTC brands running paid social. It captures overall marketing health — across all channels — where channel-level ROAS cannot. Here's how it works, why it matters, and how crumplz uses it to prevent false alerts.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="/#pricing">See crumplz in action</a>
@@ -79,6 +81,39 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
         </div>
 
         <p>If you spent €20,000 across Meta, Google, and TikTok and generated €80,000 in revenue, your MER is 4.0×. Every €1 of marketing spend returned €4 of revenue — across all channels combined.</p>
+
+        <h2 id="formula">The MER formula</h2>
+        <p>MER = Total Revenue ÷ Total Marketing Spend</p>
+        <p>All channels, all spend, one number. Worked example: your store did €120,000 last month. You spent €30,000 on Meta, €8,000 on Google, €2,000 on influencer seeding. MER = 120,000 ÷ 40,000 = 3.0.</p>
+        <p>Two rules keep the formula honest. Use total store revenue, not platform-attributed revenue, that's the whole point. And keep the spend definition stable month to month: whether you include agency fees or tooling matters less than never changing your mind about it.</p>
+
+        <div id="mer-calc" class="mer-calc">
+          <h3>MER calculator</h3>
+          <label for="mer-rev">Total store revenue (month, €)</label>
+          <input id="mer-rev" type="number" min="0" inputmode="decimal" placeholder="120000">
+          <label for="mer-spend">Total marketing spend (all channels, €)</label>
+          <input id="mer-spend" type="number" min="0" inputmode="decimal" placeholder="40000">
+          <p id="mer-out" class="mer-out" aria-live="polite"></p>
+        </div>
+        <script>
+        (function(){
+          var r=document.getElementById('mer-rev'),s=document.getElementById('mer-spend'),o=document.getElementById('mer-out');
+          function verdict(m){
+            if(m<2) return 'Below 2.0×: most DTC brands lose money here unless gross margin is exceptional. Check where spend is leaking.';
+            if(m<3) return 'Between 2.0 and 3.0×: workable at strong margins, tight at average ones. Watch the weekly trend more than the level.';
+            if(m<4) return 'Between 3.0 and 4.0×: healthy for most DTC brands in growth mode.';
+            if(m<=6) return 'Between 4.0 and 6.0×: efficient. If growth has stalled, you may be underinvesting in acquisition.';
+            return 'Above 6.0×: either exceptional, or total spend is understated. Double-check the denominator.';
+          }
+          function calc(){
+            var rev=parseFloat(r.value),sp=parseFloat(s.value);
+            if(!isFinite(rev)||!isFinite(sp)||sp<=0||rev<0){o.textContent='';return;}
+            var m=rev/sp;
+            o.innerHTML='<strong>MER = '+m.toFixed(2)+'×</strong><br>'+verdict(m);
+          }
+          r.addEventListener('input',calc);s.addEventListener('input',calc);
+        })();
+        </script>
 
         <h3>Why MER beats channel ROAS for DTC</h3>
         <p>Channel-level ROAS — what Meta Ads Manager, Google Analytics, and every ad platform reports — has a fundamental problem: attribution. Each platform claims credit for the same sale. A customer sees a Meta ad, searches Google, and converts via a branded search. Meta calls it a Meta conversion. Google calls it a Google conversion. You're double-counting revenue that happened once.</p>
@@ -124,6 +159,8 @@ footer{background:var(--ink);color:var(--on-ink);padding:52px 0 30px}.foot-grid{
         <p>The cleanest way to track MER manually: pull total Shopify revenue (gross, before refunds) from the Analytics tab, and total ad spend from all platforms you run. Divide. Do it daily or weekly.</p>
         <p>The limitation of manual tracking: it's always yesterday's data. MER fluctuates intraday, especially during high-spend periods. A spike or drop that starts at 09:00 won't show up in your manual tracking until the next morning review.</p>
         <p>crumplz connects directly to Shopify via the Storefront API and reads MER in real time — which is what makes the cross-validation meaningful. A 2-hour monitoring cycle is only useful if the MER signal is also near-real-time.</p>
+
+        <p>Tracking MER is the measurement half of the job. Acting on it is the other half, and that is where the signal has to reach you: a <a href="/roas-drop-alert">ROAS alert tool</a> handles the channel-level drift that MER validates, <a href="/meta-ads-slack-alerts">Slack alerts for Facebook Ads</a> put it where your team already works, and the wider operating system around both is covered in <a href="/dtc-meta-ads-guide">Meta Ads for DTC brands</a>.</p>
 
         <h3>MER as a daily operating metric</h3>
         <p>Beyond alert validation, MER is worth tracking as a daily north-star number. Some practical applications for DTC brands:</p>
