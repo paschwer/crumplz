@@ -1,4 +1,39 @@
+# As a condition of accessing this website, you agree to abide by the following
+# content signals:
+
+# (a)  If a Content-Signal = yes, you may collect content for the corresponding
+#      use.
+# (b)  If a Content-Signal = no, you may not collect content for the
+#      corresponding use.
+# (c)  If the website operator does not include a Content-Signal for a
+#      corresponding use, the website operator neither grants nor restricts
+#      permission via Content-Signal with respect to the corresponding use.
+
+# The content signals and their meanings are:
+
+# search:   building a search index and providing search results (e.g., returning
+#           hyperlinks and short excerpts from your website's contents). Search does not
+#           include providing AI-generated search summaries.
+# ai-input: inputting content into one or more AI models (e.g., retrieval
+#           augmented generation, grounding, or other real-time taking of content for
+#           generative AI search answers).
+# ai-train: training or fine-tuning AI models.
+# use:      how AI systems may consume the content (immediate, reference, or full).
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes, use=reference
 Allow: /
+
+# Search-oriented LLM crawlers, allowed explicitly (belt and braces).
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Bytespider is the single exception: repeatedly reported as ignoring robots
+# directives, heavy on origin load, and with no discovery upside for crumplz.
+User-agent: Bytespider
+Disallow: /
 
 Sitemap: https://crumplz.com/sitemap.xml
